@@ -8,6 +8,8 @@ gem 'rails', '4.2.1'
 gem 'pg'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Framework for admin
+gem 'rails_admin'
 
 # Front
 # Haml over erb
