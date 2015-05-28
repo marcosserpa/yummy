@@ -10,6 +10,7 @@ gem 'pg'
 # gem 'therubyracer', platforms: :ruby
 # Framework for admin
 gem 'rails_admin'
+gem 'devise'
 
 # Front
 # Haml over erb
