@@ -1,20 +1,20 @@
 class CreateProximates < ActiveRecord::Migration
   def change
     create_table :proximates do |t|
-      t.string :water, null: false, default: ''
-      t.string :energy, null: false, default: ''
-      t.string :protein, null: false, default: ''
-      t.string :fat, null: false, default: '' # Total lipid
-      t.string :ash, null: false, default: ''
-      t.string :carbohydrate, null: false, default: '' # By difference
-      t.string :fiber, null: false, default: '' # Total dietary
-      t.string :sugars, null: false, default: '' # Total
-      t.string :sucrose, null: false, default: ''
-      t.string :glucose, null: false, default: '' # Dextrose
-      t.string :fructose, null: false, default: ''
-      t.string :lactose, null: false, default: ''
-      t.string :maltose, null: false, default: ''
-      t.string :galactose, null: false, default: ''
+      t.float :water, null: false, default: ''
+      t.float :energy, null: false, default: ''
+      t.float :protein, null: false, default: ''
+      t.float :fat, null: false, default: '' # Total lipid
+      t.float :ash, null: false, default: ''
+      t.float :carbohydrate, null: false, default: '' # By difference
+      t.float :fiber, null: false, default: '' # Total dietary
+      t.float :sugars, null: false, default: '' # Total
+      t.float :sucrose, null: false, default: ''
+      t.float :glucose, null: false, default: '' # Dextrose
+      t.float :fructose, null: false, default: ''
+      t.float :lactose, null: false, default: ''
+      t.float :maltose, null: false, default: ''
+      t.float :galactose, null: false, default: ''
     end
   end
 end

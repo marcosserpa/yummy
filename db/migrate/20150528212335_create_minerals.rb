@@ -1,16 +1,16 @@
 class CreateMinerals < ActiveRecord::Migration
   def change
     create_table :minerals do |t|
-      t.string :calcium, null: false, default: '' # Ca
-      t.string :iron, null: false, default: '' # Fe
-      t.string :magnesium, null: false, default: '' # Mg
-      t.string :phosphorus, null: false, default: '' # P
-      t.string :potassium, null: false, default: '' # K
-      t.string :sodium, null: false, default: '' # Na
-      t.string :zinc, null: false, default: '' # Zn
-      t.string :copper, null: false, default: '' # Cu
-      t.string :manganese, null: false, default: '' # Mn
-      t.string :selenium, null: false, default: '' # Se
+      t.float :calcium, null: false, default: '' # Ca
+      t.float :iron, null: false, default: '' # Fe
+      t.float :magnesium, null: false, default: '' # Mg
+      t.float :phosphorus, null: false, default: '' # P
+      t.float :potassium, null: false, default: '' # K
+      t.float :sodium, null: false, default: '' # Na
+      t.float :zinc, null: false, default: '' # Zn
+      t.float :copper, null: false, default: '' # Cu
+      t.float :manganese, null: false, default: '' # Mn
+      t.float :selenium, null: false, default: '' # Se
     end
   end
 end
