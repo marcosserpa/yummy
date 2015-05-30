@@ -1,6 +1,7 @@
 class CreateVitamins < ActiveRecord::Migration
   def change
     create_table :vitamins do |t|
+      t.belongs_to :aliment, index: true
       t.float :vitamin_c, null: false, default: ''
       t.float :thiamin, null: false, default: ''
       t.float :riboflavin, null: false, default: ''
@@ -28,6 +29,8 @@ class CreateVitamins < ActiveRecord::Migration
       t.float :vitamin_d_d2_d3, null: false, default: ''
       t.float :vitamin_d, null: false, default: ''
       t.float :vitamin_k, null: false, default: ''
+
+      t.timestamps null: false
     end
   end
 end

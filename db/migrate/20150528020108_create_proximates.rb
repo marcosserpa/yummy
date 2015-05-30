@@ -1,6 +1,7 @@
 class CreateProximates < ActiveRecord::Migration
   def change
     create_table :proximates do |t|
+      t.belongs_to :aliment, index: true
       t.float :water, null: false, default: ''
       t.float :energy, null: false, default: ''
       t.float :protein, null: false, default: ''
@@ -15,6 +16,8 @@ class CreateProximates < ActiveRecord::Migration
       t.float :lactose, null: false, default: ''
       t.float :maltose, null: false, default: ''
       t.float :galactose, null: false, default: ''
+
+      t.timestamps null: false
     end
   end
 end

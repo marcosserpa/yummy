@@ -1,6 +1,7 @@
 class CreateMinerals < ActiveRecord::Migration
   def change
     create_table :minerals do |t|
+      t.belongs_to :aliment, index: true
       t.float :calcium, null: false, default: '' # Ca
       t.float :iron, null: false, default: '' # Fe
       t.float :magnesium, null: false, default: '' # Mg
@@ -11,6 +12,8 @@ class CreateMinerals < ActiveRecord::Migration
       t.float :copper, null: false, default: '' # Cu
       t.float :manganese, null: false, default: '' # Mn
       t.float :selenium, null: false, default: '' # Se
+
+      t.timestamps null: false
     end
   end
 end

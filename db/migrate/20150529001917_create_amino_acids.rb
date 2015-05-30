@@ -1,6 +1,7 @@
 class CreateAminoAcids < ActiveRecord::Migration
   def change
     create_table :amino_acids do |t|
+      t.belongs_to :aliment, index: true
       t.float :tryptophan, null: false, default: ''
       t.float :threonine, null: false, default: ''
       t.float :isoleucine, null: false, default: ''
@@ -19,6 +20,8 @@ class CreateAminoAcids < ActiveRecord::Migration
       t.float :glycine, null: false, default: ''
       t.float :proline, null: false, default: ''
       t.float :serine, null: false, default: ''
+
+      t.timestamps null: false
     end
   end
 end
