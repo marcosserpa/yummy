@@ -7,4 +7,6 @@ class Aliment < ActiveRecord::Base
   has_one :amino_acid
   has_one :other
 
+  validates_associated :proximate, :mineral, :vitamin, :lipid, :amino_acid, :other
+
 end
