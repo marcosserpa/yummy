@@ -53,5 +53,7 @@ group :development, :test do
   # Testing framework
   gem 'rspec-rails', "~> 3.0"
   gem 'factory_girl_rails', "~> 4.0"
+  # Metrics
+  gem 'metric_fu'
 end
 

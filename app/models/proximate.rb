@@ -1,4 +1,5 @@
 class Proximate < ActiveRecord::Base
+  include Utilities::Conversions
 
   belongs_to :aliment
 
@@ -7,17 +8,5 @@ class Proximate < ActiveRecord::Base
 
   CUP = 24.3
   NUTRIENTS = [:water, :energy, :protein, :fat, :ash, :carbohydrate, :fiber, :sugars, :sucrose, :glucose, :fructose, :lactose, :maltose, :galactose]
-
-  def to_cup(*args)
-    nutrients_hash = if args.flatten.empty?
-      NUTRIENTS.map do |nutrient|
-        { nutrient => (self[nutrient] * CUP).round(4) }
-      end
-    else
-      args.flatten.map do |nutrient|
-        { nutrient => (self[nutrient] * CUP).round(4) }
-      end
-    end
-  end
 
 end

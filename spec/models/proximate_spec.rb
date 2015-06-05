@@ -28,7 +28,7 @@ RSpec.describe Proximate, type: :model do
       aliment = FactoryGirl.build(:aliment)
       aliment.proximate = FactoryGirl.build(:proximate)
 
-      it { expect(aliment.proximate.to_cup(:water)).to eq(212.7951)  }
+      it { expect(aliment.proximate.to_cup(:water)).to eq({ water: 212.7951 })  }
 
       converted_nutrients = {
         water: 212.7951,
@@ -36,8 +36,8 @@ RSpec.describe Proximate, type: :model do
         protein: 26.487,
         fat: 0.4131,
         ash: 1.5309,
-        carbohydrate: 0,
-        fiber: 0,
+        carbohydrate: 1.7739,
+        fiber: 0.0,
         sugars: 1.7253,
         sucrose: 0.1701,
         glucose: 0.8262,
