@@ -1,9 +1,11 @@
 module Utilities
   module Conversions
+    CUP = 24.3
+
     def to_cup(*args)
       begin
         nutrients = self.class.const_get :NUTRIENTS
-        cup = self.class.const_get :CUP
+        #cup = self.class.const_get :CUP
       rescue => e
         puts "=============================================="
         puts "Some error with the constant NUTRIENTS or CUP gonna wrong!"
@@ -13,11 +15,11 @@ module Utilities
 
       nutrients_array = if args.flatten.empty?
         nutrients.map do |nutrient|
-          { nutrient => (self[nutrient] * cup).round(4) }
+          { nutrient => (self[nutrient] * CUP).round(4) }
         end
       else
         args.flatten.map do |nutrient|
-          { nutrient => (self[nutrient] * cup).round(4) }
+          { nutrient => (self[nutrient] * CUP).round(4) }
         end
       end
 

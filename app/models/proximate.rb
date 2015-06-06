@@ -6,7 +6,6 @@ class Proximate < ActiveRecord::Base
   validates :aliment, presence: true # validates association
   validates :water, :energy, :protein, :fat, :ash, :carbohydrate, :fiber, :sugars, :sucrose, :glucose, :fructose, :lactose, :maltose, :galactose, presence: true
 
-  CUP = 24.3
   NUTRIENTS = [:water, :energy, :protein, :fat, :ash, :carbohydrate, :fiber, :sugars, :sucrose, :glucose, :fructose, :lactose, :maltose, :galactose]
 
 end

@@ -2,16 +2,16 @@ FactoryGirl.define do
 
   factory :mineral do
     aliment
-    calcium '7' # mg
-    iron '0.08' # mg
-    magnesium '11' # mg
-    phosphorus '15' # mg
-    potassium '163' # mg
-    sodium '166' # mg
-    zinc '0.03' # mg
-    copper '0.023' # mg
-    manganese '0.011' # mg
-    selenium '20.0' # μg
+    calcium 0.7 # mg
+    iron 0.008 # mg
+    magnesium 1.1 # mg
+    phosphorus 1.5 # mg
+    potassium 16.3 # mg
+    sodium 16.6 # mg
+    zinc 0.003 # mg
+    copper 0.0023 # mg
+    manganese 0.0011 # mg
+    selenium 2.0 # μg
   end
 
 end
