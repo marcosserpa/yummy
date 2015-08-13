@@ -1,9 +1,11 @@
+require 'open-uri'
+
 module Integration
   class USDAParameters
     class << self
 
       def url(ndbno)
-        $usdaAlimentURI = "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{::USDAParameters::api_key}"
+        $usdaAlimentURI = "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
       end
 
       def api_key
@@ -11,6 +13,23 @@ module Integration
       end
 
       def get_ndbnos
+        ndbnos = []
+
+        begin
+          page = Nokogiri::HTML(open("http://ndb.nal.usda.gov/ndb/foods?format=&count=&max=9000&sort=&fgcd=&manu=&lfacet=&qlookup=&offset=0&order=desc"))
+
+          raise SocketError.new unless page.present?
+
+          page.css("td[style='padding:8px;width:10%;font-style:;'] a").each do |html|
+            ndbnos << html.text
+          end
+        rescue SocketError => error
+          puts "================ ERROR ================"
+          puts "Was not possible to open the ndbno numbers page. We received the following error: #{error}"
+          puts "======================================="
+        end
+
+        ndbnos
       end
 
     end
