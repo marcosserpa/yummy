@@ -59,4 +59,3 @@ group :development, :test do
   # Metrics
   gem 'metric_fu'
 end
-
