@@ -1,11 +1,11 @@
 require 'rubygems'
 require 'json'
 require 'net/http'
+require 'constants'
+require 'usda_parameters'
 
 module Integration
   class USDA
-    include Integration
-
     class << self
 
       def get_aliment
@@ -37,9 +37,14 @@ module Integration
       end
 
       def save_aliment(report)
-        aliment = Aliment.find_or_create_by(ndbno: report['food']['ndbno'])
-        aliment.food_group = report['food']['fg']
-        aliment.manu = report['food']['manu']
+        aliment = Aliment.find_or_create_by(
+                    ndbno: report['food']['ndbno'],
+                    name: report['food']['name'],
+                    food_group: report['food']['fg'],
+                    manu: report['food']['manu']
+                  )
+        # aliment.food_group = report['food']['fg']
+        # aliment.manu = report['food']['manu']
 
         raise RuntimeError unless aliment.save
 
@@ -48,12 +53,12 @@ module Integration
 
       def save_nutrients(aliment_id, nutrients)
         aliment = Aliment.find aliment_id
-        proximates = Proximate.find_or_create_by(aliment_id: aliment_id)
-        minerals = Mineral.find_or_create_by(aliment_id: aliment_id)
-        vitamins = Vitamin.find_or_create_by(aliment_id: aliment_id)
-        lipids = Lipid.find_or_create_by(aliment_id: aliment_id)
-        aminoacids = Aminoacid.find_or_create_by(aliment_id: aliment_id)
-        others = Other.find_or_create_by(aliment_id: aliment_id)
+        proximates = Proximate.find_or_initialize_by(aliment_id: aliment_id)
+        minerals = Mineral.find_or_initialize_by(aliment_id: aliment_id)
+        vitamins = Vitamin.find_or_initialize_by(aliment_id: aliment_id)
+        lipids = Lipid.find_or_initialize_by(aliment_id: aliment_id)
+        amino_acids = AminoAcid.find_or_initialize_by(aliment_id: aliment_id)
+        others = Other.find_or_initialize_by(aliment_id: aliment_id)
 
         Integration::PROXIMATES.each do |proximate, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
@@ -62,7 +67,7 @@ module Integration
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            proximates.send(proximate) = nutrient['value']
+            proximates[proximate] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -75,7 +80,7 @@ module Integration
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            minerals.send(mineral) = nutrient['value']
+            minerals[mineral] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -88,7 +93,7 @@ module Integration
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            vitamins.send(vitamin) = nutrient['value']
+            vitamins[vitamin] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -101,20 +106,20 @@ module Integration
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            lipids.send(lipid) = nutrient['value']
+            lipids[lipid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
-        Integration::AMINOACIDS.each do |aminoacid, id|
+        Integration::AMINOACIDS.each do |amino_acid, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
           unit = nutrient['unit']
 
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            aminoacids.send(aminoacid) = nutrient['value']
+            amino_acids[amino_acid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -127,18 +132,18 @@ module Integration
           raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            others.send(other) = nutrient['value']
+            others[other] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
-        aliment.proximates = proximates
-        aliment.minerals = minerals
-        aliment.vitamins = vitamins
-        aliment.lipids = lipids
-        aliment.aminoacids = aminoacids
-        aliment.others = others
+        aliment.proximate = proximates
+        aliment.mineral = minerals
+        aliment.vitamin = vitamins
+        aliment.lipid = lipids
+        aliment.amino_acid = amino_acids
+        aliment.other = others
 
         raise RuntimeError unless aliment.save
 
