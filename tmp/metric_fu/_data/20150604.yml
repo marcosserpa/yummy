@@ -1,0 +1,781 @@
+---
+:cane:
+  :total_violations: 8
+  :violations:
+    :line_style:
+    - :line: app/models/aliment.rb:10
+      :description: Line is >80 characters (82)
+    - :line: app/models/proximate.rb:7
+      :description: Line is >80 characters (160)
+    - :line: app/models/proximate.rb:10
+      :description: Line is >80 characters (148)
+    - :line: spec/models/proximate_spec.rb:31
+      :description: Line is >80 characters (81)
+    - :line: spec/spec_helper.rb:1
+      :description: Line is >80 characters (92)
+    - :line: spec/spec_helper.rb:56
+      :description: Line is >80 characters (83)
+    - :line: spec/spec_helper.rb:57
+      :description: Line is >80 characters (129)
+    :comment:
+    - :line: lib/utilities/conversions.rb:2
+      :class_name: Conversions
+:churn:
+  :changes: []
+  :class_churn:
+  - klass: &1
+      file: app/models/proximate.rb
+      klass: Proximate
+    times_changed: 1
+  :method_churn: []
+  :changed_files:
+  - Gemfile
+  - Gemfile.lock
+  - app/models/proximate.rb
+  - config/initializers/require.rb
+  - lib/utilities/conversions.rb
+  - spec/models/proximate_spec.rb
+  :changed_classes:
+  - *1
+  :changed_methods: []
+:flay:
+  :total_score: '0'
+  :matches: []
+:flog:
+  :total: 46.30293024567143
+  :average: 4.630293024567143
+  :method_containers:
+  - :name: Utilities::Conversions
+    :path: lib/utilities/conversions.rb
+    :total_score: 27.30293024567143
+    :highest_score: 27.30293024567143
+    :average_score: 27.30293024567143
+    :methods:
+      Utilities::Conversions#to_cup:
+        :operators:
+          :branch: 4.2
+          :assignment: 4.5
+          :class: 2.8000000000000003
+          :const_get: 2.4000000000000004
+          :puts: 4.4
+          :flatten: 2.5
+          :empty?: 1.0
+          :map: 2.2
+          :[]: 3.2
+          :*: 2.8000000000000003
+          :lit_fixnum: 0.7000000000000001
+          :round: 2.4000000000000004
+          :new: 1.2
+          :reduce: 1.0
+        :score: 27.30293024567143
+        :path: lib/utilities/conversions.rb:3
+  - :name: Aliment
+    :path: ''
+    :total_score: 7.0
+    :highest_score: 7.0
+    :average_score: 7.0
+    :methods:
+      Aliment#none:
+        :operators:
+          :has_one: 6.0
+          :validates_associated: 1.0
+        :score: 7.0
+        :path: 
+  - :name: Proximate
+    :path: ''
+    :total_score: 5.0
+    :highest_score: 5.0
+    :average_score: 5.0
+    :methods:
+      Proximate#none:
+        :operators:
+          :include: 2.0
+          :belongs_to: 1.0
+          :validates: 2.0
+        :score: 5.0
+        :path: 
+  - :name: Lipid
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      Lipid#none:
+        :operators:
+          :belongs_to: 1.0
+        :score: 1.0
+        :path: 
+  - :name: AminoAcid
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      AminoAcid#none:
+        :operators:
+          :belongs_to: 1.0
+        :score: 1.0
+        :path: 
+  - :name: Mineral
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      Mineral#none:
+        :operators:
+          :belongs_to: 1.0
+        :score: 1.0
+        :path: 
+  - :name: Other
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      Other#none:
+        :operators:
+          :belongs_to: 1.0
+        :score: 1.0
+        :path: 
+  - :name: User
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      User#none:
+        :operators:
+          :devise: 1.0
+        :score: 1.0
+        :path: 
+  - :name: Vitamin
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      Vitamin#none:
+        :operators:
+          :belongs_to: 1.0
+        :score: 1.0
+        :path: 
+  - :name: ApplicationController
+    :path: ''
+    :total_score: 1.0
+    :highest_score: 1.0
+    :average_score: 1.0
+    :methods:
+      ApplicationController#none:
+        :operators:
+          :protect_from_forgery: 1.0
+        :score: 1.0
+        :path: 
+:stats:
+  :codeLOC: 66
+  :testLOC: 72
+  :code_to_test_ratio: 1.1
+  :lines:
+  - :name: Controllers
+    :lines: 5
+    :loc: 3
+    :classes: 1
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Helpers
+    :lines: 2
+    :loc: 2
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Models
+    :lines: 55
+    :loc: 36
+    :classes: 8
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Mailers
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Javascripts
+    :lines: 16
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Libraries
+    :lines: 27
+    :loc: 25
+    :classes: 0
+    :methods: 1
+    :methods_per_class: 0
+    :loc_per_method: 23
+  - :name: Controller tests
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Helper tests
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Model tests
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Mailer tests
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Integration tests
+    :lines: 0
+    :loc: 0
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Models specs
+    :lines: 88
+    :loc: 72
+    :classes: 0
+    :methods: 0
+    :methods_per_class: 0
+    :loc_per_method: 0
+  - :name: Total
+    :lines: 193
+    :loc: 138
+    :classes: 9
+    :methods: 1
+    :methods_per_class: 0
+    :loc_per_method: 136
+:saikuro:
+  :files:
+  - :classes:
+    - :class_name: Utilities
+      :complexity: 0
+      :lines: 2
+      :methods: []
+    - :class_name: Utilities::Conversions
+      :complexity: 5
+      :lines: 24
+      :methods:
+      - :name: Utilities::Conversions#to_cup
+        :complexity: 5
+        :lines: 22
+    :filename: lib/utilities/conversions.rb
+  - :classes:
+    - :class_name: Mineral
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/models/mineral.rb
+  - :classes:
+    - :class_name: User
+      :complexity: 0
+      :lines: 5
+      :methods: []
+    :filename: app/models/user.rb
+  - :classes:
+    - :class_name: Proximate
+      :complexity: 0
+      :lines: 11
+      :methods: []
+    :filename: app/models/proximate.rb
+  - :classes:
+    - :class_name: Other
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/models/other.rb
+  - :classes:
+    - :class_name: Vitamin
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/models/vitamin.rb
+  - :classes:
+    - :class_name: Lipid
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/models/lipid.rb
+  - :classes:
+    - :class_name: AminoAcid
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/models/amino_acid.rb
+  - :classes:
+    - :class_name: Aliment
+      :complexity: 0
+      :lines: 11
+      :methods: []
+    :filename: app/models/aliment.rb
+  - :classes:
+    - :class_name: ApplicationHelper
+      :complexity: 0
+      :lines: 1
+      :methods: []
+    :filename: app/helpers/application_helper.rb
+  - :classes:
+    - :class_name: ApplicationController
+      :complexity: 0
+      :lines: 4
+      :methods: []
+    :filename: app/controllers/application_controller.rb
+  :classes:
+  - :name: Utilities::Conversions
+    :complexity: 5
+    :lines: 24
+    :defs:
+    - :name: Utilities::Conversions#to_cup
+      :complexity: 5
+      :lines: 22
+  - :name: Vitamin
+    :complexity: 0
+    :lines: 4
+  - :name: Aliment
+    :complexity: 0
+    :lines: 11
+  - :name: AminoAcid
+    :complexity: 0
+    :lines: 4
+  - :name: Lipid
+    :complexity: 0
+    :lines: 4
+  - :name: ApplicationHelper
+    :complexity: 0
+    :lines: 1
+  - :name: Other
+    :complexity: 0
+    :lines: 4
+  - :name: Proximate
+    :complexity: 0
+    :lines: 11
+  - :name: User
+    :complexity: 0
+    :lines: 5
+  - :name: Mineral
+    :complexity: 0
+    :lines: 4
+  - :name: ApplicationController
+    :complexity: 0
+    :lines: 4
+  - :name: Utilities
+    :complexity: 0
+    :lines: 2
+  :methods:
+  - :name: Utilities::Conversions#to_cup
+    :complexity: 5
+    :lines: 22
+:reek:
+  :matches:
+  - :file_path: app/controllers/application_controller.rb
+    :code_smells:
+    - :method: ApplicationController
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/aliment.rb
+    :code_smells:
+    - :method: Aliment
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/amino_acid.rb
+    :code_smells:
+    - :method: AminoAcid
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/lipid.rb
+    :code_smells:
+    - :method: Lipid
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/mineral.rb
+    :code_smells:
+    - :method: Mineral
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/other.rb
+    :code_smells:
+    - :method: Other
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/proximate.rb
+    :code_smells:
+    - :method: Proximate
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/user.rb
+    :code_smells:
+    - :method: User
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: app/models/vitamin.rb
+    :code_smells:
+    - :method: Vitamin
+      :message: has no descriptive comment
+      :type: IrresponsibleModule
+  - :file_path: lib/utilities/conversions.rb
+    :code_smells:
+    - :method: Utilities::Conversions#to_cup
+      :message: calls (self[nutrient] * cup).round(4) 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: calls args.flatten 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: calls puts("==============================================") 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: calls self.class 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: calls self[nutrient] * cup 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: calls self[nutrient] 2 times
+      :type: DuplicateMethodCall
+    - :method: Utilities::Conversions#to_cup
+      :message: has approx 12 statements
+      :type: TooManyStatements
+    - :method: Utilities::Conversions#to_cup
+      :message: has the variable name 'e'
+      :type: UncommunicativeVariableName
+:roodi:
+  :total:
+  - Checked 11 files
+  :problems:
+  - :file: lib/utilities/conversions.rb
+    :line: '3'
+    :problem: Method "to_cup" has 21 lines.  It should have 20 or less.
+:rails_best_practices:
+  :total:
+  - Found 0 errors.
+  :problems: []
+:hotspots:
+  files:
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/utilities/conversions.rb:3
+      file_name: lib/utilities/conversions.rb
+      line_number: '3'
+      hash_key: '["lib/utilities/conversions.rb:3", nil, nil]'
+    details:
+      flog: complexity is 27.3
+      saikuro: complexity is 5.0
+  - location:
+      class_name: 
+      method_name: 
+      file_path: lib/utilities/conversions.rb
+      file_name: lib/utilities/conversions.rb
+      line_number: 
+      hash_key: '["lib/utilities/conversions.rb", nil, nil]'
+    details:
+      reek: found 8 code smells
+      roodi: found 1 design problems
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/other.rb
+      file_name: app/models/other.rb
+      line_number: 
+      hash_key: '["app/models/other.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/amino_acid.rb
+      file_name: app/models/amino_acid.rb
+      line_number: 
+      hash_key: '["app/models/amino_acid.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/lipid.rb
+      file_name: app/models/lipid.rb
+      line_number: 
+      hash_key: '["app/models/lipid.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/mineral.rb
+      file_name: app/models/mineral.rb
+      line_number: 
+      hash_key: '["app/models/mineral.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/aliment.rb
+      file_name: app/models/aliment.rb
+      line_number: 
+      hash_key: '["app/models/aliment.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/proximate.rb
+      file_name: app/models/proximate.rb
+      line_number: 
+      hash_key: '["app/models/proximate.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/user.rb
+      file_name: app/models/user.rb
+      line_number: 
+      hash_key: '["app/models/user.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/models/vitamin.rb
+      file_name: app/models/vitamin.rb
+      line_number: 
+      hash_key: '["app/models/vitamin.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  - location:
+      class_name: 
+      method_name: 
+      file_path: app/controllers/application_controller.rb
+      file_name: app/controllers/application_controller.rb
+      line_number: 
+      hash_key: '["app/controllers/application_controller.rb", nil, nil]'
+    details:
+      reek: found 1 code smells
+  classes:
+  - location:
+      class_name: Conversions
+      method_name: 
+      file_path: lib/utilities/conversions.rb:3
+      file_name: lib/utilities/conversions.rb
+      line_number: '3'
+      hash_key: '["lib/utilities/conversions.rb:3", "Conversions", nil]'
+    details:
+      flog: complexity is 27.3
+      saikuro: complexity is 5.0
+      reek: found 8 code smells
+  - location:
+      class_name: Aliment
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Aliment", nil]'
+    details:
+      flog: complexity is 7.0
+      reek: found 1 code smells
+  - location:
+      class_name: Proximate
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Proximate", nil]'
+    details:
+      flog: complexity is 5.0
+      reek: found 1 code smells
+  - location:
+      class_name: Other
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Other", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: AminoAcid
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "AminoAcid", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: Lipid
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Lipid", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: Mineral
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Mineral", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: User
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "User", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: Vitamin
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Vitamin", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  - location:
+      class_name: ApplicationController
+      method_name: 
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "ApplicationController", nil]'
+    details:
+      flog: complexity is 1.0
+      reek: found 1 code smells
+  methods:
+  - location:
+      class_name: Conversions
+      method_name: Conversions#to_cup
+      file_path: lib/utilities/conversions.rb:3
+      file_name: lib/utilities/conversions.rb
+      line_number: '3'
+      hash_key: '["lib/utilities/conversions.rb:3", "Conversions", "Conversions#to_cup"]'
+      simple_method_name: "#to_cup"
+    details:
+      flog: complexity is 27.3
+      saikuro: complexity is 5.0
+      reek: found 8 code smells
+  - location:
+      class_name: Aliment
+      method_name: Aliment#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Aliment", "Aliment#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 7.0
+  - location:
+      class_name: Proximate
+      method_name: Proximate#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Proximate", "Proximate#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 5.0
+  - location:
+      class_name: Mineral
+      method_name: Mineral#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Mineral", "Mineral#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: AminoAcid
+      method_name: AminoAcid#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "AminoAcid", "AminoAcid#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Lipid
+      method_name: Lipid#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Lipid", "Lipid#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Other
+      method_name: Other#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Other", "Other#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: User
+      method_name: User#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "User", "User#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: Vitamin
+      method_name: Vitamin#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "Vitamin", "Vitamin#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0
+  - location:
+      class_name: ApplicationController
+      method_name: ApplicationController#none
+      file_path: 
+      file_name: 
+      line_number: 
+      hash_key: '[nil, "ApplicationController", "ApplicationController#none"]'
+      simple_method_name: "#none"
+    details:
+      flog: complexity is 1.0

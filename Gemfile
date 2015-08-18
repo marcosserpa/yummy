@@ -4,6 +4,10 @@ ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+
+# To treatment of errors in rescue
+gem 'activeresource'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -31,6 +35,8 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# Jobs and services
+gem 'whenever', require: false
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -59,4 +65,3 @@ group :development, :test do
   # Metrics
   gem 'metric_fu'
 end
-
