@@ -3,6 +3,7 @@ require 'json'
 require 'net/http'
 require 'constants'
 require 'usda_parameters'
+require 'active_resource'
 
 module Integration
   class USDA
@@ -10,23 +11,39 @@ module Integration
 
       def get_aliment
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
+        local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
+
+        # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
+        aliments_ndbnos.each do |ndbno|
+          local_aliments_ndbnos.select do |local_ndbno|
+            if local_ndbno.keys[0] == ndbno
+              aliments_ndbnos.delete(ndbno) unless local_ndbno[ndbno] == false
+            end
+          end
+        end
 
         aliments_ndbnos.each do |ndbno|
-          begin
-            response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
+          aliment = Aliment.where(ndbno: ndbno).first
+          # last_update = aliment.present? ? aliment.updated_at : nil
 
-            raise ActiveResource::BadRequest.new unless response.code == '200'
+          # unless last_update.present? && (last_update <= Time.now - 6.months)
+          unless ndbno.blank? || (aliment.present? && aliment.recent?)
+            begin
+              puts "=================== Downloading and saving the aliment with ndbno #{ndbno} ==================="
+              response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
-            data = JSON.parse(response.body)
+              raise ActiveResource::BadRequest.new(response) unless response.code == '200'
 
-            # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
-            aliment = save_aliment(data['report'])
-            # save_nutrients(data['report']['food']['nutrients'])
-          rescue ActiveResource::BadRequest, RuntimeError => error
-            puts "================ ERROR ================"
-            puts "Was not possible to open the aliment page with the ndbno #{ndbno}. We received - from the GET - the code #{response.code}
-              with the following errors: #{response.message} and this other errors: #{error}"
-            puts "======================================="
+              data = JSON.parse(response.body)
+
+              # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
+              aliment = save_aliment(data['report'])
+              # save_nutrients(data['report']['food']['nutrients'])
+            rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
+              puts "================ ERROR ================"
+              puts "Was not possible to open the aliment page with the ndbno #{ndbno}. We received - from the GET - the code #{response.code} with the following errors: #{response.message} and this other errors: #{error}"
+              puts "======================================="
+            end
           end
         end
       end
@@ -48,26 +65,24 @@ module Integration
 
         raise RuntimeError unless aliment.save
 
-        save_nutrients(aliment.id, report['food']['nutrients'])
+        save_nutrients(aliment, report['food']['nutrients'])
       end
 
-      def save_nutrients(aliment_id, nutrients)
-        aliment = Aliment.find aliment_id
-        proximates = Proximate.find_or_initialize_by(aliment_id: aliment_id)
-        minerals = Mineral.find_or_initialize_by(aliment_id: aliment_id)
-        vitamins = Vitamin.find_or_initialize_by(aliment_id: aliment_id)
-        lipids = Lipid.find_or_initialize_by(aliment_id: aliment_id)
-        amino_acids = AminoAcid.find_or_initialize_by(aliment_id: aliment_id)
-        others = Other.find_or_initialize_by(aliment_id: aliment_id)
+      def save_nutrients(aliment, nutrients)
+        proximates = Proximate.find_or_initialize_by(aliment_id: aliment.id)
+        minerals = Mineral.find_or_initialize_by(aliment_id: aliment.id)
+        vitamins = Vitamin.find_or_initialize_by(aliment_id: aliment.id)
+        lipids = Lipid.find_or_initialize_by(aliment_id: aliment.id)
+        amino_acids = AminoAcid.find_or_initialize_by(aliment_id: aliment.id)
+        others = Other.find_or_initialize_by(aliment_id: aliment.id)
 
         Integration::PROXIMATES.each do |proximate, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            proximates[proximate] = nutrient['value']
+          proximates[proximate] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -75,12 +90,13 @@ module Integration
 
         Integration::MINERALS.each do |mineral, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+
+          # unit = nutrient['unit']
 
           # aliment.send(proximate) = if unit == 'g'
-            minerals[mineral] = nutrient['value']
+          minerals[mineral] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -88,12 +104,11 @@ module Integration
 
         Integration::VITAMINS.each do |vitamin, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            vitamins[vitamin] = nutrient['value']
+          vitamins[vitamin] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -101,12 +116,11 @@ module Integration
 
         Integration::LIPIDS.each do |lipid, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            lipids[lipid] = nutrient['value']
+          lipids[lipid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -114,12 +128,11 @@ module Integration
 
         Integration::AMINOACIDS.each do |amino_acid, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            amino_acids[amino_acid] = nutrient['value']
+          amino_acids[amino_acid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
@@ -127,12 +140,11 @@ module Integration
 
         Integration::OTHERS.each do |other, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
-          unit = nutrient['unit']
 
-          raise "Was not possible to find the nutrient with id #{id}" unless nutrient.present?
+          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
 
           # aliment.send(proximate) = if unit == 'g'
-            others[other] = nutrient['value']
+          others[other] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end

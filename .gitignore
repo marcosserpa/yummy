@@ -8,10 +8,10 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-!/log/.keep
+/log
+
 /tmp
 
 # Ignore files buffered by opening two editors
-.swp
-.swo
+*.swp
+*.swo

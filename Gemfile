@@ -4,6 +4,10 @@ ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
+
+# To treatment of errors in rescue
+gem 'activeresource'
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 # See https://github.com/rails/execjs#readme for more supported runtimes

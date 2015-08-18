@@ -11,4 +11,8 @@ class Aliment < ActiveRecord::Base
   validates_associated :proximate, :mineral, :vitamin, :lipid, :amino_acid, :other
   validates :name, presence: true
 
+  def recent?
+    updated_at >= Time.now - 6.months
+  end
+
 end

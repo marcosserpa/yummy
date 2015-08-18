@@ -22,6 +22,9 @@ module Yummy
 
     # Adds lib to my autoload path
     config.autoload_paths += %W(#{config.root}/lib)
+    # config.autoload_paths += %W(#{config.root}/app/models)
+    config.autoload_paths += %W(#{config.root}/app/business)
+    # config.autoload_paths += %W(#{config.root}/app/business/**/)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
