@@ -18,7 +18,7 @@ gem 'devise'
 
 # Front
 # Haml over erb
-gem 'haml'
+gem 'haml-rails', "~> 0.9"
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -29,6 +29,10 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+# Intelligent search
+gem 'searchkick'
+# Pagination
+gem 'kaminari'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'

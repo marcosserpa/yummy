@@ -1,0 +1,11 @@
+!!!
+= form_for(:aliment, url: :search, method: :get) do |f|
+  = f.text_field :search
+
+  = f.submit 'search'
+
+- @aliments.each do |aliment|
+  = link_to aliment.name, show_path(id: aliment)
+  %br
+
+= paginate @aliments

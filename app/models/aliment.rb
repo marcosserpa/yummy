@@ -1,5 +1,7 @@
 class Aliment < ActiveRecord::Base
 
+  searchkick word_start: [:name, :food_group]#, word_end: [:name, :food_group]
+
   has_one :proximate, dependent: :destroy
   has_one :mineral, dependent: :destroy
   has_one :vitamin, dependent: :destroy
@@ -13,6 +15,11 @@ class Aliment < ActiveRecord::Base
 
   def recent?
     updated_at >= Time.now - 6.months
+  end
+
+  # Searchkick specification
+  def search_data
+    as_json only: [:name, :food_group]
   end
 
 end
