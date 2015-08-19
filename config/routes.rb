@@ -6,8 +6,13 @@ Rails.application.routes.draw do
   root 'aliments#index'
 
   # Aliments routes
-  get 'search', to: 'aliments#index'
-  get 'show', to: 'aliments#show'
+  resources :aliments, only: :index do
+    collection do
+      get 'search', to: 'aliments#index'
+      get :show
+      get :autocomplete
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
