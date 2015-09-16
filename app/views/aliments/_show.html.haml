@@ -1,0 +1,24 @@
+%div.modal-dialog#aliment
+  %div.modal-content
+    %div.modal-header
+      %button{ type: 'button', class: 'close', data: { dismiss: 'modal' }, aria: { hidden: 'true' } }
+        &times;
+      .panel-title
+        %h2.md-headline
+          = "#{@aliment.name}"
+
+    %div.modal-body
+      - if @aliment.proximate.present?
+        %h4.md-subhead
+          = "Protein: ---------- #{@aliment.proximate.protein} g"
+        %h4.md-subhead
+          = "Carbohydrate: - #{@aliment.proximate.carbohydrate} g"
+        %h4.md-subhead
+          = "Fat: --------------- #{@aliment.proximate.fat} g"
+        %h4.md-subhead
+          = "Fiber: -------------- #{@aliment.proximate.fiber} g"
+        %h4.md-subhead
+          = "Water: ---------- #{@aliment.proximate.water} g"
+        %h4.md-subhead
+          = "Energy: -------- #{@aliment.proximate.energy} cal"
+    %div.modal-footer
