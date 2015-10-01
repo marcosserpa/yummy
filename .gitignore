@@ -10,7 +10,8 @@
 # Ignore all logfiles and tempfiles.
 /log
 
-/tmp
+tmp
+.gems/
 
 # Ignore files buffered by opening two editors
 *.swp

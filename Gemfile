@@ -27,6 +27,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+# Use jquery ui to add autocomplete widget
+gem 'jquery-ui-rails'
+# Autocomplete
+gem 'rails-jquery-autocomplete'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Intelligent search

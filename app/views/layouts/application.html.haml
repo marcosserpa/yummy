@@ -1,10 +1,43 @@
 !!!
-%html
+%html{ lang: 'en' }
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+
     %title Yummy
+
+    / Bootstrap CSS
+    %link{:href => "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    = yield
+    / jQuery first, then Bootstrap JS.
+    %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
+    %script{:src => "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"}
+
+    / BEGIN THE YUMMY STRUCTURE
+    .container-fluid
+      .container-header
+        %nav.navbar.navbar-light.bg-faded
+          / <a class="navbar-brand" href="#home">YUMMY</a>
+          %ul.nav.nav-pills{ role: "tablist" }
+            %li.nav-item
+              %img{ alt: "", src: "/images/yummy_apple.png", style: "width: 40px; height: 40px;" }/
+            %li.nav-item
+              %a.nav-link.text-muted{"data-toggle" => "tab", :href => "#home", :role => "tab"} home
+            %li.nav-item
+              %a.nav-link.text-muted{"data-toggle" => "tab", :href => "#about", :role => "tab"} about
+            %li.nav-item
+              %a.nav-link.text-muted{"data-toggle" => "tab", :href => "#contact", :role => "tab"} contact
+
+          .form-inline.navbar-form
+            = form_for(:aliment, url: :search_aliments, method: :get) do |f|
+              .row
+                .col-lg-6
+                  .input-group{ style: "width: 800px" }
+                    = f.text_field :search, placeholder: 'search', class: "form-control m-l-md"
+
+                    %span.input-group-btn
+                      = f.submit 'search', class: "button btn btn-success"
+
+      = yield

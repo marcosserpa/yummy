@@ -228,6 +228,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-jquery-autocomplete (1.0.2)
+      rails (>= 3.2)
     rails-observers (0.1.2)
       activemodel (~> 4.0)
     rails_admin (0.6.7)
@@ -368,10 +370,12 @@ DEPENDENCIES
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
   jquery-rails
+  jquery-ui-rails
   kaminari
   metric_fu
   pg
   rails (= 4.2.1)
+  rails-jquery-autocomplete
   rails_admin
   rspec-rails (~> 3.0)
   sass-rails (~> 5.0)
