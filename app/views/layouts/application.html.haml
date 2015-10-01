@@ -35,7 +35,7 @@
               .row
                 .col-lg-6
                   .input-group{ style: "width: 800px" }
-                    = f.text_field :search, placeholder: 'search', class: "form-control m-l-md"
+                    = f.autocomplete_field :name, autocomplete_aliment_name_aliments_path, placeholder: 'search', class: "form-control m-l-md"
 
                     %span.input-group-btn
                       = f.submit 'search', class: "button btn btn-success"

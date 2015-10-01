@@ -30,7 +30,7 @@ gem 'jquery-rails'
 # Use jquery ui to add autocomplete widget
 gem 'jquery-ui-rails'
 # Autocomplete
-gem 'rails-jquery-autocomplete'
+gem 'rails4-autocomplete'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Intelligent search
