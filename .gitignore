@@ -11,6 +11,7 @@
 /log
 
 /tmp
+.gems
 
 # Ignore files buffered by opening two editors
 *.swp
