@@ -31,13 +31,13 @@
               %a.nav-link.text-muted{"data-toggle" => "tab", :href => "#contact", :role => "tab"} contact
 
           .form-inline.navbar-form
-            = form_for(:aliment, url: :search_aliments, method: :get) do |f|
+            = form_for(:aliment, url: :search_aliments, html: { id: 'search_bar_form' }, method: :get) do |f|
               .row
                 .col-lg-6
                   .input-group{ style: "width: 800px" }
-                    = f.autocomplete_field :name, autocomplete_aliment_name_aliments_path, placeholder: 'search', class: "form-control m-l-md"
+                    = f.autocomplete_field :name, autocomplete_aliment_name_aliments_path, placeholder: 'search', class: "form-control m-l-md", id: 'search_bar_input'
 
                     %span.input-group-btn
-                      = f.submit 'search', class: "button btn btn-success"
+                      = f.submit 'search', class: "button btn btn-success", id: 'search_bar_button'
 
       = yield

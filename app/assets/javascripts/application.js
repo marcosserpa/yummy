@@ -16,3 +16,9 @@
 //= require autocomplete-rails
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+  $('#search_bar_input').bind('railsAutocomplete.select', function(event, data) {
+    $('#search_bar_form').submit();
+  });
+});
