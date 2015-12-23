@@ -1,3 +1,5 @@
+# DEPRECATED - was used initially just to test the conection
+
 require 'open-uri'
 
 module Integration
@@ -6,7 +8,7 @@ module Integration
   ndbnos = []
 
   def get_ndbnos
-    # TODO put a exception treatment here
+    # TODO put an exception treatment here
     page.css("td[style='padding:8px;width:10%;font-style:;'] a").each do |html|
       ndbnos << html.text
     end

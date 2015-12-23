@@ -11,23 +11,29 @@ module Integration
 
       def get_aliment
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
-        local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
-
-        # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
-        aliments_ndbnos.each do |ndbno|
-          local_aliments_ndbnos.select do |local_ndbno|
-            if local_ndbno.keys[0] == ndbno
-              aliments_ndbnos.delete(ndbno) unless local_ndbno[ndbno] == false
-            end
-          end
+        local_aliments_ndbnos = []
+        
+        Aliment.all.each do |aliment|
+          local_aliments_ndbnos << aliment.ndbno #if aliment.recent?
         end
 
-        aliments_ndbnos.each do |ndbno|
-          aliment = Aliment.where(ndbno: ndbno).first
+        # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
+        #aliments_ndbnos.each do |ndbno|
+        #  local_aliments_ndbnos.select do |local_ndbno|
+        #    if local_ndbno.keys[0] == ndbno
+        #      aliments_ndbnos.delete(ndbno) unless local_ndbno[ndbno] == false
+        #    end
+        #  end
+        #end
+        aliments_ndbnos -= local_aliments_ndbnos
+
+        # Only the first 1000 'cause more than that the USDA API blocks my IP
+        aliments_ndbnos.first(1000).each do |ndbno|
+          #aliment = Aliment.where(ndbno: ndbno).first
           # last_update = aliment.present? ? aliment.updated_at : nil
 
           # unless last_update.present? && (last_update <= Time.now - 6.months)
-          unless ndbno.blank? || (aliment.present? && aliment.recent?)
+          unless ndbno.blank?#|| (aliment.present? && aliment.recent?)
             begin
               puts "=================== Downloading and saving the aliment with ndbno #{ndbno} ==================="
               response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
@@ -37,7 +43,7 @@ module Integration
               data = JSON.parse(response.body)
 
               # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
-              aliment = save_aliment(data['report'])
+              save_aliment(data['report'])
               # save_nutrients(data['report']['food']['nutrients'])
             rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
               puts "================ ERROR ================"
@@ -158,8 +164,6 @@ module Integration
         aliment.other = others
 
         raise RuntimeError unless aliment.save
-
-        aliment
       end
 
     end

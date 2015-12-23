@@ -27,61 +27,19 @@ set :output, "log/cron_log.log"
 #   rake "integrate:update_aliments", :environment => 'development'
 # end
 
-every 6.months, at: ['0:30am', '2:00am', '3:30am', '5:00am', '6:30am', '8:00am', '9:30am', '11:00am', '12:30pm', '2:00pm'] do
+#every 2.months, at: ['0:30am', '2:00am', '3:30am', '5:00am', '6:30am', '8:00am', '9:30am', '11:00am', '12:30pm', '2:00pm'] do
+#  # ndbnos = Integration::USDAParameters.get_ndbnos
+#  # repetitions = (ndbnos.size / 1000) + 1
+#  rake "integrate:update_aliments"
+#end
+
+every 2.months, at: ['11:10pm', '12:20am', '1:30am', '2:40am', '3:50am', '5:00am', '6:10am', '7:20am', '8:30am', '9:40am'] do
   # ndbnos = Integration::USDAParameters.get_ndbnos
   # repetitions = (ndbnos.size / 1000) + 1
-  rake "integrate:update_aliments"
+  rake "integrate:update_aliments", :environment => 'development'
 end
 
 # every 6.months, at: '2:00am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '3:30am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '5:00am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '6:30am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '8:00am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '9:30am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '11:00am' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '12:30pm' do
-#   # ndbnos = Integration::USDAParameters.get_ndbnos
-#   # repetitions = (ndbnos.size / 1000) + 1
-#   rake "integrate:update_aliments"
-# end
-#
-# every 6.months, at: '2:00pm' do
 #   # ndbnos = Integration::USDAParameters.get_ndbnos
 #   # repetitions = (ndbnos.size / 1000) + 1
 #   rake "integrate:update_aliments"

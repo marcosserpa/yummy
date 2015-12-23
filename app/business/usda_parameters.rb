@@ -1,6 +1,7 @@
 require 'open-uri'
 
 module Integration
+  # TODO rename this class
   class USDAParameters
     class << self
 
@@ -8,6 +9,7 @@ module Integration
         $usdaAlimentURI = "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
       end
 
+      # TODO Put API KEY at a secrets file
       def api_key
         '6HBsd9kI5M23vznbpiMsskOWtta3so4AM3qWLqn9'
       end
