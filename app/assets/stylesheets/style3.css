@@ -1,0 +1,3919 @@
+@charset "UTF-8";
+.yui-overlay {
+    position: absolute;
+    display: block;
+}
+
+.yui-tt {
+    visibility: hidden;
+    position: absolute;
+    color: #333;
+    background-color: #fdffb4;
+    font-family: arial, helvetica, verdana, sans-serif;
+    padding: 2px;
+    border: 1px solid #fcc90d;
+    font: 100% sans-serif;
+    width: auto;
+}
+
+* html body.masked select {
+    visibility: hidden;
+}
+
+* html div.yui-panel-container select {
+    visibility: inherit;
+}
+
+* html div.drag select {
+    visibility: hidden;
+}
+
+* html div.hide-select select {
+    visibility: hidden;
+}
+
+.mask {
+    z-index: 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    -moz-opacity: 0.5;
+    opacity: .50;
+    filter: alpha(opacity=50);
+    background-color: #ccc;
+}
+
+.hide-scrollbars * {
+    overflow: hidden;
+}
+
+.hide-scrollbars textarea,
+.hide-scrollbars select {
+    overflow: hidden;
+    display: none;
+}
+
+.show-scrollbars textarea,
+.show-scrollbars select {
+    overflow: visible;
+}
+
+.yui-panel-container {
+    position: absolute;
+    background-color: transparent;
+    z-index: 6;
+    visibility: hidden;
+    overflow: visible;
+    width: auto;
+}
+
+.yui-panel-container.matte {
+    padding: 3px;
+    background-color: #fff;
+}
+
+.yui-panel-container.matte .underlay {
+    display: none;
+}
+
+.yui-panel-container.shadow {
+    padding: 0px;
+    background-color: transparent;
+}
+
+.yui-panel-container.shadow .underlay {
+    visibility: inherit;
+    position: absolute;
+    background-color: transparent;
+    top: 3px;
+    left: 3px;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    -moz-opacity: 0.12;
+    opacity: .12;
+    filter: alpha(opacity=12);
+    zoom: 1;
+}
+
+.yui-panel {
+    visibility: hidden;
+    border-collapse: separate;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    font: 1em Arial;
+    background-color: #fff;
+    border: 1px solid #dadada;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.yui-panel .hd {
+    background-color: #7eb30d;
+    color: #fff;
+    font-size: 10pt;
+    line-height: 100%;
+    border: 1px solid #fff;
+    font-weight: bold;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.yui-panel .bd {
+    overflow: hidden;
+    background: #333;
+    position: relative;
+    padding: 30px;
+}
+
+.yui-panel .bd p {
+    margin: 0 0 1em;
+}
+
+.yui-panel .container-close {
+    position: absolute;
+    top: 5px;
+    right: 4px;
+    z-index: 6;
+    height: 12px;
+    width: 12px;
+    margin: 0px;
+    padding: 0px;
+    background: url('/branding/ck/secure/style3/public/close12_1.gif') no-repeat;
+    cursor: pointer;
+    visibility: inherit;
+}
+
+.yui-panel .ft {
+    padding: 4px;
+}
+
+.yui-simple-dialog .bd .yui-icon {
+    background-repeat: no-repeat;
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    float: left;
+}
+
+.yui-simple-dialog .bd span.blckicon {
+    background: url("blck16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.alrticon {
+    background: url("alrt16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.hlpicon {
+    background: url("hlp16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.infoicon {
+    background: url("info16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.warnicon {
+    background: url("warn16_1.gif") no-repeat;
+}
+
+.yui-simple-dialog .bd span.tipicon {
+    background: url("tip16_1.gif") no-repeat;
+}
+
+.yui-dialog .ft,
+.yui-simple-dialog .ft {
+    padding-bottom: 5px;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.yui-dialog form,
+.yui-simple-dialog form {
+    margin: 0;
+}
+
+.button-group button {
+    font: 100 76% verdana;
+    text-decoration: none;
+    background-color: #e4e4e4;
+    color: #333;
+    cursor: hand;
+    vertical-align: middle;
+    border: 2px solid #797979;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    margin: 2px;
+    padding: 2px;
+}
+
+.button-group button.default {
+    font-weight: bold;
+}
+
+.button-group button:hover,
+.button-group button.hover {
+    border: 2px solid #90a029;
+    background-color: #ebf09e;
+    border-top-color: #fff;
+    border-left-color: #fff;
+}
+
+.button-group button:active {
+    border: 2px solid #e4e4e4;
+    background-color: #bbb;
+    border-top-color: #333;
+    border-left-color: #333;
+}
+
+.mask {
+    background-color: #707070;
+}
+
+.yui-tt {
+    background: #f3f3f3;
+    border: 1px solid #d7d7d7;
+    color: #362f2d;
+    font-family: verdana;
+    padding: 1em;
+    width: 20em;
+    top: 0;
+    left: 0;
+}
+
+.yui-panel {
+    background-color: #fff;
+    border: 1px solid #b5b5b5;
+    font-family: verdana;
+    font-size: 1em;
+    width: 50em;
+}
+
+.yui-panel .hd {
+    background-color: #6aa209;
+    background-image: url('/branding/ck/secure/style3/bg_search_green_1px.gif');
+    background-position: center left;
+    color: #fff;
+    height: 2.73em;
+    line-height: 2.73em;
+    padding: 0 0.91em;
+    text-transform: uppercase;
+}
+
+.yui-panel .container-close {
+    background-image: url('/branding/ck/icons/icon_close.gif');
+    top: 0.7em;
+    right: 0.91em;
+    height: 21px;
+    width: 21px;
+}
+
+.yui-panel .bd ul.navigation {
+    margin: 1em 0;
+    list-style-image: none;
+    list-style-position: none;
+    list-style-type: none;
+}
+
+.yui-dialog .ft,
+.yui-simple-dialog .ft {
+    text-align: left;
+    padding: 0 1em 1em 1em;
+}
+
+.button-group button {
+    background: #f3f3f3;
+    border-color: #fff #707070 #707070 #fff;
+    border-width: 1px;
+    font-size: 1em;
+    font-weight: normal;
+    margin: 0 1em 0 0;
+    padding: 0.25em;
+}
+
+.button-group button:hover,
+.button-group button.hover {
+    background: #d3ebef;
+    border-color: #fff #4eadbc #4eadbc #fff;
+    border-width: 1px;
+}
+
+div.yui-calcontainer {
+    background: none;
+}
+
+table.yui-calendar {
+    background: none;
+    border: 1px solid #4eadbc;
+    font-family: verdana, sans-serif;
+    margin: 0;
+}
+
+.yui-calendar .calhead {
+    background: #4eadbc;
+    border: none;
+    color: #fff;
+}
+
+.yui-calendar .calweekdaycell {
+    background: none;
+    color: #4eadbc;
+}
+
+.yui-calendar td.calcell.today {
+    border: 1px solid #f7941d;
+}
+
+.yui-calendar td.calcell {
+    background: #f3f3f3;
+    border: 1px solid #fff;
+    padding: 0.5em;
+}
+
+.yui-calendar td.calcell.previous,
+.yui-calendar td.calcell.oom {
+    border-color: #fff;
+    color: #d7d7d7;
+}
+
+.yui-calendar td.calcell a,
+.yui-calendar td.calcell.calcellhover a {
+    color: #4eadbc;
+}
+
+.yui-calendar td.calcell.selected {
+    background-color: #f7941d;
+}
+
+.yui-calendar td.calcell.selected a {
+    color: #fff;
+}
+
+.yui-calendar td.calcell.calcellhover {
+    background-color: #d3ebef;
+    border-color: #fff;
+}
+
+.yui-panel .hd {
+    background-color: transparent;
+    background-image: none;
+}
+
+.yui-panel p {
+    font-family: verdana, sans-serif;
+    font-size: 11px;
+}
+
+.yui-panel .container-close {
+    background: url('/branding/ck/secure/style3/public/close12_1.gif') no-repeat;
+}
+
+.yui-panel .ft {
+    position: absolute;
+    top: 5px;
+    right: -10px;
+    overflow: visible;
+}
+
+.yui-panel .ft a {
+    color: #fff;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    display: inline-block;
+    position: relative;
+    left: -20px;
+    top: -3px;
+    padding-right: 3px;
+    padding-bottom: 5px;
+}
+
+.yui-panel .ft a:hover {
+    background: #666;
+}
+
+.yui-panel .ft a:before {
+    content: "\00d7";
+    font-size: 16px;
+    padding: 3px;
+    position: relative;
+    top: 2px;
+}
+
+.hidden {
+    display: none;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    position: static;
+    clip: auto;
+    height: auto;
+    width: auto;
+    margin: 0;
+    overflow: visible;
+}
+
+@font-face {
+    font-family: 'fontello';
+    src: url('data:application/octet-stream;base64,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') format('woff'), url('data:application/octet-stream;base64,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') format('truetype');
+}
+
+#site-nav {
+    line-height: normal;
+    width: 980px;
+    z-index: 500;
+    margin-left: 0;
+    background: #b25c5c;
+    z-index: 100;
+    zoom: 1;
+}
+
+#site-nav ul {
+    line-height: normal;
+    list-style: none;
+}
+
+.nav-link {
+    color: #fff;
+    cursor: pointer;
+    min-height: 20px !important;
+    overflow: hidden;
+}
+
+.nav-link,
+.sub-link {
+    display: block;
+    padding: 0.75em;
+    font-size: 14px;
+    font-size: 1.4rem;
+    text-shadow: none;
+    text-decoration: none;
+    color: #fff;
+    -webkit-transition: background .2s ease;
+    -moz-transition: background .2s ease;
+    -ms-transition: background .2s ease;
+    -o-transition: background .2s ease;
+    transition: background .2s ease;
+}
+
+.nav-link:visited,
+.sub-link:visited {
+    color: #fff;
+}
+
+.nav-link:hover,
+.sub-link:hover {
+    text-decoration: none;
+}
+
+.non-mobile {
+    display: none;
+}
+
+.nav-item {
+    background: #347a87;
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+.nav-item .food-search {
+    margin: 0;
+    background: none;
+    border-bottom: 1px solid #25545c;
+}
+
+.nav-item a.nav-link {
+    color: white;
+}
+
+html .sub-nav {
+    display: none;
+    border-top: none;
+}
+
+.sub-link {
+    display: inline-block !important;
+    padding-left: 40px;
+    border-bottom: 1px solid #347a87;
+}
+
+.naem-link {
+    margin-right: -20px;
+}
+
+.sub-nav .sub-nav .sub-link {
+    padding-left: 80px;
+    border-bottom: 1px solid #25545c;
+}
+
+.sub-nav {
+    background: none;
+    padding-left: 0;
+}
+
+.sub-nav-content {
+    width: 980px;
+    margin: 0 auto;
+    overflow: visible;
+}
+
+.sub-item {
+    background: #25545c;
+}
+
+.sub-nav .sub-nav .sub-item {
+    background: #17363c;
+}
+
+.sub-nav.active {
+    display: block;
+}
+
+.top-level:hover {
+    background: #77c1ce;
+}
+
+.open .top-level:hover {
+    color: #b25c5c;
+}
+
+.menu {
+    background: #b25c5c;
+}
+
+.menu .site-nav {
+    border: none;
+}
+
+.site-nav {
+    margin: 0 0 0 2%;
+}
+
+html .menu {
+    display: block;
+    max-height: 2.75em;
+}
+
+.nav-item {
+    float: left;
+    background: #b25c5c;
+}
+
+.nav-item .food-search {
+    margin: 0 -10px;
+    background: #56b1c0;
+    border: none;
+}
+
+.parent-link:after {
+    font-family: 'fontello';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    content: '\e800';
+    padding-left: 10px;
+    line-height: 0;
+    opacity: .65;
+}
+
+.ie8 .parent-link:after,
+.ie7 .parent-link:after {
+    color: #d5ecf0;
+}
+
+.sub-nav .parent-link {
+    color: #f26c53 !important;
+    font-weight: bold;
+    cursor: default;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+.sub-nav .parent-link:hover {
+    text-decoration: none;
+}
+
+.sub-nav .parent-link:after {
+    display: none;
+}
+
+.sub-nav.active {
+    position: absolute;
+    width: 100%;
+    background: #eee;
+    padding: 3em 0;
+    left: 0;
+    z-index: 100;
+}
+
+.sub-item {
+    background: transparent;
+    color: #333;
+    float: none;
+}
+
+.navsearch-item {
+    float: left;
+    padding-left: 4.5%;
+}
+
+.navsearch-item .food-search {
+    margin-right: 0;
+    margin-bottom: 0.75em;
+    margin-top: .5em;
+}
+
+.sub-simple.active li {
+    padding-left: 2.75em;
+}
+
+.food-links {
+    padding-left: 0;
+    margin-top: 0;
+    list-style: none;
+}
+
+.members-item {
+    width: 22%;
+}
+
+.get-help {
+    margin-top: 34px;
+}
+
+.activity-item {
+    margin-left: -22%;
+    margin-top: 140px;
+}
+
+.nav-col4 {
+    width: 36.114733%;
+    margin-right: 3.520209%;
+}
+
+.nav-col3 {
+    width: 18.774446%;
+    margin-right: 2.346806%;
+}
+
+.top-level {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    padding: 0.5em 0.75em;
+}
+
+.open {
+    background: #eee;
+    color: #b25c5c !important;
+    font-weight: bold;
+    -webkit-border-top-right-radius: 3px;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 3px;
+    -moz-border-radius-topright: 3px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 3px;
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding;
+    background-clip: padding-box;
+    z-index: 501;
+}
+
+.open:visited {
+    color: #b25c5c;
+}
+
+.top-level:hover {
+    background: #77c1ce;
+    color: #fff;
+}
+
+.open.top-level:hover {
+    color: #b25c5c;
+    background: #eee;
+}
+
+.sub-link {
+    color: #666 !important;
+    border: none;
+    padding: .25em 0 .625em 0;
+}
+
+.sub-link:visited {
+    color: #777;
+}
+
+.sub-link:hover {
+    text-decoration: underline;
+}
+
+.parental {
+    float: left;
+}
+
+.parental .sub-nav {
+    display: block;
+}
+
+.parental .sub-nav .sub-item {
+    background: none;
+}
+
+.parental .sub-nav a.sub-link {
+    color: #666;
+    border: none;
+    padding-top: .25em;
+    padding-left: 0px;
+}
+
+.ie7 #site-nav .parent-link.top-level,
+.ie8 #site-nav .parent-link.top-level {
+    padding-right: 30px;
+    background-image: url("/branding/ck/secure/icons/arrow.png");
+    background-position: 85% 50%;
+    background-repeat: no-repeat !important;
+}
+
+.ie8 #site-nav .parent-link:after {
+    display: none;
+}
+
+#site-nav .food-search {
+    padding: 0px 10px 0px;
+    padding-right: 51px;
+    margin: 0 10px 16px 0;
+    background: #56b1c0;
+    overflow: hidden;
+    display: block;
+    max-width: 550px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    position: relative;
+}
+
+#site-nav .food-search p {
+    margin-bottom: 10px;
+}
+
+.ie7 #site-nav .food-search {
+    position: absolute;
+    width: 270px;
+    top: 60px;
+}
+
+.ie7 #site-nav .food-links {
+    padding-top: 60px;
+    position: static;
+}
+
+#site-nav .food-search--label {
+    display: block;
+    position: absolute;
+    visibility: hidden;
+    font-style: bold;
+    font-size: 1.5em;
+    line-height: 1.15em;
+}
+
+#site-nav .food-search--keywords {
+    font-family: helvetica, arial, sans-serif;
+    padding: 8px 4px 7px;
+    margin: 0 10px 10px;
+    margin-left: 0px;
+    font-size: 1.6em;
+    width: 100%;
+    float: left;
+    height: 36px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#site-nav .food-search--submit {
+    float: left;
+    position: absolute;
+    right: 9px;
+    top: 10px;
+    padding: 9px 16px 10px !important;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    height: 36px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.ie7 #site-nav .food-search--keywords {
+    font-size: 16px;
+    margin-top: 10px;
+    height: 21px;
+}
+
+.ie7 #site-nav .food-search--submit {
+    width: 50px;
+    top: 8px;
+    height: 44px !important;
+    display: block;
+    text-align: center;
+    font-size: 16px !important;
+}
+
+#apps-nav {
+    padding-left: 0 !important;
+    display: inline;
+}
+
+#books-nav {
+    padding-left: 0 !important;
+    display: inline;
+}
+
+#site-nav #program-nav {
+    position: relative;
+    width: 430px;
+    padding-bottom: 50px;
+    border-right: 1px solid #ccc;
+}
+
+#site-nav #program-nav #price-nav {
+    float: left;
+    position: absolute;
+    right: -40px;
+    top: 0;
+    width: 300px;
+}
+
+#site-nav #program-nav .the-sell {
+    font-size: 13px;
+    font-weight: bold;
+    color: #777;
+    text-transform: uppercase;
+    margin-left: 0;
+    margin-top: 36px;
+}
+
+#site-nav #program-nav .sell-prices {
+    font-size: 42px;
+    color: #666;
+    font-weight: normal;
+    padding: 0;
+    margin-left: 0;
+    float: left;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+#site-nav #program-nav .sell-desc {
+    font-size: 14px;
+    line-height: 1.33em;
+    text-transform: none;
+    margin-top: -10px;
+    margin-left: 4px;
+    float: left;
+}
+
+#site-nav #program-nav #btn-nav {
+    clear: left;
+    display: block;
+    width: 100px;
+    margin-top: 10px;
+    color: #fff !important;
+}
+
+html,
+body,
+body div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    font-weight: normal;
+}
+
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+    display: block;
+}
+
+html {
+    font-size: 62.5%;
+    -webkit-overflow-scrolling: touch;
+    -webkit-tap-highlight-color: #fff;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background-color: #f8f8f8;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+}
+
+.positioner {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#header {
+    background: #b25c5c;
+    padding-top: 20px;
+    -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 100;
+    overflow: visible;
+}
+
+#header .positioner {
+    width: 980px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+#header h1 {
+    margin-left: 1%;
+    border: none;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+#header h1 img {
+    max-width: 100%;
+}
+
+#header h1 img img {
+    -ms-interpolation-mode: bicubic;
+}
+
+#login-logout {
+    float: right;
+    text-align: right;
+}
+
+#login-logout .member-login {
+    color: #fff;
+    font-size: 14px;
+    font-size: 1.4rem;
+    text-decoration: none;
+    font-weight: bold;
+    padding-left: 22px;
+}
+
+#login-logout .member-login.login {
+    background: url("/branding/ck/secure/icons/login.png") no-repeat left;
+}
+
+#login-logout .member-login.logout {
+    background: url("/branding/ck/secure/icons/logout.png") no-repeat left;
+}
+
+#login-logout .m-loggedin {
+    display: block;
+    margin-top: 5px;
+    color: #fff;
+    font-size: 12px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+#breadcrumbs,
+#page-content {
+    width: 900px;
+    margin: 10px auto;
+    padding-left: 20px;
+}
+
+#breadcrumbs {
+    margin: 3em auto 1.5em;
+    font-size: 11px;
+    font-size: 1.1rem;
+    color: #808080;
+}
+
+#breadcrumbs a {
+    display: inline-block;
+    margin: 0 6px;
+    color: #808080;
+    text-decoration: none;
+}
+
+#breadcrumbs a:first-of-type {
+    margin-left: 0;
+}
+
+#breadcrumbs span,
+#breadcrumbs div {
+    display: none;
+}
+
+#page-content h2 {
+    font-size: 36px;
+    font-size: 3.6rem;
+    color: #b25c5c;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    margin-bottom: 0.75em;
+    font-weight: normal;
+}
+
+#page-content p#intro {
+    font-size: 20px;
+    font-size: 2rem;
+    color: #808080;
+    margin-top: 0;
+    line-height: 1.175em;
+    padding-right: 20%;
+    margin-bottom: 0.75em;
+}
+
+#page-content h1 + p + h2 {
+    margin-top: 1.3043478260869565em;
+}
+
+#page-content p + h2 {
+    margin-top: 1.5em;
+}
+
+#page-content h2 + h3 {
+    margin-top: 1.125em;
+}
+
+#page-content h2,
+#page-content .h2 {
+    margin-bottom: .625em;
+    font-size: 40px;
+    font-size: 4rem;
+    color: #b25c5c;
+    line-height: 1em;
+    font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+#page-content h3,
+#page-content .h3 {
+    margin-bottom: 0.6em;
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 1.2;
+    color: #b25c5c;
+    margin-top: 1em;
+}
+
+#page-content h4,
+#page-content .h4 {
+    margin-bottom: 0.75em;
+    margin-top: 1.5em;
+    font-size: 21px;
+    font-size: 2.1rem;
+    line-height: 1.142;
+    color: #2e727e;
+}
+
+#page-content h5,
+#page-content .h5 {
+    margin-bottom: 0.75em;
+    margin-top: 1.9994999999999998em;
+    font-size: 18px;
+    font-size: 1.8rem;
+    line-height: 1.3333;
+    color: #2e727e;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#page-content h6,
+#page-content .h6 {
+    font-size: 16px;
+    font-size: 1.6rem;
+    margin-top: 2.0999999999999996em;
+    margin-bottom: 0.75em;
+    color: #2e727e;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#page-content h7,
+#page-content .h7 {
+    color: #2e727e;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#page-content p,
+#page-content ol,
+#page-content ul,
+#page-content dl,
+#page-content address {
+    margin-bottom: 0.75em;
+    color: #666;
+    font-size: 16px;
+    font-size: 1.6rem;
+    line-height: 1.5em;
+}
+
+#page-content p,
+#page-content li {
+    max-width: 600px;
+}
+
+#page-content small {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+#page-content ul,
+#page-content ol {
+    margin: 0 0 1.5em 0;
+    padding: 0 0 0 24px;
+}
+
+#page-content li ul,
+#page-content li ol {
+    margin: 0;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+#page-content blockquote {
+    margin: 0 0 1.5em -24px;
+    padding-left: 24px;
+    border-left: 2px solid #bfbfbf;
+    font-style: italic;
+    margin-left: 1.5em;
+}
+
+#page-content q {
+    quotes: none;
+    font-style: italic;
+}
+
+#page-content blockquote:before,
+#page-content blockquote:after,
+#page-content q:before,
+#page-content q:after {
+    content: '';
+    content: none;
+}
+
+#page-content cite {
+    font-style: normal;
+}
+
+#page-content dl,
+#page-content dd {
+    margin-bottom: 1.5em;
+}
+
+#page-content dt {
+    font-weight: bold;
+}
+
+#page-content .dl-horizontal dt {
+    float: left;
+    clear: left;
+    width: 20.25%;
+    text-align: right;
+}
+
+#page-content .dl-horizontal dd {
+    margin-left: 22.78%;
+}
+
+#page-content abbr[title] {
+    border-bottom: 1px dotted #666;
+    cursor: help;
+}
+
+#page-content b,
+#page-content strong {
+    font-weight: bold;
+    color: #194046;
+}
+
+#page-content dfn {
+    font-style: italic;
+}
+
+#page-content mark {
+    background-color: #fff;
+    color: #666;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#page-content pre,
+#page-content code,
+#page-content kbd,
+#page-content samp {
+    font-size: 14px;
+    font-size: 1.4rem;
+    line-height: 1.5em;
+}
+
+#page-content kbd {
+    background: #e6e6e6;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 2px 6px;
+}
+
+#page-content pre {
+    white-space: pre;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    margin-bottom: 1.5em;
+    margin-left: 1.5em;
+}
+
+#page-content sub,
+#page-content sup {
+    position: relative;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 0;
+    vertical-align: baselineheight;
+}
+
+#page-content sup {
+    top: -0.5em;
+}
+
+#page-content sub {
+    bottom: -0.25em;
+}
+
+#page-content .nomb {
+    margin-bottom: 0;
+}
+
+#page-content a {
+    color: #132f33;
+}
+
+.well {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    padding: 20px;
+    max-width: 600px;
+}
+
+.linklogo {
+    overflow: hidden;
+}
+
+.linklogo img {
+    float: left;
+}
+
+#store-content {
+    width: 750px;
+    float: left;
+}
+
+.add-to-cart {
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+#sidebar,
+#sell-sidebar {
+    width: 130px;
+    float: right;
+    padding: 0 16px 0 0;
+}
+
+#sidebar h3,
+#sell-sidebar h3 {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+#sidebar p,
+#sell-sidebar p,
+#sidebar li,
+#sell-sidebar li {
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+}
+
+#sidebar ul,
+#sell-sidebar ul,
+#sidebar li,
+#sell-sidebar li {
+    margin-left: 0;
+    padding-left: 0;
+}
+
+#sidebar li,
+#sell-sidebar li {
+    margin-bottom: 0.75em;
+    margin-left: 10px;
+}
+
+#sidebar {
+    width: 250px !important;
+    margin-top: 100px;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+#page-content .product-side {
+    width: 220px !important;
+}
+
+div.single-column {
+    float: left;
+}
+
+#faqsearch input[type="text"] {
+    width: 75%;
+}
+
+.tags {
+    display: none;
+}
+
+#footer {
+    background: #b25c5c;
+    padding: 20px;
+    position: relative;
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    color: #fff;
+    margin-top: 50px;
+    overflow: hidden;
+}
+
+#footer .positioner {
+    width: 980px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#footer p,
+#footer a {
+    color: #fff;
+}
+
+#footer p {
+    display: block;
+    text-align: left;
+}
+
+#footer #sm_footer {
+    position: absolute;
+    right: 30px;
+    top: 0;
+}
+
+#footer #sm_footer li {
+    width: 32px;
+    height: 32px;
+    float: left;
+    display: block;
+    overflow: hidden;
+    margin-left: 8px;
+}
+
+#footer #sm_footer li a {
+    width: 100%;
+    height: 100%;
+    text-indent: -9999em;
+    display: block;
+}
+
+#footer #sm_footer li a.twitter {
+    background: url('/branding/ck/secure/style3/am.png?1') no-repeat 0px;
+}
+
+#footer #sm_footer li a.fb {
+    background: url('/branding/ck/secure/style3/am.png?1') no-repeat -82px;
+}
+
+#footer #sm_footer li a.pinterest {
+    background: url('/branding/ck/secure/style3/am.png?1') no-repeat -41px;
+}
+
+form#tell-a-friend,
+form#recipeemail,
+form#niceform,
+form#survey,
+form#join_process,
+form#login,
+form#change_password,
+form#request,
+form[name="checkoutdetails"],
+form[name="options"],
+div#done-form form,
+form[name="handheldbuydetails"] {
+    margin: 2.25em 0 1.5em 0;
+    background: #f4f4f4;
+    padding: 2em;
+    border: 1px solid #ccc;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+form#tell-a-friend small,
+form#recipeemail small,
+form#niceform small,
+form#survey small,
+form#join_process small,
+form#login small,
+form#change_password small,
+form#request small,
+form[name="checkoutdetails"] small,
+form[name="options"] small,
+div#done-form form small,
+form[name="handheldbuydetails"] small {
+    display: block;
+    font-size: 12px !important;
+    font-size: 1.2rem !important;
+    line-height: 1.25em;
+    margin-bottom: 10px !important;
+}
+
+form#tell-a-friend fieldset,
+form#recipeemail fieldset,
+form#niceform fieldset,
+form#survey fieldset,
+form#join_process fieldset,
+form#login fieldset,
+form#change_password fieldset,
+form#request fieldset,
+form[name="checkoutdetails"] fieldset,
+form[name="options"] fieldset,
+div#done-form form fieldset,
+form[name="handheldbuydetails"] fieldset {
+    margin-bottom: 0;
+    padding: 0;
+    border-width: 0;
+}
+
+form#tell-a-friend legend,
+form#recipeemail legend,
+form#niceform legend,
+form#survey legend,
+form#join_process legend,
+form#login legend,
+form#change_password legend,
+form#request legend,
+form[name="checkoutdetails"] legend,
+form[name="options"] legend,
+div#done-form form legend,
+form[name="handheldbuydetails"] legend,
+form#tell-a-friend h1,
+form#recipeemail h1,
+form#niceform h1,
+form#survey h1,
+form#join_process h1,
+form#login h1,
+form#change_password h1,
+form#request h1,
+form[name="checkoutdetails"] h1,
+form[name="options"] h1,
+div#done-form form h1,
+form[name="handheldbuydetails"] h1 {
+    display: block;
+    width: 100%;
+    *margin-left: -7px;
+    padding: 0;
+    color: #b25c5c;
+    border: 0;
+    border-bottom: none;
+    white-space: normal;
+    font-size: 24px;
+    font-size: 2.4rem;
+    padding-bottom: 0.75em;
+}
+
+form#tell-a-friend legend small,
+form#recipeemail legend small,
+form#niceform legend small,
+form#survey legend small,
+form#join_process legend small,
+form#login legend small,
+form#change_password legend small,
+form#request legend small,
+form[name="checkoutdetails"] legend small,
+form[name="options"] legend small,
+div#done-form form legend small,
+form[name="handheldbuydetails"] legend small,
+form#tell-a-friend h1 small,
+form#recipeemail h1 small,
+form#niceform h1 small,
+form#survey h1 small,
+form#join_process h1 small,
+form#login h1 small,
+form#change_password h1 small,
+form#request h1 small,
+form[name="checkoutdetails"] h1 small,
+form[name="options"] h1 small,
+div#done-form form h1 small,
+form[name="handheldbuydetails"] h1 small {
+    font-size: 14px;
+    font-size: 1.4rem;
+    color: #bfbfbf;
+}
+
+form#tell-a-friend p,
+form#recipeemail p,
+form#niceform p,
+form#survey p,
+form#join_process p,
+form#login p,
+form#change_password p,
+form#request p,
+form[name="checkoutdetails"] p,
+form[name="options"] p,
+div#done-form form p,
+form[name="handheldbuydetails"] p {
+    margin-bottom: 0.75em;
+}
+
+form#tell-a-friend ul,
+form#recipeemail ul,
+form#niceform ul,
+form#survey ul,
+form#join_process ul,
+form#login ul,
+form#change_password ul,
+form#request ul,
+form[name="checkoutdetails"] ul,
+form[name="options"] ul,
+div#done-form form ul,
+form[name="handheldbuydetails"] ul {
+    list-style-type: none;
+    margin: 0 0 0 0;
+    padding: 0;
+}
+
+form#tell-a-friend br,
+form#recipeemail br,
+form#niceform br,
+form#survey br,
+form#join_process br,
+form#login br,
+form#change_password br,
+form#request br,
+form[name="checkoutdetails"] br,
+form[name="options"] br,
+div#done-form form br,
+form[name="handheldbuydetails"] br {
+    display: none;
+}
+
+form#tell-a-friend label,
+form#recipeemail label,
+form#niceform label,
+form#survey label,
+form#join_process label,
+form#login label,
+form#change_password label,
+form#request label,
+form[name="checkoutdetails"] label,
+form[name="options"] label,
+div#done-form form label,
+form[name="handheldbuydetails"] label,
+form#tell-a-friend input,
+form#recipeemail input,
+form#niceform input,
+form#survey input,
+form#join_process input,
+form#login input,
+form#change_password input,
+form#request input,
+form[name="checkoutdetails"] input,
+form[name="options"] input,
+div#done-form form input,
+form[name="handheldbuydetails"] input,
+form#tell-a-friend button,
+form#recipeemail button,
+form#niceform button,
+form#survey button,
+form#join_process button,
+form#login button,
+form#change_password button,
+form#request button,
+form[name="checkoutdetails"] button,
+form[name="options"] button,
+div#done-form form button,
+form[name="handheldbuydetails"] button,
+form#tell-a-friend select,
+form#recipeemail select,
+form#niceform select,
+form#survey select,
+form#join_process select,
+form#login select,
+form#change_password select,
+form#request select,
+form[name="checkoutdetails"] select,
+form[name="options"] select,
+div#done-form form select,
+form[name="handheldbuydetails"] select,
+form#tell-a-friend textarea,
+form#recipeemail textarea,
+form#niceform textarea,
+form#survey textarea,
+form#join_process textarea,
+form#login textarea,
+form#change_password textarea,
+form#request textarea,
+form[name="checkoutdetails"] textarea,
+form[name="options"] textarea,
+div#done-form form textarea,
+form[name="handheldbuydetails"] textarea {
+    font-size: 16px;
+    font-size: 1.6rem;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+
+form#tell-a-friend input,
+form#recipeemail input,
+form#niceform input,
+form#survey input,
+form#join_process input,
+form#login input,
+form#change_password input,
+form#request input,
+form[name="checkoutdetails"] input,
+form[name="options"] input,
+div#done-form form input,
+form[name="handheldbuydetails"] input,
+form#tell-a-friend button,
+form#recipeemail button,
+form#niceform button,
+form#survey button,
+form#join_process button,
+form#login button,
+form#change_password button,
+form#request button,
+form[name="checkoutdetails"] button,
+form[name="options"] button,
+div#done-form form button,
+form[name="handheldbuydetails"] button,
+form#tell-a-friend select,
+form#recipeemail select,
+form#niceform select,
+form#survey select,
+form#join_process select,
+form#login select,
+form#change_password select,
+form#request select,
+form[name="checkoutdetails"] select,
+form[name="options"] select,
+div#done-form form select,
+form[name="handheldbuydetails"] select,
+form#tell-a-friend textarea,
+form#recipeemail textarea,
+form#niceform textarea,
+form#survey textarea,
+form#join_process textarea,
+form#login textarea,
+form#change_password textarea,
+form#request textarea,
+form[name="checkoutdetails"] textarea,
+form[name="options"] textarea,
+div#done-form form textarea,
+form[name="handheldbuydetails"] textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+form#tell-a-friend label,
+form#recipeemail label,
+form#niceform label,
+form#survey label,
+form#join_process label,
+form#login label,
+form#change_password label,
+form#request label,
+form[name="checkoutdetails"] label,
+form[name="options"] label,
+div#done-form form label,
+form[name="handheldbuydetails"] label {
+    display: block;
+    font-weight: bold;
+    color: #2e727e;
+    cursor: pointer;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+form#tell-a-friend label input,
+form#recipeemail label input,
+form#niceform label input,
+form#survey label input,
+form#login label input,
+form#change_password label input,
+form#request label input,
+form[name="checkoutdetails"] label input,
+form[name="options"] label input,
+div#done-form form label input,
+form[name="handheldbuydetails"] label input,
+form#tell-a-friend label textarea,
+form#recipeemail label textarea,
+form#niceform label textarea,
+form#survey label textarea,
+form#join_process label textarea,
+form#login label textarea,
+form#change_password label textarea,
+form#request label textarea,
+form[name="checkoutdetails"] label textarea,
+form[name="options"] label textarea,
+div#done-form form label textarea,
+form[name="handheldbuydetails"] label textarea,
+form#tell-a-friend label select,
+form#recipeemail label select,
+form#niceform label select,
+form#survey label select,
+form#join_process label select,
+form#login label select,
+form#change_password label select,
+form#request label select,
+form[name="checkoutdetails"] label select,
+form[name="options"] label select,
+div#done-form form label select,
+form[name="handheldbuydetails"] label select {
+    display: block;
+}
+
+form#tell-a-friend input,
+form#recipeemail input,
+form#niceform input,
+form#survey input,
+form#join_process input,
+form#login input,
+form#change_password input,
+form#request input,
+form[name="checkoutdetails"] input,
+form[name="options"] input,
+div#done-form form input,
+form[name="handheldbuydetails"] input,
+form#tell-a-friend textarea,
+form#recipeemail textarea,
+form#niceform textarea,
+form#survey textarea,
+form#join_process textarea,
+form#login textarea,
+form#change_password textarea,
+form#request textarea,
+form[name="checkoutdetails"] textarea,
+form[name="options"] textarea,
+div#done-form form textarea,
+form[name="handheldbuydetails"] textarea,
+form#tell-a-friend select,
+form#recipeemail select,
+form#niceform select,
+form#survey select,
+form#join_process select,
+form#login select,
+form#change_password select,
+form#request select,
+form[name="checkoutdetails"] select,
+form[name="options"] select,
+div#done-form form select,
+form[name="handheldbuydetails"] select {
+    display: inline-block;
+    width: 100%;
+    max-width: 330px;
+    padding: 6px;
+    margin-bottom: 1em;
+    border: 1px solid #bfbfbf;
+    color: #666;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+form#tell-a-friend input:hover,
+form#recipeemail input:hover,
+form#niceform input:hover,
+form#survey input:hover,
+form#join_process input:hover,
+form#login input:hover,
+form#change_password input:hover,
+form#request input:hover,
+form[name="checkoutdetails"] input:hover,
+form[name="options"] input:hover,
+div#done-form form input:hover,
+form[name="handheldbuydetails"] input:hover,
+form#tell-a-friend textarea:hover,
+form#recipeemail textarea:hover,
+form#niceform textarea:hover,
+form#survey textarea:hover,
+form#join_process textarea:hover,
+form#login textarea:hover,
+form#change_password textarea:hover,
+form#request textarea:hover,
+form[name="checkoutdetails"] textarea:hover,
+form[name="options"] textarea:hover,
+div#done-form form textarea:hover,
+form[name="handheldbuydetails"] textarea:hover,
+form#tell-a-friend select:hover,
+form#recipeemail select:hover,
+form#niceform select:hover,
+form#survey select:hover,
+form#join_process select:hover,
+form#login select:hover,
+form#change_password select:hover,
+form#request select:hover,
+form[name="checkoutdetails"] select:hover,
+form[name="options"] select:hover,
+div#done-form form select:hover,
+form[name="handheldbuydetails"] select:hover {
+    border-color: #9dd2db;
+}
+
+form#tell-a-friend .input-mini,
+form#recipeemail .input-mini,
+form#niceform .input-mini,
+form#survey .input-mini,
+form#join_process .input-mini,
+form#login .input-mini,
+form#change_password .input-mini,
+form#request .input-mini,
+form[name="checkoutdetails"] .input-mini,
+form[name="options"] .input-mini,
+div#done-form form .input-mini,
+form[name="handheldbuydetails"] .input-mini {
+    width: 60px;
+}
+
+form#tell-a-friend .input-small,
+form#recipeemail .input-small,
+form#niceform .input-small,
+form#survey .input-small,
+form#join_process .input-small,
+form#login .input-small,
+form#change_password .input-small,
+form#request .input-small,
+form[name="checkoutdetails"] .input-small,
+form[name="options"] .input-small,
+div#done-form form .input-small,
+form[name="handheldbuydetails"] .input-small {
+    width: 90px;
+}
+
+form#tell-a-friend input[type="image"],
+form#recipeemail input[type="image"],
+form#niceform input[type="image"],
+form#survey input[type="image"],
+form#join_process input[type="image"],
+form#login input[type="image"],
+form#change_password input[type="image"],
+form#request input[type="image"],
+form[name="checkoutdetails"] input[type="image"],
+form[name="options"] input[type="image"],
+div#done-form form input[type="image"],
+form[name="handheldbuydetails"] input[type="image"],
+form#tell-a-friend input[type="checkbox"],
+form#recipeemail input[type="checkbox"],
+form#niceform input[type="checkbox"],
+form#survey input[type="checkbox"],
+form#join_process input[type="checkbox"],
+form#login input[type="checkbox"],
+form#change_password input[type="checkbox"],
+form#request input[type="checkbox"],
+form[name="checkoutdetails"] input[type="checkbox"],
+form[name="options"] input[type="checkbox"],
+div#done-form form input[type="checkbox"],
+form[name="handheldbuydetails"] input[type="checkbox"],
+form#tell-a-friend input[type="radio"],
+form#recipeemail input[type="radio"],
+form#niceform input[type="radio"],
+form#survey input[type="radio"],
+form#join_process input[type="radio"],
+form#login input[type="radio"],
+form#change_password input[type="radio"],
+form#request input[type="radio"],
+form[name="checkoutdetails"] input[type="radio"],
+form[name="options"] input[type="radio"],
+div#done-form form input[type="radio"],
+form[name="handheldbuydetails"] input[type="radio"] {
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 3px 0;
+    *margin-top: 0;
+    line-height: normal;
+    cursor: pointer;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    border: 0;
+}
+
+form#tell-a-friend input[type="checkbox"],
+form#recipeemail input[type="checkbox"],
+form#niceform input[type="checkbox"],
+form#survey input[type="checkbox"],
+form#join_process input[type="checkbox"],
+form#login input[type="checkbox"],
+form#change_password input[type="checkbox"],
+form#request input[type="checkbox"],
+form[name="checkoutdetails"] input[type="checkbox"],
+form[name="options"] input[type="checkbox"],
+div#done-form form input[type="checkbox"],
+form[name="handheldbuydetails"] input[type="checkbox"],
+form#tell-a-friend input[type="radio"],
+form#recipeemail input[type="radio"],
+form#niceform input[type="radio"],
+form#survey input[type="radio"],
+form#join_process input[type="radio"],
+form#login input[type="radio"],
+form#change_password input[type="radio"],
+form#request input[type="radio"],
+form[name="checkoutdetails"] input[type="radio"],
+form[name="options"] input[type="radio"],
+div#done-form form input[type="radio"],
+form[name="handheldbuydetails"] input[type="radio"] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    *width: 13px;
+    *height: 13px;
+}
+
+form#tell-a-friend input[type="image"],
+form#recipeemail input[type="image"],
+form#niceform input[type="image"],
+form#survey input[type="image"],
+form#join_process input[type="image"],
+form#login input[type="image"],
+form#change_password input[type="image"],
+form#request input[type="image"],
+form[name="checkoutdetails"] input[type="image"],
+form[name="options"] input[type="image"],
+div#done-form form input[type="image"],
+form[name="handheldbuydetails"] input[type="image"] {
+    border: 0;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+form#tell-a-friend input[type="file"],
+form#recipeemail input[type="file"],
+form#niceform input[type="file"],
+form#survey input[type="file"],
+form#join_process input[type="file"],
+form#login input[type="file"],
+form#change_password input[type="file"],
+form#request input[type="file"],
+form[name="checkoutdetails"] input[type="file"],
+form[name="options"] input[type="file"],
+div#done-form form input[type="file"],
+form[name="handheldbuydetails"] input[type="file"] {
+    width: auto;
+    padding: initial;
+    line-height: initial;
+    border: initial;
+    background-color: transparent;
+    background-color: initial;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+form#tell-a-friend input[type="button"],
+form#recipeemail input[type="button"],
+form#niceform input[type="button"],
+form#survey input[type="button"],
+form#join_process input[type="button"],
+form#login input[type="button"],
+form#change_password input[type="button"],
+form#request input[type="button"],
+form[name="checkoutdetails"] input[type="button"],
+form[name="options"] input[type="button"],
+div#done-form form input[type="button"],
+form[name="handheldbuydetails"] input[type="button"],
+form#tell-a-friend input[type="reset"],
+form#recipeemail input[type="reset"],
+form#niceform input[type="reset"],
+form#survey input[type="reset"],
+form#join_process input[type="reset"],
+form#login input[type="reset"],
+form#change_password input[type="reset"],
+form#request input[type="reset"],
+form[name="checkoutdetails"] input[type="reset"],
+form[name="options"] input[type="reset"],
+div#done-form form input[type="reset"],
+form[name="handheldbuydetails"] input[type="reset"],
+form#tell-a-friend input[type="submit"],
+form#recipeemail input[type="submit"],
+form#niceform input[type="submit"],
+form#survey input[type="submit"],
+form#join_process input[type="submit"],
+form#login input[type="submit"],
+form#change_password input[type="submit"],
+form#request input[type="submit"],
+form[name="checkoutdetails"] input[type="submit"],
+form[name="options"] input[type="submit"],
+div#done-form form input[type="submit"],
+form[name="handheldbuydetails"] input[type="submit"] {
+    width: auto;
+    height: auto;
+    cursor: pointer;
+    color: #fff !important;
+    border: transparent;
+    *overflow: visible;
+}
+
+form#tell-a-friend select,
+form#recipeemail select,
+form#niceform select,
+form#survey select,
+form#join_process select,
+form#login select,
+form#change_password select,
+form#request select,
+form[name="checkoutdetails"] select,
+form[name="options"] select,
+div#done-form form select,
+form[name="handheldbuydetails"] select,
+form#tell-a-friend input[type="file"],
+form#recipeemail input[type="file"],
+form#niceform input[type="file"],
+form#survey input[type="file"],
+form#join_process input[type="file"],
+form#login input[type="file"],
+form#change_password input[type="file"],
+form#request input[type="file"],
+form[name="checkoutdetails"] input[type="file"],
+form[name="options"] input[type="file"],
+div#done-form form input[type="file"],
+form[name="handheldbuydetails"] input[type="file"] {
+    height: 36px;
+    *margin-top: 4px;
+    line-height: 28px;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 1.2em;
+}
+
+form#tell-a-friend select,
+form#recipeemail select,
+form#niceform select,
+form#survey select,
+form#join_process select,
+form#login select,
+form#change_password select,
+form#request select,
+form[name="checkoutdetails"] select,
+form[name="options"] select,
+div#done-form form select,
+form[name="handheldbuydetails"] select {
+    width: auto;
+    background-color: #fff;
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 6px;
+}
+
+form#tell-a-friend select[multiple],
+form#recipeemail select[multiple],
+form#niceform select[multiple],
+form#survey select[multiple],
+form#join_process select[multiple],
+form#login select[multiple],
+form#change_password select[multiple],
+form#request select[multiple],
+form[name="checkoutdetails"] select[multiple],
+form[name="options"] select[multiple],
+div#done-form form select[multiple],
+form[name="handheldbuydetails"] select[multiple],
+form#tell-a-friend select[size],
+form#recipeemail select[size],
+form#niceform select[size],
+form#survey select[size],
+form#join_process select[size],
+form#login select[size],
+form#change_password select[size],
+form#request select[size],
+form[name="checkoutdetails"] select[size],
+form[name="options"] select[size],
+div#done-form form select[size],
+form[name="handheldbuydetails"] select[size] {
+    padding: 6px;
+    height: 28px;
+}
+
+form#tell-a-friend textarea,
+form#recipeemail textarea,
+form#niceform textarea,
+form#survey textarea,
+form#join_process textarea,
+form#login textarea,
+form#change_password textarea,
+form#request textarea,
+form[name="checkoutdetails"] textarea,
+form[name="options"] textarea,
+div#done-form form textarea,
+form[name="handheldbuydetails"] textarea {
+    resize: vertical;
+    overflow: auto;
+    height: auto;
+    overflow: auto;
+    vertical-align: top;
+}
+
+form#tell-a-friend input[type="hidden"],
+form#recipeemail input[type="hidden"],
+form#niceform input[type="hidden"],
+form#survey input[type="hidden"],
+form#join_process input[type="hidden"],
+form#login input[type="hidden"],
+form#change_password input[type="hidden"],
+form#request input[type="hidden"],
+form[name="checkoutdetails"] input[type="hidden"],
+form[name="options"] input[type="hidden"],
+div#done-form form input[type="hidden"],
+form[name="handheldbuydetails"] input[type="hidden"] {
+    display: none;
+}
+
+form#tell-a-friend .radio,
+form#recipeemail .radio,
+form#niceform .radio,
+form#survey .radio,
+form#join_process .radio,
+form#login .radio,
+form#change_password .radio,
+form#request .radio,
+form[name="checkoutdetails"] .radio,
+form[name="options"] .radio,
+div#done-form form .radio,
+form[name="handheldbuydetails"] .radio,
+form#tell-a-friend .checkbox,
+form#recipeemail .checkbox,
+form#niceform .checkbox,
+form#survey .checkbox,
+form#join_process .checkbox,
+form#login .checkbox,
+form#change_password .checkbox,
+form#request .checkbox,
+form[name="checkoutdetails"] .checkbox,
+form[name="options"] .checkbox,
+div#done-form form .checkbox,
+form[name="handheldbuydetails"] .checkbox {
+    padding-left: 18px;
+    font-weight: normal;
+}
+
+form#tell-a-friend .radio input[type="radio"],
+form#recipeemail .radio input[type="radio"],
+form#niceform .radio input[type="radio"],
+form#survey .radio input[type="radio"],
+form#join_process .radio input[type="radio"],
+form#login .radio input[type="radio"],
+form#change_password .radio input[type="radio"],
+form#request .radio input[type="radio"],
+form[name="checkoutdetails"] .radio input[type="radio"],
+form[name="options"] .radio input[type="radio"],
+div#done-form form .radio input[type="radio"],
+form[name="handheldbuydetails"] .radio input[type="radio"],
+form#tell-a-friend .checkbox input[type="checkbox"],
+form#recipeemail .checkbox input[type="checkbox"],
+form#niceform .checkbox input[type="checkbox"],
+form#survey .checkbox input[type="checkbox"],
+form#join_process .checkbox input[type="checkbox"],
+form#login .checkbox input[type="checkbox"],
+form#change_password .checkbox input[type="checkbox"],
+form#request .checkbox input[type="checkbox"],
+form[name="checkoutdetails"] .checkbox input[type="checkbox"],
+form[name="options"] .checkbox input[type="checkbox"],
+div#done-form form .checkbox input[type="checkbox"],
+form[name="handheldbuydetails"] .checkbox input[type="checkbox"] {
+    float: left;
+    margin-left: -18px;
+}
+
+form#tell-a-friend .radio.inline,
+form#recipeemail .radio.inline,
+form#niceform .radio.inline,
+form#survey .radio.inline,
+form#join_process .radio.inline,
+form#login .radio.inline,
+form#change_password .radio.inline,
+form#request .radio.inline,
+form[name="checkoutdetails"] .radio.inline,
+form[name="options"] .radio.inline,
+div#done-form form .radio.inline,
+form[name="handheldbuydetails"] .radio.inline,
+form#tell-a-friend .checkbox.inline,
+form#recipeemail .checkbox.inline,
+form#niceform .checkbox.inline,
+form#survey .checkbox.inline,
+form#join_process .checkbox.inline,
+form#login .checkbox.inline,
+form#change_password .checkbox.inline,
+form#request .checkbox.inline,
+form[name="checkoutdetails"] .checkbox.inline,
+form[name="options"] .checkbox.inline,
+div#done-form form .checkbox.inline,
+form[name="handheldbuydetails"] .checkbox.inline {
+    display: inline-block;
+    padding-top: 5px;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+form#tell-a-friend .radio.inline + .radio.inline,
+form#recipeemail .radio.inline + .radio.inline,
+form#niceform .radio.inline + .radio.inline,
+form#survey .radio.inline + .radio.inline,
+form#join_process .radio.inline + .radio.inline,
+form#login .radio.inline + .radio.inline,
+form#change_password .radio.inline + .radio.inline,
+form#request .radio.inline + .radio.inline,
+form[name="checkoutdetails"] .radio.inline + .radio.inline,
+form[name="options"] .radio.inline + .radio.inline,
+div#done-form form .radio.inline + .radio.inline,
+form[name="handheldbuydetails"] .radio.inline + .radio.inline,
+form#tell-a-friend .checkbox.inline + .checkbox.inline,
+form#recipeemail .checkbox.inline + .checkbox.inline,
+form#niceform .checkbox.inline + .checkbox.inline,
+form#survey .checkbox.inline + .checkbox.inline,
+form#join_process .checkbox.inline + .checkbox.inline,
+form#login .checkbox.inline + .checkbox.inline,
+form#change_password .checkbox.inline + .checkbox.inline,
+form#request .checkbox.inline + .checkbox.inline,
+form[name="checkoutdetails"] .checkbox.inline + .checkbox.inline,
+form[name="options"] .checkbox.inline + .checkbox.inline,
+div#done-form form .checkbox.inline + .checkbox.inline,
+form[name="handheldbuydetails"] .checkbox.inline + .checkbox.inline {
+    margin-left: 10px;
+}
+
+form#tell-a-friend input[disabled],
+form#recipeemail input[disabled],
+form#niceform input[disabled],
+form#survey input[disabled],
+form#join_process input[disabled],
+form#login input[disabled],
+form#change_password input[disabled],
+form#request input[disabled],
+form[name="checkoutdetails"] input[disabled],
+form[name="options"] input[disabled],
+div#done-form form input[disabled],
+form[name="handheldbuydetails"] input[disabled],
+form#tell-a-friend select[disabled],
+form#recipeemail select[disabled],
+form#niceform select[disabled],
+form#survey select[disabled],
+form#join_process select[disabled],
+form#login select[disabled],
+form#change_password select[disabled],
+form#request select[disabled],
+form[name="checkoutdetails"] select[disabled],
+form[name="options"] select[disabled],
+div#done-form form select[disabled],
+form[name="handheldbuydetails"] select[disabled],
+form#tell-a-friend textarea[disabled],
+form#recipeemail textarea[disabled],
+form#niceform textarea[disabled],
+form#survey textarea[disabled],
+form#join_process textarea[disabled],
+form#login textarea[disabled],
+form#change_password textarea[disabled],
+form#request textarea[disabled],
+form[name="checkoutdetails"] textarea[disabled],
+form[name="options"] textarea[disabled],
+div#done-form form textarea[disabled],
+form[name="handheldbuydetails"] textarea[disabled],
+form#tell-a-friend input[readonly],
+form#recipeemail input[readonly],
+form#niceform input[readonly],
+form#survey input[readonly],
+form#join_process input[readonly],
+form#login input[readonly],
+form#change_password input[readonly],
+form#request input[readonly],
+form[name="checkoutdetails"] input[readonly],
+form[name="options"] input[readonly],
+div#done-form form input[readonly],
+form[name="handheldbuydetails"] input[readonly],
+form#tell-a-friend select[readonly],
+form#recipeemail select[readonly],
+form#niceform select[readonly],
+form#survey select[readonly],
+form#join_process select[readonly],
+form#login select[readonly],
+form#change_password select[readonly],
+form#request select[readonly],
+form[name="checkoutdetails"] select[readonly],
+form[name="options"] select[readonly],
+div#done-form form select[readonly],
+form[name="handheldbuydetails"] select[readonly],
+form#tell-a-friend textarea[readonly],
+form#recipeemail textarea[readonly],
+form#niceform textarea[readonly],
+form#survey textarea[readonly],
+form#join_process textarea[readonly],
+form#login textarea[readonly],
+form#change_password textarea[readonly],
+form#request textarea[readonly],
+form[name="checkoutdetails"] textarea[readonly],
+form[name="options"] textarea[readonly],
+div#done-form form textarea[readonly],
+form[name="handheldbuydetails"] textarea[readonly] {
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+form#tell-a-friend input:focus,
+form#recipeemail input:focus,
+form#niceform input:focus,
+form#survey input:focus,
+form#join_process input:focus,
+form#login input:focus,
+form#change_password input:focus,
+form#request input:focus,
+form[name="checkoutdetails"] input:focus,
+form[name="options"] input:focus,
+div#done-form form input:focus,
+form[name="handheldbuydetails"] input:focus,
+form#tell-a-friend textarea:focus,
+form#recipeemail textarea:focus,
+form#niceform textarea:focus,
+form#survey textarea:focus,
+form#join_process textarea:focus,
+form#login textarea:focus,
+form#change_password textarea:focus,
+form#request textarea:focus,
+form[name="checkoutdetails"] textarea:focus,
+form[name="options"] textarea:focus,
+div#done-form form textarea:focus,
+form[name="handheldbuydetails"] textarea:focus {
+    border-color: #b25c5c, 40%;
+    outline: 0;
+    outline: thin dotted;
+}
+
+form#tell-a-friend input[type="file"]:focus,
+form#recipeemail input[type="file"]:focus,
+form#niceform input[type="file"]:focus,
+form#survey input[type="file"]:focus,
+form#join_process input[type="file"]:focus,
+form#login input[type="file"]:focus,
+form#change_password input[type="file"]:focus,
+form#request input[type="file"]:focus,
+form[name="checkoutdetails"] input[type="file"]:focus,
+form[name="options"] input[type="file"]:focus,
+div#done-form form input[type="file"]:focus,
+form[name="handheldbuydetails"] input[type="file"]:focus,
+form#tell-a-friend input[type="radio"]:focus,
+form#recipeemail input[type="radio"]:focus,
+form#niceform input[type="radio"]:focus,
+form#survey input[type="radio"]:focus,
+form#join_process input[type="radio"]:focus,
+form#login input[type="radio"]:focus,
+form#change_password input[type="radio"]:focus,
+form#request input[type="radio"]:focus,
+form[name="checkoutdetails"] input[type="radio"]:focus,
+form[name="options"] input[type="radio"]:focus,
+div#done-form form input[type="radio"]:focus,
+form[name="handheldbuydetails"] input[type="radio"]:focus,
+form#tell-a-friend input[type="checkbox"]:focus,
+form#recipeemail input[type="checkbox"]:focus,
+form#niceform input[type="checkbox"]:focus,
+form#survey input[type="checkbox"]:focus,
+form#join_process input[type="checkbox"]:focus,
+form#login input[type="checkbox"]:focus,
+form#change_password input[type="checkbox"]:focus,
+form#request input[type="checkbox"]:focus,
+form[name="checkoutdetails"] input[type="checkbox"]:focus,
+form[name="options"] input[type="checkbox"]:focus,
+div#done-form form input[type="checkbox"]:focus,
+form[name="handheldbuydetails"] input[type="checkbox"]:focus,
+form#tell-a-friend select:focus,
+form#recipeemail select:focus,
+form#niceform select:focus,
+form#survey select:focus,
+form#join_process select:focus,
+form#login select:focus,
+form#change_password select:focus,
+form#request select:focus,
+form[name="checkoutdetails"] select:focus,
+form[name="options"] select:focus,
+div#done-form form select:focus,
+form[name="handheldbuydetails"] select:focus {
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+
+form#tell-a-friend::-webkit-input-placeholder,
+form#recipeemail::-webkit-input-placeholder,
+form#niceform::-webkit-input-placeholder,
+form#survey::-webkit-input-placeholder,
+form#join_process::-webkit-input-placeholder,
+form#login::-webkit-input-placeholder,
+form#change_password::-webkit-input-placeholder,
+form#request::-webkit-input-placeholder,
+form[name="checkoutdetails"]::-webkit-input-placeholder,
+form[name="options"]::-webkit-input-placeholder,
+div#done-form form::-webkit-input-placeholder,
+form[name="handheldbuydetails"]::-webkit-input-placeholder {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+form#tell-a-friend input:-moz-placeholder,
+form#recipeemail input:-moz-placeholder,
+form#niceform input:-moz-placeholder,
+form#survey input:-moz-placeholder,
+form#join_process input:-moz-placeholder,
+form#login input:-moz-placeholder,
+form#change_password input:-moz-placeholder,
+form#request input:-moz-placeholder,
+form[name="checkoutdetails"] input:-moz-placeholder,
+form[name="options"] input:-moz-placeholder,
+div#done-form form input:-moz-placeholder,
+form[name="handheldbuydetails"] input:-moz-placeholder {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+form#tell-a-friend .help-block,
+form#recipeemail .help-block,
+form#niceform .help-block,
+form#survey .help-block,
+form#join_process .help-block,
+form#login .help-block,
+form#change_password .help-block,
+form#request .help-block,
+form[name="checkoutdetails"] .help-block,
+form[name="options"] .help-block,
+div#done-form form .help-block,
+form[name="handheldbuydetails"] .help-block,
+form#tell-a-friend .help-inline,
+form#recipeemail .help-inline,
+form#niceform .help-inline,
+form#survey .help-inline,
+form#join_process .help-inline,
+form#login .help-inline,
+form#change_password .help-inline,
+form#request .help-inline,
+form[name="checkoutdetails"] .help-inline,
+form[name="options"] .help-inline,
+div#done-form form .help-inline,
+form[name="handheldbuydetails"] .help-inline {
+    color: #808080;
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+form#tell-a-friend .help-block,
+form#recipeemail .help-block,
+form#niceform .help-block,
+form#survey .help-block,
+form#join_process .help-block,
+form#login .help-block,
+form#change_password .help-block,
+form#request .help-block,
+form[name="checkoutdetails"] .help-block,
+form[name="options"] .help-block,
+div#done-form form .help-block,
+form[name="handheldbuydetails"] .help-block {
+    display: block;
+    margin-bottom: 0.75em;
+    margin-top: -0.5em;
+}
+
+form#tell-a-friend .help-inline,
+form#recipeemail .help-inline,
+form#niceform .help-inline,
+form#survey .help-inline,
+form#join_process .help-inline,
+form#login .help-inline,
+form#change_password .help-inline,
+form#request .help-inline,
+form[name="checkoutdetails"] .help-inline,
+form[name="options"] .help-inline,
+div#done-form form .help-inline,
+form[name="handheldbuydetails"] .help-inline {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 5px;
+}
+
+form#tell-a-friend .form-inline input,
+form#recipeemail .form-inline input,
+form#niceform .form-inline input,
+form#survey .form-inline input,
+form#join_process .form-inline input,
+form#login .form-inline input,
+form#change_password .form-inline input,
+form#request .form-inline input,
+form[name="checkoutdetails"] .form-inline input,
+form[name="options"] .form-inline input,
+div#done-form form .form-inline input,
+form[name="handheldbuydetails"] .form-inline input,
+form#tell-a-friend .form-inline textarea,
+form#recipeemail .form-inline textarea,
+form#niceform .form-inline textarea,
+form#survey .form-inline textarea,
+form#join_process .form-inline textarea,
+form#login .form-inline textarea,
+form#change_password .form-inline textarea,
+form#request .form-inline textarea,
+form[name="checkoutdetails"] .form-inline textarea,
+form[name="options"] .form-inline textarea,
+div#done-form form .form-inline textarea,
+form[name="handheldbuydetails"] .form-inline textarea,
+form#tell-a-friend .form-inline select,
+form#recipeemail .form-inline select,
+form#niceform .form-inline select,
+form#survey .form-inline select,
+form#join_process .form-inline select,
+form#login .form-inline select,
+form#change_password .form-inline select,
+form#request .form-inline select,
+form[name="checkoutdetails"] .form-inline select,
+form[name="options"] .form-inline select,
+div#done-form form .form-inline select,
+form[name="handheldbuydetails"] .form-inline select {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+form#tell-a-friend .form-inline label,
+form#recipeemail .form-inline label,
+form#niceform .form-inline label,
+form#survey .form-inline label,
+form#join_process .form-inline label,
+form#login .form-inline label,
+form#change_password .form-inline label,
+form#request .form-inline label,
+form[name="checkoutdetails"] .form-inline label,
+form[name="options"] .form-inline label,
+div#done-form form .form-inline label,
+form[name="handheldbuydetails"] .form-inline label {
+    display: inline-block;
+    font-weight: normal;
+    color: #666;
+}
+
+form#tell-a-friend .form-inline .radio,
+form#recipeemail .form-inline .radio,
+form#niceform .form-inline .radio,
+form#survey .form-inline .radio,
+form#join_process .form-inline .radio,
+form#login .form-inline .radio,
+form#change_password .form-inline .radio,
+form#request .form-inline .radio,
+form[name="checkoutdetails"] .form-inline .radio,
+form[name="options"] .form-inline .radio,
+div#done-form form .form-inline .radio,
+form[name="handheldbuydetails"] .form-inline .radio,
+form#tell-a-friend .form-inline .checkbox,
+form#recipeemail .form-inline .checkbox,
+form#niceform .form-inline .checkbox,
+form#survey .form-inline .checkbox,
+form#join_process .form-inline .checkbox,
+form#login .form-inline .checkbox,
+form#change_password .form-inline .checkbox,
+form#request .form-inline .checkbox,
+form[name="checkoutdetails"] .form-inline .checkbox,
+form[name="options"] .form-inline .checkbox,
+div#done-form form .form-inline .checkbox,
+form[name="handheldbuydetails"] .form-inline .checkbox,
+form#tell-a-friend .form-inline .radio,
+form#recipeemail .form-inline .radio,
+form#niceform .form-inline .radio,
+form#survey .form-inline .radio,
+form#join_process .form-inline .radio,
+form#login .form-inline .radio,
+form#change_password .form-inline .radio,
+form#request .form-inline .radio,
+form[name="checkoutdetails"] .form-inline .radio,
+form[name="options"] .form-inline .radio,
+div#done-form form .form-inline .radio,
+form[name="handheldbuydetails"] .form-inline .radio {
+    padding-left: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+    color: #666;
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+form#tell-a-friend .form-inline .radio input[type="radio"],
+form#recipeemail .form-inline .radio input[type="radio"],
+form#niceform .form-inline .radio input[type="radio"],
+form#survey .form-inline .radio input[type="radio"],
+form#join_process .form-inline .radio input[type="radio"],
+form#login .form-inline .radio input[type="radio"],
+form#change_password .form-inline .radio input[type="radio"],
+form#request .form-inline .radio input[type="radio"],
+form[name="checkoutdetails"] .form-inline .radio input[type="radio"],
+form[name="options"] .form-inline .radio input[type="radio"],
+div#done-form form .form-inline .radio input[type="radio"],
+form[name="handheldbuydetails"] .form-inline .radio input[type="radio"],
+form#tell-a-friend .form-inline .checkbox input[type="checkbox"],
+form#recipeemail .form-inline .checkbox input[type="checkbox"],
+form#niceform .form-inline .checkbox input[type="checkbox"],
+form#survey .form-inline .checkbox input[type="checkbox"],
+form#join_process .form-inline .checkbox input[type="checkbox"],
+form#login .form-inline .checkbox input[type="checkbox"],
+form#change_password .form-inline .checkbox input[type="checkbox"],
+form#request .form-inline .checkbox input[type="checkbox"],
+form[name="checkoutdetails"] .form-inline .checkbox input[type="checkbox"],
+form[name="options"] .form-inline .checkbox input[type="checkbox"],
+div#done-form form .form-inline .checkbox input[type="checkbox"],
+form[name="handheldbuydetails"] .form-inline .checkbox input[type="checkbox"] {
+    float: left;
+    margin-left: 0;
+    margin-right: 6px;
+}
+
+form#tell-a-friend .form-search input,
+form#recipeemail .form-search input,
+form#niceform .form-search input,
+form#survey .form-search input,
+form#join_process .form-search input,
+form#login .form-search input,
+form#change_password .form-search input,
+form#request .form-search input,
+form[name="checkoutdetails"] .form-search input,
+form[name="options"] .form-search input,
+div#done-form form .form-search input,
+form[name="handheldbuydetails"] .form-search input,
+form#tell-a-friend .form-search textarea,
+form#recipeemail .form-search textarea,
+form#niceform .form-search textarea,
+form#survey .form-search textarea,
+form#join_process .form-search textarea,
+form#login .form-search textarea,
+form#change_password .form-search textarea,
+form#request .form-search textarea,
+form[name="checkoutdetails"] .form-search textarea,
+form[name="options"] .form-search textarea,
+div#done-form form .form-search textarea,
+form[name="handheldbuydetails"] .form-search textarea,
+form#tell-a-friend .form-search select,
+form#recipeemail .form-search select,
+form#niceform .form-search select,
+form#survey .form-search select,
+form#join_process .form-search select,
+form#login .form-search select,
+form#change_password .form-search select,
+form#request .form-search select,
+form[name="checkoutdetails"] .form-search select,
+form[name="options"] .form-search select,
+div#done-form form .form-search select,
+form[name="handheldbuydetails"] .form-search select {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+form#tell-a-friend .form-search .search-query,
+form#recipeemail .form-search .search-query,
+form#niceform .form-search .search-query,
+form#survey .form-search .search-query,
+form#join_process .form-search .search-query,
+form#login .form-search .search-query,
+form#change_password .form-search .search-query,
+form#request .form-search .search-query,
+form[name="checkoutdetails"] .form-search .search-query,
+form[name="options"] .form-search .search-query,
+div#done-form form .form-search .search-query,
+form[name="handheldbuydetails"] .form-search .search-query {
+    padding-left: 14px;
+    padding-right: 14px;
+    margin-bottom: 0;
+    -webkit-border-radius: 14px;
+    -moz-border-radius: 14px;
+    border-radius: 14px;
+}
+
+form#tell-a-friend .form-search label,
+form#recipeemail .form-search label,
+form#niceform .form-search label,
+form#survey .form-search label,
+form#join_process .form-search label,
+form#login .form-search label,
+form#change_password .form-search label,
+form#request .form-search label,
+form[name="checkoutdetails"] .form-search label,
+form[name="options"] .form-search label,
+div#done-form form .form-search label,
+form[name="handheldbuydetails"] .form-search label {
+    display: inline-block;
+}
+
+form#tell-a-friend .form-search .radio,
+form#recipeemail .form-search .radio,
+form#niceform .form-search .radio,
+form#survey .form-search .radio,
+form#join_process .form-search .radio,
+form#login .form-search .radio,
+form#change_password .form-search .radio,
+form#request .form-search .radio,
+form[name="checkoutdetails"] .form-search .radio,
+form[name="options"] .form-search .radio,
+div#done-form form .form-search .radio,
+form[name="handheldbuydetails"] .form-search .radio,
+form#tell-a-friend .form-search .checkbox,
+form#recipeemail .form-search .checkbox,
+form#niceform .form-search .checkbox,
+form#survey .form-search .checkbox,
+form#join_process .form-search .checkbox,
+form#login .form-search .checkbox,
+form#change_password .form-search .checkbox,
+form#request .form-search .checkbox,
+form[name="checkoutdetails"] .form-search .checkbox,
+form[name="options"] .form-search .checkbox,
+div#done-form form .form-search .checkbox,
+form[name="handheldbuydetails"] .form-search .checkbox,
+form#tell-a-friend .form-inline .radio,
+form#recipeemail .form-inline .radio,
+form#niceform .form-inline .radio,
+form#survey .form-inline .radio,
+form#join_process .form-inline .radio,
+form#login .form-inline .radio,
+form#change_password .form-inline .radio,
+form#request .form-inline .radio,
+form[name="checkoutdetails"] .form-inline .radio,
+form[name="options"] .form-inline .radio,
+div#done-form form .form-inline .radio,
+form[name="handheldbuydetails"] .form-inline .radio {
+    padding-left: 0;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+form#tell-a-friend .form-search .radio input[type="radio"],
+form#recipeemail .form-search .radio input[type="radio"],
+form#niceform .form-search .radio input[type="radio"],
+form#survey .form-search .radio input[type="radio"],
+form#join_process .form-search .radio input[type="radio"],
+form#login .form-search .radio input[type="radio"],
+form#change_password .form-search .radio input[type="radio"],
+form#request .form-search .radio input[type="radio"],
+form[name="checkoutdetails"] .form-search .radio input[type="radio"],
+form[name="options"] .form-search .radio input[type="radio"],
+div#done-form form .form-search .radio input[type="radio"],
+form[name="handheldbuydetails"] .form-search .radio input[type="radio"],
+form#tell-a-friend .form-search .checkbox input[type="checkbox"],
+form#recipeemail .form-search .checkbox input[type="checkbox"],
+form#niceform .form-search .checkbox input[type="checkbox"],
+form#survey .form-search .checkbox input[type="checkbox"],
+form#join_process .form-search .checkbox input[type="checkbox"],
+form#login .form-search .checkbox input[type="checkbox"],
+form#change_password .form-search .checkbox input[type="checkbox"],
+form#request .form-search .checkbox input[type="checkbox"],
+form[name="checkoutdetails"] .form-search .checkbox input[type="checkbox"],
+form[name="options"] .form-search .checkbox input[type="checkbox"],
+div#done-form form .form-search .checkbox input[type="checkbox"],
+form[name="handheldbuydetails"] .form-search .checkbox input[type="checkbox"] {
+    float: left;
+    margin-left: 0;
+    margin-right: 3px;
+}
+
+form#tell-a-friend #cc_details_div,
+form#recipeemail #cc_details_div,
+form#niceform #cc_details_div,
+form#survey #cc_details_div,
+form#join_process #cc_details_div,
+form#login #cc_details_div,
+form#change_password #cc_details_div,
+form#request #cc_details_div,
+form[name="checkoutdetails"] #cc_details_div,
+form[name="options"] #cc_details_div,
+div#done-form form #cc_details_div,
+form[name="handheldbuydetails"] #cc_details_div {
+    margin-top: 2em;
+}
+
+form#checkoutdetails input#mailinglist {
+    margin-right: 10px !important;
+}
+
+.btn,
+#page-content .btn,
+input[type="submit"],
+button,
+.navigation a {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    text-decoration: none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f26950), to(#ee4021));
+    background-image: -webkit-linear-gradient(top, #f26950, #ee4021);
+    background-color: #ee4021;
+    background-image: -moz-linear-gradient(top, #f26950, #ee4021);
+    background-image: -ms-linear-gradient(top, #f26950, #ee4021);
+    background-image: -o-linear-gradient(top, #f26950, #ee4021);
+    background-image: linear-gradient(top, #f26950, #ee4021);
+    background-repeat: repeat-x;
+    border: transparent;
+    color: white;
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: normal;
+    padding: 8px 16px;
+    margin-top: 0em;
+}
+
+form.formal-form legend {
+    display: none !important;
+}
+
+#page-content #carousel .alternate {
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#8ac6d1), to(#7abfca));
+    background-image: -webkit-linear-gradient(top, #8ac6d1, #7abfca);
+    background-color: #7abfca;
+    background-image: -moz-linear-gradient(top, #8ac6d1, #7abfca);
+    background-image: -ms-linear-gradient(top, #8ac6d1, #7abfca);
+    background-image: -o-linear-gradient(top, #8ac6d1, #7abfca);
+    background-image: linear-gradient(top, #8ac6d1, #7abfca);
+    background-repeat: repeat-x;
+    border: 1px solid #429fb0;
+    display: inline-block;
+    zoom: 1;
+    margin-top: 1em;
+    text-shadow: 0px 1px 0px #429fb0;
+}
+
+.btn:hover,
+#page-content .btn:hover,
+input[type="submit"]:hover,
+button:hover,
+.navigation a:hover {
+    background: #f26950 !important;
+    color: white;
+}
+
+#page-content #sidebar-food-search input[type="text"] {
+    width: 75%;
+}
+
+#aetnasupport #niceform input[type="submit"] {
+    max-width: none;
+}
+
+input.minor,
+button.minor {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #333;
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+table {
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 1.5em;
+    max-width: 100%;
+    width: 100%;
+}
+
+table caption {
+    color: #205059;
+    margin-bottom: 0.75em;
+    text-align: left;
+    font-size: 24px;
+    font-size: 2.4rem;
+    margin-top: 2em;
+}
+
+table th,
+table td {
+    border-top: 1px solid #e6e6e6;
+    font-size: 1.2rem;
+    line-height: 1.5em;
+    padding: 8px;
+    text-align: left;
+    vertical-align: top;
+}
+
+table th {
+    color: #205059;
+    font-weight: bold;
+}
+
+table thead th {
+    border-bottom: 2px solid #b25c5c;
+    vertical-align: bottom;
+}
+
+table colgroup + thead tr:first-child th,
+table colgroup + thead tr:first-child td,
+table thead:first-child tr:first-child th,
+table thead:first-child tr:first-child td {
+    border-top: 0 none;
+}
+
+table tbody + tbody {
+    border-top: 2px solid #e6e6e6;
+}
+
+table tbody tr:hover td,
+table tbody tr:hover th {
+    background-color: #fff;
+}
+
+.table-condensed th,
+.table-condensed td {
+    padding: 4px 5px;
+}
+
+.table-bordered {
+    -moz-border-bottom-colors: none;
+    -moz-border-image: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    border-collapse: separate;
+    border-color: #e6e6e6 #e6e6e6 #e6e6e6 -moz-use-text-color;
+    border-style: solid solid solid none;
+    border-width: 1px 1px 1px 0;
+}
+
+.table-bordered th,
+.table-bordered td {
+    border-left: 1px solid #e6e6e6;
+}
+
+.table-bordered thead:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child th,
+.table-bordered tbody:first-child tr:first-child td {
+    border-top: 0 none;
+}
+
+.table-striped tbody tr:nth-child(2n+1) td,
+.table-striped tbody tr:nth-child(2n+1) th {
+    background-color: #fff;
+}
+
+.subtle,
+#page-content .subtle,
+.navigation a {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #666;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.subtle.subtle,
+#page-content .subtle.subtle,
+.navigation a.subtle {
+    width: auto;
+    display: inline-block;
+}
+
+.subtle {
+    padding: 12px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.subtle input[name="keywords"],
+.subtle input[name="email"],
+.subtle .input input.keywords {
+    font-size: 18px;
+    font-size: 1.8rem;
+    padding: 6px 6px 7px;
+    width: auto !important;
+    color: #666;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.subtle .label {
+    font-size: 16px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #205059;
+    display: block;
+}
+
+table.shoppingcart {
+    width: 90% !important;
+}
+
+table.shoppingcart th {
+    background: #e8f4f6 !important;
+    padding: 1em;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+table.shoppingcart tr td,
+table.shoppingcart tr th {
+    padding: 8px !important;
+}
+
+#search-content,
+#la-content,
+#support-content {
+    width: 620px;
+    float: left;
+}
+
+#search-content .float-half,
+#la-content .float-half,
+#support-content .float-half {
+    width: 45%;
+}
+
+#search-content .float-half li,
+#la-content .float-half li,
+#support-content .float-half li {
+    font-size: .875em !important;
+    line-height: 1.35em !important;
+    margin-bottom: .75em;
+}
+
+#page-content #search-filters label {
+    font-weight: bold;
+}
+
+#page-content #search-filters input[value="Go"] {
+    padding: 4px 8px;
+}
+
+#page-content #search-filters .subtle {
+    margin-bottom: 20px;
+}
+
+#page-content #search-filters .subtle input[type="submit"] {
+    font-size: 16px;
+    font-size: 1.6rem;
+    padding: 8px 12px;
+}
+
+#search-results-content {
+    width: 600px;
+    float: left;
+}
+
+.pagination {
+    height: 36px;
+    margin: 18px 0;
+}
+
+#page-content ul.pagination {
+    -moz-border-radius: 3px 3px 3px 3px;
+    -webkit-border-radius: 3px 3px 3px 3px;
+    border-radius: 3px 3px 3px 3px;
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-top: 1.5em;
+    padding-left: 0;
+    clear: both;
+}
+
+.pagination li {
+    display: inline;
+    background: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.pagination a {
+    border-color: #ddd;
+    border-style: solid;
+    border-width: 1px 1px 1px 0;
+    float: left;
+    line-height: 34px;
+    padding: 0 14px;
+    text-decoration: none;
+    background: #fff;
+    border-radius: 0;
+}
+
+.pagination a:hover,
+.pagination .active a {
+    background-color: #f5f5f5;
+}
+
+.pagination .active a {
+    color: #999;
+    cursor: default;
+    background: #eef7f9;
+    color: #266873;
+}
+
+.pagination li:first-child + li a[href="#"],
+.pagination li:first-child a[href="#"],
+.pagination li a[href="#"] {
+    background: transparent;
+    color: #999 !important;
+    cursor: default;
+}
+
+.pagination .disabled span,
+.pagination a.disabled,
+.pagination a.disabled:hover {
+    background-color: #b25c5c;
+    color: #fff !important;
+    cursor: default;
+}
+
+.pagination li:first-child a {
+    border-left-width: 1px;
+    border-radius: 3px 0 0 3px;
+}
+
+.pagination li:first-child a.disabled {
+    background: transparent;
+    color: #999 !important;
+}
+
+.pagination li:first-child + li a.disabled {
+    background: transparent;
+    color: #999 !important;
+}
+
+li a.disabled.Next,
+li a.disabled.Last {
+    background: transparent;
+    color: #999 !important;
+}
+
+.pagination li:last-child a {
+    border-radius: 0 3px 3px 0;
+}
+
+.pagination-centered {
+    text-align: center;
+}
+
+.pagination-right {
+    text-align: right;
+}
+
+.pager {
+    list-style: none outside none;
+    margin-bottom: 18px;
+    margin-left: 0;
+    text-align: center;
+}
+
+.pager:before,
+.pager:after {
+    content: "";
+    display: table;
+}
+
+.pager:after {
+    clear: both;
+}
+
+.pager li {
+    display: inline;
+}
+
+.pager a {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px 15px 15px 15px;
+    display: inline-block;
+    padding: 5px 14px;
+}
+
+.pager a:hover {
+    background-color: #f5f5f5;
+    text-decoration: none;
+}
+
+.pager .next a {
+    float: right;
+}
+
+.pager .previous a {
+    float: left;
+}
+
+.pager .disabled a,
+.pager .disabled a:hover {
+    background-color: #fff;
+    color: #999;
+    cursor: default;
+}
+
+#page-content .features {
+    padding: 2em;
+    background: #b25c5c;
+    border: 1px solid #77c1ce;
+    overflow: hidden;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+#page-content .features .single-column {
+    margin-right: 25px;
+    width: 30%;
+}
+
+#page-content .features .single-column h4 {
+    margin-top: 0;
+    color: #fff;
+}
+
+#page-content .features .single-column p,
+#page-content .features .single-column a {
+    color: #fff;
+}
+
+div#navigation {
+    float: right;
+    width: 20em;
+    font-size: 1.2em;
+    margin: 0.5em 0 1.5em 3em;
+    background-color: #f8f8f8;
+    border: 1px solid #ebebeb;
+    border-right: 2px solid #ebebeb;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    color: #ccc;
+}
+
+div#navigation ul {
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-size: 1.2rem;
+}
+
+div#navigation li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background: #fff;
+}
+
+div#navigation a {
+    display: block;
+    padding: 1em;
+    border-right: 1px solid #dadada;
+    border-bottom: 1px solid #dadada;
+    text-decoration: none;
+}
+
+div#navigation a:hover {
+    background-color: #ebebeb;
+    text-decoration: underline;
+}
+
+div#navigation a.selected {
+    background-color: #b25c5c;
+    color: #fff;
+}
+
+#page-content .joslin {
+    clear: right;
+    width: 208px;
+    margin-top: 0;
+}
+
+#page-content .joslin img {
+    display: block;
+    margin: 20px 0;
+}
+
+#signup-status {
+    display: block !important;
+}
+
+.alert,
+#email_missing,
+#email_invalid,
+#username_valid.error,
+p.warning,
+td.highlight {
+    margin-bottom: 1.5em;
+    padding: 8px 35px 8px 14px;
+    background-color: #fcf8e3;
+    border: 1px solid #f2e187;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    max-width: 600px;
+    font-size: 14px;
+    font-size: 1.4rem;
+    color: #9c8611;
+}
+
+.alert .alert-heading,
+#email_missing .alert-heading,
+#email_invalid .alert-heading,
+#username_valid.error .alert-heading,
+p.warning .alert-heading,
+td.highlight .alert-heading {
+    color: inherit;
+}
+
+.alert .close,
+#email_missing .close,
+#email_invalid .close,
+#username_valid.error .close,
+p.warning .close,
+td.highlight .close {
+    position: relative;
+    top: -2px;
+    right: -21px;
+    float: right;
+    font-size: 21px;
+    font-size: 2.1rem;
+    font-weight: bold;
+    line-height: 18px;
+    color: inherit;
+}
+
+.alert-success {
+    background-color: #c5e6c5;
+    border-color: #a2d6a2;
+    color: #347834;
+}
+
+.alert-warning {
+    background-color: #fee7c7;
+    border-color: #fcd296;
+    color: #c17305;
+}
+
+.alert-error,
+#email_missing,
+#email_invalid,
+#username_valid.error,
+p.warning,
+td.highlight {
+    background-color: #f4cac8;
+    border-color: #eba19e;
+    color: #da4f49 !important;
+}
+
+.alert-inverse {
+    background-color: #414141;
+    border-color: #000;
+    color: #fff;
+}
+
+#page-content #rec-def {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 0;
+}
+
+.no-bg,
+#page-content .no-bg,
+form[name="checkoutdetails"],
+table.detail_column td,
+form[name="options"],
+form[name="handheldbuydetails"] {
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+}
+
+.no-bg h1,
+#page-content .no-bg h1,
+form[name="checkoutdetails"] h1,
+table.detail_column td h1,
+form[name="options"] h1,
+form[name="handheldbuydetails"] h1 {
+    margin-left: 0 !important;
+    border-bottom: none !important;
+    font-weight: normal;
+}
+
+table.detail_column table {
+    margin-bottom: 3em;
+}
+
+table.detail_column table td {
+    text-transform: capitalize;
+    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+table.detail_column table td p {
+    text-transform: none;
+}
+
+table.detail_column table td input.text_field {
+    display: block;
+}
+
+table.detail_column table td #s_state {
+    display: block;
+}
+
+table.detail_column table td #s_city,
+table.detail_column table td #cc_number,
+table.detail_column table td #cc_name {
+    width: 80%;
+}
+
+table.detail_column table td #s_postcode {
+    width: 50%;
+}
+
+table.detail_column table td #cc_csc {
+    width: 10%;
+}
+
+#done-form {
+    width: 90%;
+}
+
+#done-form br {
+    display: block !important;
+}
+
+#done-form br + b {
+    margin-bottom: 10px;
+    display: block;
+    text-transform: none;
+}
+
+.navigation {
+    margin: 40px 0;
+}
+
+#otherform legend {
+    visibility: hidden;
+}
+
+#page-content dl.search-results dd {
+    margin-bottom: 0;
+}
+
+#survey-dialog {
+    top: 20px !important;
+}
+
+#survey-dialog h3 {
+    display: none;
+}
+
+#survey {
+    margin-top: 0;
+}
+
+#survey legend {
+    padding: 10px 0px;
+    line-height: 1.5em;
+}
+
+#survey label {
+    width: 80%;
+    padding: 4px 0;
+}
+
+#survey ul.form-inline {
+    margin-bottom: 3em;
+    margin-top: 2em;
+}
+
+#survey li.survey-opt {
+    margin-bottom: .75em;
+    max-width: none;
+    position: relative;
+}
+
+table.detail_column table#payment {
+    margin-bottom: 0;
+}
+
+table.detail_column table#payment td {
+    width: 50%;
+    background: #fff !important;
+}
+
+table.detail_column table#payment td input.text_field {
+    width: 80% !important;
+}
+
+hr {
+    border: 1px solid #eee;
+    background-color: #eee;
+}
+
+.rhs ol li {
+    max-width: none !important;
+}
+
+.ie7 #page-content dl.search-results dd {
+    margin-bottom: 1.5em;
+}
+
+.ie7 #page-content li,
+.ie7 #page-content .rhs ol li {
+    max-width: none !important;
+    width: auto;
+}
+
+.ie7 #page-content #cart-content table,
+.ie7 #page-content #group-search-results,
+.ie7 #page-content #forums-threads-list,
+.ie7 #page-content .fed_table,
+.ie7 #page-content .nutrient-facts,
+.ie7 #page-content #forum-search,
+.ie7 #page-content .nutrients,
+.ie7 #page-content table.shoppingcart {
+    font-size: 1.2em;
+}
+
+.ie7 #page-content #cart-content table .section_total,
+.ie7 #page-content #group-search-results .section_total,
+.ie7 #page-content #forums-threads-list .section_total,
+.ie7 #page-content .fed_table .section_total,
+.ie7 #page-content .nutrient-facts .section_total,
+.ie7 #page-content #forum-search .section_total,
+.ie7 #page-content table.shoppingcart .section_total {
+    font-size: 13px;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.ie7 #page-content div.store-product-control ul.controls input {
+    padding: 6px;
+    width: auto;
+}
+
+.ie7 #page-content #sidebar li {
+    margin-left: 15px;
+    list-style: disc;
+}
+
+.ie7 #page-content #recSubCat li {
+    height: 1em;
+}
+
+.ie7 #page-content #emailUnSub {
+    width: 60%;
+}
+
+.ie7 #page-content #emailUnSub input[type="text"] {
+    width: 60% !important;
+}
+
+.ie7 #page-content #faqsearch .subtle input[type="text"] {
+    width: 76% !important;
+}
+
+.ie7 #page-content #faqsearch .subtle input[value="Go"] {
+    margin-top: -43px !important;
+    font-size: 1.6em;
+    padding: 6px 6px 4px;
+}
+
+.ie7 #page-content #recipeSearch {
+    width: 60%;
+}
+
+.ie7 #page-content #recipeSearch input[type="text"] {
+    width: 82% !important;
+}
+
+.ie7 #page-content form.subtle,
+.ie7 #page-content #faux-form {
+    width: 100%;
+}
+
+.ie7 #page-content form.subtle input[value="Search"],
+.ie7 #page-content #faux-form input[value="Search"] {
+    width: 17% !important;
+}
+
+.ie7 #page-content form.subtle input[type="text"],
+.ie7 #page-content #faux-form input[type="text"] {
+    width: 76% !important;
+}
+
+.ie7 #page-content form.subtle input[type="submit"],
+.ie7 #page-content #faux-form input[type="submit"] {
+    padding: 6px 6px;
+    border-color: transparent !important;
+}
+
+.ie7 #page-content form.subtle input[value="Go"],
+.ie7 #page-content #faux-form input[value="Go"] {
+    margin-top: -40px !important;
+    float: right;
+    font-size: 1.6em;
+    padding-bottom: 8px;
+}
+
+.ie7 #page-content form.subtle #fixer,
+.ie7 #page-content #faux-form #fixer {
+    width: auto !important;
+}
+
+.ie7 #page-content #faux-form {
+    width: 100%;
+}
+
+.ie7 #page-content #faux-form input[value="Search"] {
+    width: 25% !important;
+    border: none;
+}
+
+.ie7 #page-content #faux-form input[type="text"] {
+    width: 68% !important;
+}
+
+.ie7 #page-content form#niceform,
+.ie7 #page-content form#recipeemail,
+.ie7 #page-content form#join_process {
+    padding-top: 0;
+}
+
+.ie7 #page-content form#niceform h2,
+.ie7 #page-content form#recipeemail h2,
+.ie7 #page-content form#join_process h2 {
+    padding-top: 1em;
+}
+
+.ie7 #page-content form#niceform legend,
+.ie7 #page-content form#recipeemail legend,
+.ie7 #page-content form#join_process legend {
+    margin-top: .75em;
+}
+
+.ie7 #page-content form#niceform span.alert,
+.ie7 #page-content form#recipeemail span.alert,
+.ie7 #page-content form#join_process span.alert {
+    position: relative;
+    top: -10px;
+}
+
+.ie7 #page-content form#niceform #cc_expiry_field span,
+.ie7 #page-content form#recipeemail #cc_expiry_field span,
+.ie7 #page-content form#join_process #cc_expiry_field span {
+    zoom: 1;
+}
+
+.ie7 #page-content form#niceform #cc_expiry_field .tick,
+.ie7 #page-content form#recipeemail #cc_expiry_field .tick,
+.ie7 #page-content form#join_process #cc_expiry_field .tick {
+    top: -15px;
+    right: -10px;
+    position: relative;
+}
+
+.ie7 #page-content form#niceform #cc_expiry_field button,
+.ie7 #page-content form#recipeemail #cc_expiry_field button,
+.ie7 #page-content form#join_process #cc_expiry_field button {
+    margin-bottom: 40px !important;
+}
+
+.ie7 #page-content #learnabout-search-box form.subtle {
+    width: 400px;
+}
+
+.ie7 #page-content #learnabout-search-box form.subtle input.keywords {
+    width: 84% !important;
+}
+
+.ie7 #page-content form.subtle {
+    max-width: 550px !important;
+}
+
+.ie7 #page-content #finalstep {
+    margin-top: 40px;
+    width: 100%;
+}
+
+.ie7 #page-content #jos-content {
+    float: left;
+    width: 600px;
+}
+
+.ie7 #page-content .joslin #navigation {
+    margin-left: 0;
+}
+
+.ie7 #page-content div#club-sell {
+    padding-top: 40px;
+}
+
+.ie7 #page-content .forums-post-body {
+    padding-top: 0;
+}
+
+.ie7 #page-content span#sell-prices {
+    padding: 20px 0 20px;
+    margin-top: 0;
+    position: relative;
+}
+
+.ie7 #page-content .entry-content p {
+    max-width: none !important;
+}
+
+.ie7 #page-content #renewalNotice {
+    bottom: -20px;
+}
+
+.ie7 #content-container .marginCounter {
+    margin-top: 70px !important;
+}
+
+.ie7 #content-container #mThirds #mNewsletter #mFormHold #free-tips-button {
+    top: 5px !important;
+}
+
+.ie7 div#video {
+    left: 30%;
+}
+
+.ie7 #cat-page-search {
+    width: 500px !important;
+}
+
+.ie7 #cat-page-search input[name="keywords"] {
+    width: 500px !important;
+    float: left;
+}
+
+.ie7 #cat-page-search input#search-submit {
+    float: left;
+    position: relative;
+    top: 38px;
+    bottom: -50px;
+}
+
+.ie7 #content-iframe {
+    min-height: 1500px !important;
+}
+
+#ck-program {
+    display: none;
+}
+
+fieldset.credit-card-form #cc_number_tick {
+    display: none;
+    margin-right: -40px;
+}
+
+.ie7 fieldset.credit-card-form {
+    position: relative;
+}
+
+.ie7 fieldset.credit-card-form #cc_number_tick {
+    position: absolute;
+    top: 95px;
+    right: -5px;
+}
+
+fieldset.credit-card-form #cc_expiry_tick {
+    display: none;
+}
+
+.override {
+    display: block !important;
+}
+
+.popup #page-content {
+    width: 400px;
+}
+
+.popup #page-content #more-faqs {
+    float: none;
+    margin: 1em 0 1em;
+}
+
+#page-content .hidden,
+span.error,
+div.error {
+    display: none;
+}
+
+li.error div.error {
+    display: block;
+}

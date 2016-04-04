@@ -18,7 +18,7 @@
 //= require_tree .
 
 $(document).ready(function() {
-  $('#search_bar_input').bind('railsAutocomplete.select', function(event, data) {
-    $('#search_bar_form').submit();
+  $('#food-search-input').bind('railsAutocomplete.select', function(event, data) {
+    $('#food_search').submit();
   });
 });

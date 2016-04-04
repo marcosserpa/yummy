@@ -1,0 +1,1112 @@
+div#mask {
+    position: absolute;
+    display: none;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    opacity: .5;
+    filter: alpha(opacity=50);
+    background: #000;
+    z-index: 201;
+}
+
+div#signup-response {
+    font-family: verdana, sans-serif;
+    line-height: 1.5em;
+    display: none;
+    position: fixed;
+    background: #fff;
+    width: 600px;
+    padding: 30px;
+    z-index: 202;
+    margin: 0;
+}
+
+#signup-response h2 {
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 30px;
+    color: #52b0bf;
+}
+
+div#signup-response div#signup-status {
+    margin: 2em 0;
+}
+
+div#signup-response div#signup-status p#signup-status-msg {
+    margin: 0;
+}
+
+div#signup-response div.navigation {
+    margin: 0;
+    padding: 0;
+}
+
+div#signup-response div.navigation a {
+    display: inline-block;
+}
+
+#sell-content {
+    float: left;
+    width: 58em;
+    padding-right: 3.6em;
+}
+
+#sell-sidebar {
+    float: right;
+    width: 22.7em;
+}
+
+#sell-sidebar div.box-container {
+    position: relative;
+    margin-bottom: 0.5em;
+    cursor: pointer;
+}
+
+#sell-sidebar div.box-content {
+    position: absolute;
+}
+
+#sell-sidebar img.box-bg {
+    width: 100%;
+}
+
+#sell-sidebar #program-video {
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+#sell-sidebar #program-video.hover a.button-medium {
+    background: url('/branding/ck/secure/style3/public/medium_button_on.png');
+}
+
+#sell-sidebar #program-video div.box-content {
+    width: 19.7em;
+    padding: 0.5em 1.5em 1.5em 1.5em;
+    top: 0;
+    left: 0;
+}
+
+#sell-sidebar #program-video div.box-content h3 {
+    line-height: 1;
+}
+
+#sell-sidebar #program-video div.box-content a {
+    margin-top: 0.75em;
+}
+
+#sell-sidebar #sell-video-markup-site-intro {
+    display: none;
+}
+
+#video_site_intro div.end-screen p {
+    padding-top: 10em;
+    text-align: center;
+}
+
+#sell-sidebar img#join-offer {
+    border-top: 1px solid #d4ecf0;
+    margin-top: 1em;
+}
+
+#sell-footer {
+    clear: both;
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    position: relative;
+}
+
+#sell-footer:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+#sell-footer {
+    display: inline-block;
+}
+
+#sell-footer {
+    display: block;
+}
+
+#sell-footer div {
+    float: left;
+}
+
+#sell-footer div.info-box {
+    margin-right: 1em;
+    overflow: hidden;
+}
+
+#sell-footer #try-us-for-free {
+    width: 19.1em;
+    height: 9em;
+    position: relative;
+    margin-right: 1em;
+    cursor: pointer;
+}
+
+#sell-footer #try-us-for-free.hover a.button-small {
+    background: url('/branding/ck/secure/style3/public/small_button_on.gif');
+}
+
+#sell-footer #try-us-for-free img {
+    width: 100%;
+}
+
+#sell-footer #try-us-for-free a.button-small {
+    position: absolute;
+    top: 7.5em;
+    right: 1.8em;
+}
+
+#sell-footer #free-tips {
+    padding: 16px;
+    width: 27em;
+    border-right: 1px solid #ccc;
+}
+
+#sell-footer #free-tips #help_icon {
+    vertical-align: middle;
+    margin-left: 5em;
+}
+
+#sell-footer #free-tips h3 {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+#sell-footer #free-tips input {
+    font-size: 1.3em;
+    padding: 8px;
+    width: 11em;
+    border: 1px solid #ccc;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+}
+
+#sell-footer #free-tips input.default-email {
+    color: #b5b5b5;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#sell-footer #free-tips button {
+    background: #b25c5c;
+    color: #fff;
+    border: none;
+}
+
+#sell-footer #free-tips small {
+    font-size: 1.1em;
+    padding-top: 5px;
+    display: block;
+    color: #666;
+}
+
+#sell-footer span.sale-ribbon-left {
+    width: 86px;
+    height: 80px;
+    position: absolute;
+    left: 303px;
+    top: 0;
+    z-index: 200;
+    background: url('/branding/ck/frontpage/feature/sale-snippet.png');
+    display: block;
+}
+
+#sell-footer #join-offer-footer {
+    float: left;
+    padding: 16px;
+    width: 50em;
+}
+
+#join-offer-footer p.the-sell {
+    font-size: 1.8em;
+    margin-left: 30px;
+}
+
+#join-offer-footer p.the-sell span.sell-prices {
+    font-size: 4em;
+    display: block;
+    color: #b25c5c;
+    font-weight: bold;
+    padding: 20px 0;
+    float: left;
+    margin-left: -30px;
+    position: relative;
+}
+
+#join-offer-footer p.the-sell span.sell-desc {
+    float: left;
+    margin-left: 12px;
+    width: 200px;
+    font-size: 16px;
+    line-height: 1.25em;
+}
+
+#join-offer-footer p.the-sell span.sell-saving {
+    color: #b25c5c;
+    font-weight: bold;
+}
+
+p#seven-trial {
+    float: right;
+    text-align: right;
+    position: absolute;
+    right: 160px;
+    width: 250px;
+    top: 20px;
+    font-size: 1.6em;
+    z-index: 2;
+}
+
+p#seven-trial a {
+    float: right;
+    color: #fff;
+    margin-top: 7px;
+    padding: 4px 12px;
+    display: block;
+}
+
+#sell-footer #sellcomp {
+    background: url('/branding/ck/secure/style3/public/sellcomp.png') no-repeat;
+    width: 300px;
+    height: 196px;
+    position: absolute;
+    right: -1px;
+    top: -35px;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+.clearfix:before,
+.clearfix:after {
+    display: table;
+    content: "";
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    position: static;
+    clip: auto;
+    height: auto;
+    width: auto;
+    margin: 0;
+    overflow: visible;
+}
+
+#logged-in-content {
+    background: #f8f8f8;
+}
+
+#logged-in-content .positioner {
+    padding: 20px 20px;
+    width: 860px;
+}
+
+#logged-in-content h2 {
+    color: #b25c5c !important;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    font-size: 32px;
+    font-size: 3.2rem;
+}
+
+#logged-in-content p {
+    font-size: 16px;
+    font-size: 1.6rem;
+    color: #555;
+    margin-top: 20px;
+    line-height: 1.5em;
+    max-width: 400px;
+}
+
+#logged-in-content p a {
+    color: #205059;
+}
+
+#homefoodsearch {
+    background: #f8f8f8;
+    border-bottom: 1px solid #e0e0e0;
+    position: relative;
+    z-index: 5;
+}
+
+#homefoodsearch .positioner {
+    padding: 20px 0;
+    width: 900px;
+    text-align: center;
+}
+
+#homefoodsearch .positioner #searchTitle {
+    display: block;
+    text-align: center;
+}
+
+#homefoodsearch .h4 {
+    font-size: 21px;
+    font-size: 2.1rem;
+    color: #2e727e;
+    margin-bottom: 5px;
+    font-weight: bold;
+    clear: left;
+    display: block;
+}
+
+#homefoodsearch form {
+    margin-top: 0;
+}
+
+#homefoodsearch form .tl {
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 0.75em;
+}
+
+#homefoodsearch form input#food-search-input {
+    width: 500px !important;
+    padding: 8px;
+    margin-bottom: 0.5em;
+    border: 1px solid #bfbfbf;
+    color: #666;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    font-size: 16px;
+    font-size: 1.6rem;
+    vertical-align: baseline;
+    font-family: Arial, Helvetica, sans-serif;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#homefoodsearch form input#food-search-input:focus {
+    outline: 0;
+}
+
+#homefoodsearch form #food-search-submit {
+    background: #f3694f;
+}
+
+#homefoodsearch #topsearches li {
+    display: inline;
+}
+
+#homefoodsearch #topsearches li a {
+    color: #2e727e;
+    font-size: 16px;
+    font-size: 1.6rem;
+    text-decoration: none;
+}
+
+#title-cta {
+    overflow: auto;
+    padding: 0px 40px 40px;
+    background: #b25c5c url('/branding/ck/frontpage/title-gradient.png') top repeat-x;
+    margin-bottom: 20px;
+    z-index: 100;
+    height: 420px;
+}
+
+#title-cta:before {
+    position: absolute;
+    width: 100%;
+    background: #b25c5c url('/branding/ck/frontpage/title-gradient.png') top repeat-x;
+    left: 0;
+    height: 460px;
+    content: "";
+    z-index: -1;
+}
+
+.products {
+    margin: -210px 0 0 !important;
+    padding: 0 !important;
+}
+
+#page-content li.product {
+    min-height: 390px;
+    background: #fff;
+    max-width: 285px;
+    list-style: none;
+    position: relative;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 287px;
+    margin: 0 2% 15px 0;
+    float: left;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1);
+}
+
+#page-content li.product h3.prod-title {
+    margin: .125em 0 .5em;
+    color: #333;
+    font-size: 21px;
+    font-size: 2.1rem;
+}
+
+#page-content li.product img {
+    max-width: 100%;
+}
+
+#page-content li.product a {
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+}
+
+#page-content li.product a:hover h3 {
+    text-decoration: underline;
+}
+
+#page-content li.product .data {
+    padding: 16px;
+    display: block;
+    padding-bottom: 30px;
+}
+
+.last-product {
+    margin-right: 0 !important;
+}
+
+.category {
+    color: #f3694f;
+    font-size: 14px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#page-content #maintitle {
+    font-size: 76px;
+    font-size: 7.6rem;
+    margin-bottom: 0;
+    text-align: center;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", sans-serif;
+    color: #fff;
+    font-weight: 300;
+    margin-top: .65em;
+}
+
+#page-content #maintitle + p {
+    max-width: none;
+    margin: 10px auto;
+    text-align: left;
+    width: 560px;
+    font-size: 21px;
+    font-size: 2.1rem;
+    line-height: 1.25;
+    text-align: center;
+    color: #fff;
+}
+
+#cta-holder {
+    width: 169px;
+    float: left;
+    padding: 40px 0 0 30px;
+    text-align: center;
+}
+
+#cta-holder .btn {
+    display: inline-block;
+    width: 135px;
+    margin-top: 5px;
+}
+
+#page-content #cta-holder #about-cta {
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #777;
+}
+
+#page-content #cta-holder #about-cta:hover {
+    color: #fff;
+}
+
+#page-content.homepage {
+    margin-top: 0;
+}
+
+#page-content .all-products {
+    padding: 0em 0 2em;
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 16px;
+}
+
+#page-content .all-products a:link {
+    margin: 0 auto;
+    padding: 1em 1.5em;
+    font-size: 16px;
+    text-align: center;
+}
+
+#page-content.homepage #sell-footer,
+#page-content.homepage #free-tips {
+    border-color: #f0f0f0;
+}
+
+#features {
+    margin-top: 50px;
+}
+
+#features .col {
+    width: 244px;
+    min-height: 202px;
+    padding: 20px;
+    margin-right: 20px;
+    background: #fff;
+    float: left;
+    border: 1px solid #f0f0f0;
+    display: inline;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+#features .col:last-child {
+    margin-right: 0;
+}
+
+#features .col {
+    position: relative;
+    margin-top: 40px;
+}
+
+#features .col .sectiontitle {
+    position: absolute;
+    top: -70px;
+}
+
+#features .col .sectiontitle a {
+    text-decoration: none;
+    color: #2e727e;
+}
+
+#features .col .sectiontitle a:hover {
+    text-decoration: underline;
+}
+
+#features .col h3 {
+    font-size: 20px;
+    font-size: 2rem;
+    position: relative;
+    margin-top: 0;
+}
+
+#features .col h3 a {
+    color: #b25c5c;
+    text-decoration: none;
+}
+
+#features .col h3 a img {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#features .col p {
+    font-size: 13px;
+    font-size: 1.3rem;
+}
+
+#features .col p img {
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+#features #tools {
+    background: #fff url('/branding/ck/frontpage/tools.gif') bottom right no-repeat;
+}
+
+#features #book {
+    background: #fff url('/branding/ck/frontpage/book.jpg') bottom right no-repeat;
+    margin-right: 0;
+}
+
+.ie7 #food-search-submit,
+.ie7 #food-search-submit:active,
+.ie7 #food-search-submit:focus {
+    top: -4px !important;
+    position: relative;
+    outline: 0 !important;
+    border: 0 !important;
+}
+
+.ie7 .sectiontitle {
+    position: absolute;
+    top: -50px !important;
+}
+
+#features {
+    overflow: hidden;
+}
+
+#sell-footer #free-tips button {
+    margin-top: -0.45em;
+}
+
+#sell-footer {
+    background: #fff;
+    margin-top: 40px;
+    clear: both;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.05);
+}
+
+#logged-in-content {
+    background: #f3f3f3;
+    font-size: 1.2em;
+    height: 288px;
+    padding: 0.5em 1em 0.5em 2em;
+}
+
+#logged-in-content h2 {
+    color: #005daa;
+}
+
+#logged-in-content .left_col {
+    float: left;
+    width: 48%;
+}
+
+#logged-in-content .right_col {
+    float: right;
+    width: 52%;
+    text-align: right;
+}
+
+div#carousel {
+    position: relative;
+    width: 900px;
+    height: 320px;
+    margin: 45px 0;
+    background: #b25c5c url('/branding/ck/frontpage/watermark.png') bottom right no-repeat;
+    box-shadow: 0 0 10px #aaa;
+}
+
+div#carousel div#carousel-viewport {
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    height: 320px;
+}
+
+div#carousel div#carousel-viewport div#carousel-slider {
+    position: absolute;
+    left: 0;
+    width: 90000px;
+    height: 320px;
+}
+
+div#carousel div#carousel-navigation {
+    visibility: hidden;
+    padding: 15px;
+    text-align: center;
+}
+
+div#carousel div#carousel-navigation span.move-to-slide {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    margin: 0 5px;
+    background-color: #dadada;
+    border-radius: 10px;
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+
+div#carousel div#carousel-navigation span.move-to-slide.active {
+    background-color: #b25c5c;
+    cursor: default;
+}
+
+span.carousel-control {
+    display: inline-block;
+    position: absolute;
+    top: 143px;
+    background-color: #ccc;
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 20px;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    opacity: 1;
+    filter: alpha(opacity=100);
+    cursor: pointer;
+}
+
+span.carousel-control.inactive {
+    opacity: .25 !important;
+    filter: alpha(opacity=25) !important;
+    cursor: default !important;
+}
+
+span#carousel-prev-slide {
+    left: -45px;
+}
+
+span#carousel-next-slide {
+    right: -45px;
+}
+
+div.slide {
+    float: left;
+    width: 900px;
+    height: 320px;
+    overflow: hidden;
+}
+
+div#slide-success-stories {
+    background: url('/branding/ck/frontpage/successstories.jpg') top left no-repeat;
+}
+
+div.slide div.content {
+    float: left;
+    width: 568px;
+    height: 320px;
+}
+
+div.slide div.content div.video-player-container {
+    position: relative;
+    width: 568px;
+    height: 320px;
+}
+
+div.slide div.content div.video-player-container div.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 568px;
+    height: 320px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+div.slide div.content div#video-site-introduction.video-player-container div.video-thumbnail {
+    background: url('/branding/ck/frontpage/video-thumbnail-site-introduction.jpg') left top no-repeat;
+}
+
+div.slide div.content div#video-success-cara.video-player-container div.video-thumbnail {
+    background: url('/branding/ck/frontpage/video-thumbnail-cara-success-story.jpg') left top no-repeat;
+}
+
+body.ie7 div.slide div.content div.video-player-container div.video-thumbnail {
+    display: none;
+}
+
+div.slide div.content div.video-player-container div.video-thumbnail span.play-video {
+    display: none;
+    position: absolute;
+    top: 137px;
+    left: 249px;
+    padding: 5px 20px;
+    background-color: #222;
+    color: #fff;
+    border-radius: 5px;
+    font-size: 30px;
+}
+
+div.slide div.content div.video-player-container div.video-thumbnail:hover span {
+    background-color: #ac2323;
+}
+
+div.slide div.content div.video-player-container div.video-player {
+    z-index: 9;
+}
+
+div.slide div.caption {
+    float: right;
+    width: 292px;
+    height: 280px;
+    padding: 20px;
+}
+
+div.slide div.caption blockquote {
+    margin: 0 !important;
+    padding: 20px 0 0 0 !important;
+    border: none !important;
+    color: #fff;
+    font-size: 24px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    text-align: left;
+}
+
+#page-content div.slide div.caption p {
+    margin: 0 !important;
+    padding-top: 10px;
+    color: #fff;
+}
+
+#page-content div.slide div.caption ul {
+    margin-top: 18px;
+    margin-bottom: 12px;
+}
+
+#page-content div.slide div.caption li {
+    color: #fff;
+}
+
+#page-content div.slide div.caption h3 {
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.ie7 #page-content div.slide div.caption h3 {
+    padding-top: 18px;
+}
+
+#page-content div.slide div.caption h3 + blockquote {
+    padding-top: 8px !important;
+}
+
+#s-link {
+    height: 320px;
+    width: 568px;
+    display: block;
+    position: relative;
+}
+
+#s-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 2px;
+    left: 2px;
+    display: block;
+}
+
+.s-grid {
+    width: 111px;
+    height: 103px;
+    float: left;
+    margin: 1px;
+    position: relative;
+    display: block;
+    overflow: visible;
+    z-index: 1;
+}
+
+.ie7 .s-grid {
+    background: url('/branding/ck/frontpage/clear.gif');
+}
+
+.s-grid .s-loss {
+    display: none;
+    z-index: 2;
+    position: absolute;
+}
+
+.s-grid:hover .s-loss {
+    display: block;
+    opacity: 1;
+    background: black;
+    color: #fff;
+    right: -50px;
+    bottom: 5px;
+    font-size: 13px;
+    padding: 8px;
+}
+
+div#features div#bloglink p img {
+    margin-bottom: 50px;
+}
+
+div#features div#featured p img {
+    margin-bottom: 50px;
+}
+
+#popular-food-searches {
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+#popular-food-searches strong {
+    color: #888;
+    font-weight: bold;
+}
+
+#popular-food-searches a:link,
+a:visited {
+    color: #888;
+    text-decoration: none;
+}
+
+#popular-food-searches a:hover {
+    text-decoration: underline;
+}
+
+.ie7 #food-search-submit {
+    bottom: 40px !important;
+}
+
+#tools-hmcsye {
+    width: 900px;
+    height: 400px;
+    overflow: auto;
+    background: #b25c5c url('/branding/ck/frontpage/watermark.png') bottom right no-repeat;
+    clear: left;
+}
+
+#tools-hmcsye .left {
+    float: left;
+    width: 568px;
+    height: 400px;
+    background: #eaf4f6 url('/branding/ck/frontpage/hmcsye-bg.jpg') left top no-repeat;
+    font-family: "Helvetica", Arial, sans-serif;
+}
+
+#tools-hmcsye .left a {
+    display: block;
+    width: 568px;
+    height: 320px;
+    text-decoration: none;
+}
+
+#tools-hmcsye .headline {
+    display: block;
+    color: #fff;
+    font-size: 29px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#tools-hmcsye .left .byline {
+    display: inline-block;
+    padding: 15px 35px;
+    color: #666;
+    font-size: 18px;
+}
+
+#tools-hmcsye .right {
+    float: left;
+    width: 282px;
+    padding: 20px 25px;
+}
+
+.survey {
+    margin: 0;
+}
+
+.survey .svy-label {
+    color: #fff;
+    font-weight: normal;
+    display: block;
+    font-size: 18px;
+}
+
+.survey input,
+.survey select {
+    font-size: 21px;
+    padding: 12px 0 12px 10%;
+    width: 85%;
+    margin: .35em 0 .75em;
+    font-family: Arial, sans-serif;
+    border: none;
+}
+
+.survey select {
+    padding-left: 8px;
+    padding-right: 8px;
+    float: left;
+    margin-right: 4px;
+    width: 95%;
+}
+
+.ie7 .survey select {
+    width: 123px;
+}
+
+.form-control {
+    height: 2.2em;
+    margin-bottom: 0 !important;
+}
+
+.fiddy {
+    width: 50%;
+    float: left;
+    position: relative;
+}
+
+.in-field {
+    color: #777;
+    position: absolute;
+    right: 30px;
+    top: 24px;
+    font-size: 16px;
+    border: none;
+}
+
+.lbs {
+    top: 44px;
+}
+
+#profile-submit {
+    float: left;
+    width: 4.4em;
+    height: 2.9em;
+    cursor: pointer;
+    border: 0;
+}
+
+.ie8 #profile-submit {
+    width: 3.5em;
+}
+
+#gender-submit {
+    overflow: auto;
+    width: 100%;
+}
+
+#gender-submit label {
+    margin-bottom: 0.35em;
+}
+
+#gender-submit select {
+    margin-top: 0;
+}
+
+#gender-submit .gender {
+    width: 72%;
+}
+
+#gender-submit .controls {
+    width: 28%;
+    text-align: right;
+}
+
+#gender-submit .controls .svy-label {
+    visibility: hidden;
+}
+
+#profile-submit {
+    float: right;
+    margin-right: 8px;
+}
