@@ -57,229 +57,226 @@
       %div{ id: "page", class: "no-column" }
         %div{ id: "header" }
           %div{ class: "positioner" }
-            %div{ id: "login-logout" }
-              %a{ class: "member-login login", href: "https://login.calorieking.com/authenticate/" } Login
-
             %h1
               %a{ href: "http://www.calorieking.com/" }
                 %img{ src: "CalorieKing%20-%20Home_files/logo_calorieking.png", alt: "CalorieKing" }
 
             %ul{ id: "site-nav", class: "site-nav" }
               %li{ class: "nav-item" }
-                %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" }
-                  Products
-                %ul{ class: "sub-nav" }
-                  %li{ class: "sub-nav-content" }
-                    %ul
-                      %li{ class: "nav-item sub-item parental navsearch-item nav-col4", id: "program-nav" }
-                        %a{ class: "sub-link parent-link" } The CalorieKing Program
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/the-calorieking-program/", class: "sub-link" } About the program
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/the-calorieking-program/success/", class: "sub-link" } Success Stories
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://payments.calorieking.com/enrollments/program/", class: "sub-link" } Join
-                          %li{ class: "nav-item sub-item", id: "price-nav" }
-                            %span{ id: "join-offer-footer" }
-                              %p{ class: "the-sell" } Only
-                              %br
-                                %span{ class: "sell-prices" } $49
-                                %span{ class: "sell-desc" } per year
-                                %br
-                                Save 65% off the
-                                %br
-                                regular monthly price.
-
-                              %a{ class: "btn", id: "btn-nav", href: "https://payments.calorieking.com/enrollments/program/" } Start free trial
-
-                      %li{ class: "nav-item sub-item parental navsearch-item nav-col3", id: "apps-nav" }
-                        %span{ class: "sub-link parent-link" } Mobile apps
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/controlmyweight/", class: "sub-link" } ControlMyWeight
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/iosfoodsearch/", class: "sub-link" } Food Search for iOS
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/healthediabetes/", class: "sub-link" } HEALTHeDiabetes
-
-                      %li{ class: "nav-item sub-item parental navsearch-item nav-col3", id: "books-nav" }
-                        %span{ class: "sub-link parent-link" } Books
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/books/#cfcc", class: "sub-link" } Calorie, Fat &amp; Carb Counter
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/products/books/#cfej", class: "sub-link" } Food and Exercise Journal
-
-              %li{ class: "nav-item" }
-                %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" } Tools
-                %ul{ class: "sub-nav" }
-                  %li{ class: "sub-nav-content" }
-                    %ul
-                      %li{ class: "nav-item sub-item parental navsearch-item nav-col4" }
-                        %span{ class: "sub-link parent-link" }
-                          Food search
-                          %ul{ class: "food-links sub-nav" }
-                            %li{ class: "nav-item sub-item" }
-                              %div
-                                %form{ method: "get", action: "http://www.calorieking.com/foods/search.php", class: "food-search" }
-                                  %div
-                                    %p
-                                      %label{ for: "keywords", class: "food-search--label alt-font" } Search
-                                      %input{ name: "keywords", id: "keywords", size: "20", class: "food-search--keywords", placeholder: "e.g. Apple, Chicken, McDonald's ...", type: "text" }
-                                      %input{ name: "go", value: "Go", class: "food-search--submit btn dark", type: "submit" }
-
-                            %li{ class: "nav-item sub-item" }
-                              %a{ href: "http://www.calorieking.com/foods/", class: "sub-link" } Browse by category
-                            %li{ class: "nav-item sub-item" }
-                              %a{ href: "http://www.calorieking.com/foods/calories-in-fast-food-chains-restaurants_c-Y2lkPTIx.html", class: "sub-link" } Fast Food restaurant index
-
-                      %li{ class: "nav-item sub-item parental nav-col3" }
-                        %span{ class: "sub-link parent-link" } Calculators
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/interactive-tools/body-mass-index-bmi-calculator/", class: "sub-link" } BMI calculator
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/interactive-tools/how-many-calories-should-you-eat/?ref=nav", class: "sub-link" } How many calories should you eat?
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/interactive-tools/target-heart-rate-zone-calculator/", class: "sub-link" } Target heart rate zone
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/interactive-tools/waist-hip-ratio-calculator/", class: "sub-link" } Waist to hip ratio
-
-                      %li{ class: "nav-item sub-item parental nav-col3" }
-                        %span{ class: "sub-link parent-link" } Recipes &amp; more
-                        %ul
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/recipes", class: "sub-link" }
-                              Recipes
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/learnabouts", class: "sub-link" } Diet FAQs
+                %a{ href: "javascript:void(0);", class: "nav-link top-level" }
+                  home
+                -# %ul{ class: "sub-nav" }
+                -#   %li{ class: "sub-nav-content" }
+                -#     %ul
+                -#       %li{ class: "nav-item sub-item parental navsearch-item nav-col4", id: "program-nav" }
+                -#         %a{ class: "sub-link parent-link" } The CalorieKing Program
+                -#         %ul{ class: "sub-nav" }
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/the-calorieking-program/", class: "sub-link" } About the program
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/the-calorieking-program/success/", class: "sub-link" } Success Stories
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "https://payments.calorieking.com/enrollments/program/", class: "sub-link" } Join
+                -#           %li{ class: "nav-item sub-item", id: "price-nav" }
+                -#             %span{ id: "join-offer-footer" }
+                -#               %p{ class: "the-sell" } Only
+                -#               %br
+                -#                 %span{ class: "sell-prices" } $49
+                -#                 %span{ class: "sell-desc" } per year
+                -#                 %br
+                -#                 Save 65% off the
+                -#                 %br
+                -#                 regular monthly price.
+                -#
+                -#               %a{ class: "btn", id: "btn-nav", href: "https://payments.calorieking.com/enrollments/program/" } Start free trial
+                -#
+                -#       %li{ class: "nav-item sub-item parental navsearch-item nav-col3", id: "apps-nav" }
+                -#         %span{ class: "sub-link parent-link" } Mobile apps
+                -#         %ul{ class: "sub-nav" }
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/controlmyweight/", class: "sub-link" } ControlMyWeight
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/iosfoodsearch/", class: "sub-link" } Food Search for iOS
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/healthediabetes/", class: "sub-link" } HEALTHeDiabetes
+                -#
+                -#       %li{ class: "nav-item sub-item parental navsearch-item nav-col3", id: "books-nav" }
+                -#         %span{ class: "sub-link parent-link" } Books
+                -#         %ul{ class: "sub-nav" }
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/books/#cfcc", class: "sub-link" } Calorie, Fat &amp; Carb Counter
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/products/books/#cfej", class: "sub-link" } Food and Exercise Journal
 
               %li{ class: "nav-item" }
-                %a{ href: "http://www.calorieking.com/store/", class: "nav-link top-level" } Store
-              %li{ class: "nav-item" }
-                %a{ href: "http://blog.calorieking.com/", class: "nav-link top-level" } Blog
+                %a{ href: "javascript:void(0);", class: "nav-link top-level" } about
+                -# %ul{ class: "sub-nav" }
+                -#   %li{ class: "sub-nav-content" }
+                -#     %ul
+                -#       %li{ class: "nav-item sub-item parental navsearch-item nav-col4" }
+                -#         %span{ class: "sub-link parent-link" }
+                -#           Food search
+                -#           %ul{ class: "food-links sub-nav" }
+                -#             %li{ class: "nav-item sub-item" }
+                -#               %div
+                -#                 %form{ method: "get", action: "http://www.calorieking.com/foods/search.php", class: "food-search" }
+                -#                   %div
+                -#                     %p
+                -#                       %label{ for: "keywords", class: "food-search--label alt-font" } Search
+                -#                       %input{ name: "keywords", id: "keywords", size: "20", class: "food-search--keywords", placeholder: "e.g. Apple, Chicken, McDonald's ...", type: "text" }
+                -#                       %input{ name: "go", value: "Go", class: "food-search--submit btn dark", type: "submit" }
+                -#
+                -#             %li{ class: "nav-item sub-item" }
+                -#               %a{ href: "http://www.calorieking.com/foods/", class: "sub-link" } Browse by category
+                -#             %li{ class: "nav-item sub-item" }
+                -#               %a{ href: "http://www.calorieking.com/foods/calories-in-fast-food-chains-restaurants_c-Y2lkPTIx.html", class: "sub-link" } Fast Food restaurant index
+                -#
+                -#       %li{ class: "nav-item sub-item parental nav-col3" }
+                -#         %span{ class: "sub-link parent-link" } Calculators
+                -#         %ul{ class: "sub-nav" }
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/interactive-tools/body-mass-index-bmi-calculator/", class: "sub-link" } BMI calculator
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/interactive-tools/how-many-calories-should-you-eat/?ref=nav", class: "sub-link" } How many calories should you eat?
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/interactive-tools/target-heart-rate-zone-calculator/", class: "sub-link" } Target heart rate zone
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/interactive-tools/waist-hip-ratio-calculator/", class: "sub-link" } Waist to hip ratio
+                -#
+                -#       %li{ class: "nav-item sub-item parental nav-col3" }
+                -#         %span{ class: "sub-link parent-link" } Recipes &amp; more
+                -#         %ul
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/recipes", class: "sub-link" }
+                -#               Recipes
+                -#           %li{ class: "nav-item sub-item" }
+                -#             %a{ href: "http://www.calorieking.com/learnabouts", class: "sub-link" } Diet FAQs
 
               %li{ class: "nav-item" }
-                %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" } Help
-                %ul{ class: "sub-nav" }
-                  %li{ class: "sub-nav-content" }
-                    %ul
-                      %li{ class: "nav-item sub-item parental navsearch-item nav-col4" }
-                        %span{ class: "sub-link parent-link" } Search FAQs
-                        %ul{ class: "food-links sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %div
-                              %form{ method: "get", action: "https://generalhelp.calorieking.com", class: "food-search" }
-                                %div
-                                  %p
-                                    %label{ for: "q", class: "food-search--label alt-font" } Search
-                                    %input{ name: "q", size: "20", class: "food-search--keywords", placeholder: "e.g. I've forgotten my password", type: "text" }
-                                    %input{ name: "submit", value: "Go", class: "food-search--submit btn dark", type: "submit" }
-                                    %input{ value: "search", name: "pg", type: "hidden" }
-                                    %input{ value: "kb", name: "area", type: "hidden" }
-
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/?group=website&amp;pg=kb.book&amp;id=15", class: "sub-link" } See all FAQs
-
-                      %li{ class: "nav-item sub-item parental nav-col3" }
-                        %span{ class: "sub-link parent-link" } Support
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=website", class: "sub-link" } Website
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=iphone", class: "sub-link" } iPhone and iPad
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=shop", class: "sub-link" } Online store
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/", class: "sub-link" } More...
-
-                      %li{ class: "nav-item sub-item parental nav-col3" }
-                        %span{ class: "sub-link parent-link" }
-                        Contact us
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://generalhelp.calorieking.com/?pg=request", class: "sub-link" } Send us an email
-
-                      %li{ class: "nav-item sub-item" }
-                        %a{ href: "http://www.calorieking.com/sitemap/", class: "sub-link" } Sitemap
-                      %li{ class: "nav-item sub-item"}
-                        %a{ href: "http://www.calorieking.com/newsletter/unsubscribe.php", class: "sub-link" } Newsletter unsubscribe
-
-              %li{ class: "nav-item members-nav" }
-                %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" } Members
-                %ul{ class: "sub-nav" }
-                  %li{ class: "sub-nav-content" }
-                    %ul
-                      %li{ class: "nav-item sub-item parental nav-col navsearch-item members-item" }
-                        %span{ class: "sub-link parent-link" } Tools
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/diary/", class: "sub-link" } Food Diary
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/weighin/", class: "sub-link" } Weigh in
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/mab/", class: "sub-link" } Motivation
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/mab/", class: "sub-link" } Activity planner
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/goalsetter/", class: "sub-link" } Goal setter
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/personal/charts/", class: "sub-link" } Charts and reports
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/cku/courseoutline/", class: "sub-link" } Program topic outline
-
-                      %li{ class: "nav-item sub-item parental members-item" }
-                        %span{ class: "sub-link parent-link" } Food
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/foods/", class: "sub-link" } Food Database
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/recipes/", class: "sub-link" } Recipes
-
-                      %li{ class: "nav-item sub-item parental members-item activity-item" }
-                        %span{ class: "sub-link parent-link" } Activity
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/workoutroom/", class: "sub-link" } Exercise library
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/tools/etrainer/", class: "sub-link" } Fitness tests
-
-                      %li{ class: "nav-item sub-item parental members-item" }
-                        %span{ class: "sub-link parent-link" } Community
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/community/", class: "sub-link" } Dashboard
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/community/groups/", class: "sub-link" } Groups
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/community/forums/", class: "sub-link" } Forums
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/personal/messages/", class: "sub-link" } Messages
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/blogs/", class: "sub-link" } Blogs
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/personal/blog/", class: "sub-link" } New blog entry
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/community/directory/", class: "sub-link" } Member Directory
-
-                      %li{ class: "nav-item sub-item parental members-item" }
-                        %span{ class: "sub-link parent-link" } Settings
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/personal/myaccount/", class: "sub-link" } Account settings
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/personal/myaccount/targets/", class: "sub-link" } Targets
-
-                      %li{ class: "nav-item sub-item parental members-item get-help" }
-                        %span{ class: "sub-link parent-link" } Get Help
-                        %ul{ class: "sub-nav" }
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "http://www.calorieking.com/cku/lesson.php?id=65", class: "sub-link" } What is the program?
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://programhelp.calorieking.com/?pg=kb.book&amp;id=16", class: "sub-link" } FAQs
-                          %li{ class: "nav-item sub-item" }
-                            %a{ href: "https://programhelp.calorieking.com/?pg=request", class: "sub-link" } Send us an email
+                %a{ href: "http://www.calorieking.com/store/", class: "nav-link top-level" } contact
+              -# %li{ class: "nav-item" }
+              -#   %a{ href: "http://blog.calorieking.com/", class: "nav-link top-level" } Blog
+              -#
+              -# %li{ class: "nav-item" }
+              -#   %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" } Help
+              -#   %ul{ class: "sub-nav" }
+              -#     %li{ class: "sub-nav-content" }
+              -#       %ul
+              -#         %li{ class: "nav-item sub-item parental navsearch-item nav-col4" }
+              -#           %span{ class: "sub-link parent-link" } Search FAQs
+              -#           %ul{ class: "food-links sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %div
+              -#                 %form{ method: "get", action: "https://generalhelp.calorieking.com", class: "food-search" }
+              -#                   %div
+              -#                     %p
+              -#                       %label{ for: "q", class: "food-search--label alt-font" } Search
+              -#                       %input{ name: "q", size: "20", class: "food-search--keywords", placeholder: "e.g. I've forgotten my password", type: "text" }
+              -#                       %input{ name: "submit", value: "Go", class: "food-search--submit btn dark", type: "submit" }
+              -#                       %input{ value: "search", name: "pg", type: "hidden" }
+              -#                       %input{ value: "kb", name: "area", type: "hidden" }
+              -#
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/?group=website&amp;pg=kb.book&amp;id=15", class: "sub-link" } See all FAQs
+              -#
+              -#         %li{ class: "nav-item sub-item parental nav-col3" }
+              -#           %span{ class: "sub-link parent-link" } Support
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=website", class: "sub-link" } Website
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=iphone", class: "sub-link" } iPhone and iPad
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/?pg=request&amp;group=shop", class: "sub-link" } Online store
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/", class: "sub-link" } More...
+              -#
+              -#         %li{ class: "nav-item sub-item parental nav-col3" }
+              -#           %span{ class: "sub-link parent-link" }
+              -#           Contact us
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://generalhelp.calorieking.com/?pg=request", class: "sub-link" } Send us an email
+              -#
+              -#         %li{ class: "nav-item sub-item" }
+              -#           %a{ href: "http://www.calorieking.com/sitemap/", class: "sub-link" } Sitemap
+              -#         %li{ class: "nav-item sub-item"}
+              -#           %a{ href: "http://www.calorieking.com/newsletter/unsubscribe.php", class: "sub-link" } Newsletter unsubscribe
+              -#
+              -# %li{ class: "nav-item members-nav" }
+              -#   %a{ href: "javascript:void(0);", class: "nav-link parent-link top-level" } Members
+              -#   %ul{ class: "sub-nav" }
+              -#     %li{ class: "sub-nav-content" }
+              -#       %ul
+              -#         %li{ class: "nav-item sub-item parental nav-col navsearch-item members-item" }
+              -#           %span{ class: "sub-link parent-link" } Tools
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/diary/", class: "sub-link" } Food Diary
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/weighin/", class: "sub-link" } Weigh in
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/mab/", class: "sub-link" } Motivation
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/mab/", class: "sub-link" } Activity planner
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/goalsetter/", class: "sub-link" } Goal setter
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/personal/charts/", class: "sub-link" } Charts and reports
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/cku/courseoutline/", class: "sub-link" } Program topic outline
+              -#
+              -#         %li{ class: "nav-item sub-item parental members-item" }
+              -#           %span{ class: "sub-link parent-link" } Food
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/foods/", class: "sub-link" } Food Database
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/recipes/", class: "sub-link" } Recipes
+              -#
+              -#         %li{ class: "nav-item sub-item parental members-item activity-item" }
+              -#           %span{ class: "sub-link parent-link" } Activity
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/workoutroom/", class: "sub-link" } Exercise library
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/tools/etrainer/", class: "sub-link" } Fitness tests
+              -#
+              -#         %li{ class: "nav-item sub-item parental members-item" }
+              -#           %span{ class: "sub-link parent-link" } Community
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/community/", class: "sub-link" } Dashboard
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/community/groups/", class: "sub-link" } Groups
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/community/forums/", class: "sub-link" } Forums
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/personal/messages/", class: "sub-link" } Messages
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/blogs/", class: "sub-link" } Blogs
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/personal/blog/", class: "sub-link" } New blog entry
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/community/directory/", class: "sub-link" } Member Directory
+              -#
+              -#         %li{ class: "nav-item sub-item parental members-item" }
+              -#           %span{ class: "sub-link parent-link" } Settings
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/personal/myaccount/", class: "sub-link" } Account settings
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/personal/myaccount/targets/", class: "sub-link" } Targets
+              -#
+              -#         %li{ class: "nav-item sub-item parental members-item get-help" }
+              -#           %span{ class: "sub-link parent-link" } Get Help
+              -#           %ul{ class: "sub-nav" }
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "http://www.calorieking.com/cku/lesson.php?id=65", class: "sub-link" } What is the program?
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://programhelp.calorieking.com/?pg=kb.book&amp;id=16", class: "sub-link" } FAQs
+              -#             %li{ class: "nav-item sub-item" }
+              -#               %a{ href: "https://programhelp.calorieking.com/?pg=request", class: "sub-link" } Send us an email
 
             :javascript
               (function() {
@@ -405,11 +402,9 @@
               = form_for(:aliment, url: :search_aliments, html: { id: 'food_search' }, method: :get) do |f|
                 %div
                   %div{ id: "searchTitle" }
-                    %h2{ class: "h4" } Food Search
+                    %h2{ class: "h4" }
 
-                  -# %input{ name: "keywords", id: "food-search-input", placeholder: "e.g. Pizza, Wendy's, Avocado, Vodka", type: "text" }
                   = f.autocomplete_field :name, autocomplete_aliment_name_aliments_path, placeholder: "e.g. Pizza, Wendy's, Avocado, Vodka", id: 'food-search-input'
-                  -# %input{ id: "food-search-submit", value: "Search", type: "submit" }
                   = f.submit 'search', id: 'food-search-submit'
 
                   %div{ id: "popular-food-searches" }
@@ -515,46 +510,52 @@
             -# <!-- site up text required for site up check - do not change without advising system administrator -->
             %div{ style: "clear: both" }
 
-      %div{ id: "footer" }
-        %div{ class: "positioner" }
-          %p{ class: "links" }
-            %a{ href: "https://generalhelp.calorieking.com/" } Contact Us |
-            %a{ href: "http://www.calorieking.com/partners/" } Partners |
-            %a{ href: "https://developer.calorieking.com/" } Developers |
-            %a{ href: "http://www.calorieking.com/terms/" } Terms &amp; Conditions |
-            %a{ href: "http://www.calorieking.com/privacy/" } Privacy Policy |
-            %a{ href: "http://www.calorieking.com/mobile/" } iPhone &amp; Mobile |
-            %a{ href: "http://www.calorieking.com/sitemap/" } Sitemap
+    %div{ id: "footer" }
+      %div{ class: "positioner" }
+        %p{ class: "links" }
+          %a{ href: "https://generalhelp.calorieking.com/" } Contact Us
+          &nbsp|
+          %a{ href: "http://www.calorieking.com/partners/" } Partners
+          &nbsp|
+          %a{ href: "https://developer.calorieking.com/" } Developers
+          &nbsp|
+          %a{ href: "http://www.calorieking.com/terms/" } Terms &amp; Conditions
+          &nbsp|
+          %a{ href: "http://www.calorieking.com/privacy/" } Privacy Policy
+          &nbsp|
+          %a{ href: "http://www.calorieking.com/mobile/" } iPhone &amp; Mobile
+          &nbsp|
+          %a{ href: "http://www.calorieking.com/sitemap/" } Sitemap
 
-          %p{ class: "copyright" }
-            Copyright ©2016 CalorieKing Wellness Solutions, Inc.
+        %p{ class: "copyright" }
+          Copyright ©2016 CalorieKing Wellness Solutions, Inc.
 
-          %ul{ id: "sm_footer" }
-            %li
-              %a{ href: "http://twitter.com/calorieking/", class: "twitter" } Twitter
-            %li
-              %a{ href: "http://facebook.com/calorieking/", class: "fb" } Facebook
-            %li
-              %a{ href: "http://pinterest.com/calorieking/", class: "pinterest" } Pinterest
-
-
-
-
-
-
-
-
+        %ul{ id: "sm_footer" }
+          %li
+            %a{ href: "http://twitter.com/calorieking/", class: "twitter" } Twitter
+          %li
+            %a{ href: "http://facebook.com/calorieking/", class: "fb" } Facebook
+          %li
+            %a{ href: "http://pinterest.com/calorieking/", class: "pinterest" } Pinterest
 
 
 
-    %title Yummy - Count your diet calories
 
-    / Bootstrap CSS
-    %link{:href => "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css", :rel => "stylesheet"}/
+
+
+
+
+
+
+      = yield
+    -# %title Yummy - Count your diet calories
+    -#
+    -# / Bootstrap CSS
+    -# %link{:href => "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
+  -# %body
     / jQuery first, then Bootstrap JS.
     %script{:src => "https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"}
     %script{:src => "https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/js/bootstrap.js"}
