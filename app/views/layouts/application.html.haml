@@ -426,89 +426,91 @@
 
 
 
-          %div{ id: "page-content", class: "homepage" }
-            %div{ id: "title-cta", class: "variation" }
-              %div{ id: "title-holder" }
-              %h2{ id: "maintitle" } Lose the weight forever
-              %p CalorieKing has the weight control tools most recommended by health professionals.
+          -# %div{ id: "page-content", class: "homepage" }
+          -#   %div{ id: "title-cta", class: "variation" }
+          -#     %div{ id: "title-holder" }
+          -#     %h2{ id: "maintitle" } Lose the weight forever
+          -#     %p CalorieKing has the weight control tools most recommended by health professionals.
+          -#
+          -#     %p{ style: "position:absolute; color:#FFF; width:200px; left:50%; margin-left:-100px; text-transform:uppercase; text-align:center; margin-top:40px;" } Featured Products
+          -#
+          -#   %ul{ class: "products" }
+          -#     %li{ class: "product" }
+          -#       %a{ class: "promo-holder", href: "http://www.calorieking.com/products/the-calorieking-program/" }
+          -#         %img{ src: "CalorieKing%20-%20Home_files/OP-home.gif", alt: "" }
+          -#         %span{ class: "data" }
+          -#           %span{ class: "category" } WEB
+          -#           %h3{ class: "prod-title" } The CalorieKing Program
+          -#           %p Join our community and we'll show you how to lose the weight and keep it off.
+          -#
+          -#     %li{ class: "product" }
+          -#       %a{ href: "http://www.calorieking.com/products/controlmyweight/" }
+          -#         %img{ src: "CalorieKing%20-%20Home_files/CMW.jpg", alt: "" }
+          -#         %span{ class: "data" }
+          -#           %span{ class: "category" } iOS
+          -#           %h3{ class: "prod-title" } ControlMyWeight™
+          -#           %p Our top-rated calorie counter helps you make smarter food choices wherever you go.
+          -#
+          -#     %li{ class: "product last-product" }
+          -#       %a{ href: "http://www.calorieking.com/products/books/" }
+          -#         %img{ src: "CalorieKing%20-%20Home_files/Books.jpg", alt: "" }
+          -#         %span{ class: "data" }
+          -#           %span{ class: "category" } Books
+          -#           %h3{ class: "prod-title" } 2016 Editions
+          -#           %p Our bestselling calorie counter and food diary. Pocket size.
+          -#
+          -#   %div{ class: "all-products" }
+          -#     %a{ href: "http://www.calorieking.com/products/" } See all products
+          -#
+          -#   %div{ id: "tools-hmcsye" }
+          -#     %div{ class: "left" }
+          -#     %div{ class: "right" }
+          -#       %form{ id: "profile-sell", action: "http://www.calorieking.com/interactive-tools/how-many-calories-should-you-eat/", method: "get" }
+          -#         %div{ class: "survey" }
+          -#         %span{ class: "headline" }
+          -#           How many calories should you eat?
+          -#           %div
+          -#             %label{ for: "h-feet", class: "svy-label" } Height
+          -#             %div{ class: "fiddy" }
+          -#               %label{ for: "h-feet", class: "in-field" }
+          -#                 %abbr{ title: "feet" } ft
+          -#
+          -#               %input{ id: "h-feet", name: "hf", type: "number" }
+          -#
+          -#             %div{ class: "fiddy" }
+          -#               %label{ for: "h-inches", class: "in-field" }
+          -#                 %abbr{ title: "inches" } in
+          -#
+          -#               %input{ id: "h-inches", name: "hi", type: "number" }
+          -#
+          -#           %div{ class: "fiddy" }
+          -#             %label{ for: "weight", class: "svy-label" }
+          -#               Weight
+          -#               %span{ class: "in-field lbs" }
+          -#                 %abbr{ title: "pounds" } lbs
+          -#
+          -#             %input{ id: "weight", name: "w", type: "number" }
+          -#
+          -#           %div{ class: "fiddy" }
+          -#             %label{ for: "age", class: "svy-label" } Age
+          -#             %input{ id: "age", name: "a", type: "number" }
+          -#
+          -#           %div{ id: "gender-submit" }
+          -#             %div{ class: "fiddy gender" }
+          -#               %label{ class: "svy-label" } Gender
+          -#               %select{ name: "g", class: "form-control" }
+          -#                 %option{ selected: "selected", value: "F" } Female
+          -#                 %option{ value: "M" } Male
+          -#
+          -#             %div{ class: "fiddy controls" }
+          -#               %label{ class: "svy-label" } Controls
+          -#               %button{ id: "profile-submit", type: "submit" } Go
+          -#               %input{ name: "ref", value: "home", type: "hidden" }
 
-              %p{ style: "position:absolute; color:#FFF; width:200px; left:50%; margin-left:-100px; text-transform:uppercase; text-align:center; margin-top:40px;" } Featured Products
+          = yield
 
-            %ul{ class: "products" }
-              %li{ class: "product" }
-                %a{ class: "promo-holder", href: "http://www.calorieking.com/products/the-calorieking-program/" }
-                  %img{ src: "CalorieKing%20-%20Home_files/OP-home.gif", alt: "" }
-                  %span{ class: "data" }
-                    %span{ class: "category" } WEB
-                    %h3{ class: "prod-title" } The CalorieKing Program
-                    %p Join our community and we'll show you how to lose the weight and keep it off.
-
-              %li{ class: "product" }
-                %a{ href: "http://www.calorieking.com/products/controlmyweight/" }
-                  %img{ src: "CalorieKing%20-%20Home_files/CMW.jpg", alt: "" }
-                  %span{ class: "data" }
-                    %span{ class: "category" } iOS
-                    %h3{ class: "prod-title" } ControlMyWeight™
-                    %p Our top-rated calorie counter helps you make smarter food choices wherever you go.
-
-              %li{ class: "product last-product" }
-                %a{ href: "http://www.calorieking.com/products/books/" }
-                  %img{ src: "CalorieKing%20-%20Home_files/Books.jpg", alt: "" }
-                  %span{ class: "data" }
-                    %span{ class: "category" } Books
-                    %h3{ class: "prod-title" } 2016 Editions
-                    %p Our bestselling calorie counter and food diary. Pocket size.
-
-            %div{ class: "all-products" }
-              %a{ href: "http://www.calorieking.com/products/" } See all products
-
-            %div{ id: "tools-hmcsye" }
-              %div{ class: "left" }
-              %div{ class: "right" }
-                %form{ id: "profile-sell", action: "http://www.calorieking.com/interactive-tools/how-many-calories-should-you-eat/", method: "get" }
-                  %div{ class: "survey" }
-                  %span{ class: "headline" }
-                    How many calories should you eat?
-                    %div
-                      %label{ for: "h-feet", class: "svy-label" } Height
-                      %div{ class: "fiddy" }
-                        %label{ for: "h-feet", class: "in-field" }
-                          %abbr{ title: "feet" } ft
-
-                        %input{ id: "h-feet", name: "hf", type: "number" }
-
-                      %div{ class: "fiddy" }
-                        %label{ for: "h-inches", class: "in-field" }
-                          %abbr{ title: "inches" } in
-
-                        %input{ id: "h-inches", name: "hi", type: "number" }
-
-                    %div{ class: "fiddy" }
-                      %label{ for: "weight", class: "svy-label" }
-                        Weight
-                        %span{ class: "in-field lbs" }
-                          %abbr{ title: "pounds" } lbs
-
-                      %input{ id: "weight", name: "w", type: "number" }
-
-                    %div{ class: "fiddy" }
-                      %label{ for: "age", class: "svy-label" } Age
-                      %input{ id: "age", name: "a", type: "number" }
-
-                    %div{ id: "gender-submit" }
-                      %div{ class: "fiddy gender" }
-                        %label{ class: "svy-label" } Gender
-                        %select{ name: "g", class: "form-control" }
-                          %option{ selected: "selected", value: "F" } Female
-                          %option{ value: "M" } Male
-
-                      %div{ class: "fiddy controls" }
-                        %label{ class: "svy-label" } Controls
-                        %button{ id: "profile-submit", type: "submit" } Go
-                        %input{ name: "ref", value: "home", type: "hidden" }
-
-            -# <!-- site up text required for site up check - do not change without advising system administrator -->
-            %div{ style: "clear: both" }
+          -# <!-- site up text required for site up check - do not change without advising system administrator -->
+          %div{ style: "clear: both" }
 
     %div{ id: "footer" }
       %div{ class: "positioner" }
@@ -540,14 +542,6 @@
 
 
 
-
-
-
-
-
-
-
-      = yield
     -# %title Yummy - Count your diet calories
     -#
     -# / Bootstrap CSS

@@ -3,7 +3,6 @@ class AlimentsController < ApplicationController
   autocomplete :aliment, :name
 
   def index
-    byebug
     @aliments = if (params[:aliment].present? && !params[:aliment][:name].blank?)
       Aliment.search(params[:aliment][:name], operator: 'or', page: params[:page], per_page: 20, fields: [
         { name: :word_start },
