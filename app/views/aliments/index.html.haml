@@ -1,3 +1,76 @@
+%div{ id: "breadcrumbs" }
+  %a{ href: "http://www.calorieking.com/" } Home
+  %a{ href: "http://www.calorieking.com/foods/" } Food Database
+
+%div{ id: "page-content" }
+  %div{ id: "search-results-view" }
+    %div{ id: "search-results-content" }
+      %h2
+        Calories in
+        %span{ class: "keywords" }
+          milk
+      %p
+        Find nutritional information like calories, carbs, fat, protein and fiber for milk.
+
+      %h3{ class: "food-search-brand-container" }
+        %span{ class: "food-search-brand-unlinked" } Average All Brands
+
+      - @aliments.each do |aliment|
+        %div{ class: "food-search-result left-vertical-border-green" }
+          %span{ class: "food-search-category" }
+            = aliment.food_group
+          &nbsp:
+          = link_to aliment.name, aliments_path(id: aliment), class: "food-search-result-name"
+
+      %h3{ class: "food-search-brand-container" }
+        %a{ class: "food-search-brand", href: "http://www.calorieking.com/foods/calories-in-hersheys_b-YmlkPTQ1Mg.html" } Hershey's
+        %a{ href: "http://www.calorieking.com/foods/calories-in-hersheys_b-YmlkPTQ1Mg.html", class: "food-search-brand-view-more" } (view more)
+
+      %div{ class: "food-search-result left-vertical-border-blue" }
+        %span{ class: "food-search-category" } Chocolate
+        &nbsp:
+        %a{ class: "food-search-result-name", href: "http://www.calorieking.com/foods/calories-in-chocolate-kisses-milk-chocolate_f-ZmlkPTU4NDcz.html" } Kisses Milk Chocolate
+        %span{ class: "food-search-calorie-density" }
+
+      %div{ class: "food-search-result left-vertical-border-blue" }
+        %span{ class: "food-search-category" } Chocolate
+        &nbsp:
+        %a{ class: "food-search-result-name", href: "http://www.calorieking.com/foods/calories-in-chocolate-milk-chocolate-bar_f-ZmlkPTU4NDc1.html" } Milk Chocolate Bar
+        %span{ class: "food-search-calorie-density" }
+
+      %h3{ class: "food-search-brand-container" }
+        %a{ class: "food-search-brand", href: "http://www.calorieking.com/foods/calories-in-m-ms_b-YmlkPTU5OQ.html" } M&amp;M's
+        %a{ href: "http://www.calorieking.com/foods/calories-in-m-ms_b-YmlkPTU5OQ.html", class: "food-search-brand-view-more" } (view more)
+
+      %div{ class: "food-search-result left-vertical-border-blue" }
+        %span{ class: "food-search-category" } Chocolate
+        &nbsp:
+        %a{ class: "food-search-result-name", href: "http://www.calorieking.com/foods/calories-in-chocolate-milk-chocolate-candies_f-ZmlkPTE5MTQx.html" } Milk Chocolate Candies
+        %span{ class: "food-search-calorie-density" }
+
+      %div{ class: "navigation" }
+        %ul{ class: "pagination" }
+          %li{ class: "first-child disabled" }
+            %a{ href: "#" } First
+          %li{ class: " disabled" }
+            %a{ href: "#" } Prev
+          %li{ class: " disabled" }
+            %a{ href: "#" } 1
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=2" } 2
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=3" } 3
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=4" } 4
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=5" } 5
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=2" } Next
+          %li{ class: "" }
+            %a{ href: "http://www.calorieking.com/calories-in-milk.html?page=85" } Last
+          %li
+            %a{ href: "https://generalhelp.calorieking.com/?group=fooddb" } Can't find a food?
+
 .row
   .col-md-8.p-a-md
     %h5.card-title
