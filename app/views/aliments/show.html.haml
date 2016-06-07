@@ -1,0 +1,209 @@
+%div{ id: "breadcrumbs" }
+  %a{ href: "http://www.calorieking.com/" } Home /
+  /
+  %a{ href: "http://www.calorieking.com/foods/" } Food Database
+
+%div{ id: "page-content" }
+  %div{ id: "content-container" }
+    %div{ id: "mSearch" }
+      %form{ id: "mFoodSearch", method: "get", action: "/foods/search.php" }
+        %div
+          %input{ value: "Food search", id: "food-search-keywords", name: "keywords", size: "12", type: "text" }
+          %input{ id: "mGo", name: "go", value: "Go", src: "/images/search.gif", type: "image" }
+
+      %a{ href: "http://www.calorieking.com/products/the-calorieking-program/", class: "cta btn major promo-holder" } Start Losing
+      %p{ id: "mTagline" } Want to lose weight? Get the tools that work!
+
+    %div{ id: "food-info" }
+      %ol{ id: "food-breadcrumbs", 'xmlns:v' => "http://rdf.data-vocabulary.org/#" }
+        %li{ typeof: "v:Breadcrumb" }
+          %a{ href: "http://www.calorieking.com/foods/calories-in-average-all-brands_b-YmlkPTE.html", rel: "v:url", property: "v:title" } Average All Brands /
+        %li{ typeof: "v:Breadcrumb" }
+          %a{ href: "http://www.calorieking.com/foods/calories-in-average-all-brands_b-YmlkPTE.html#nut-drinks", rel: "v:url", property: "v:title" } Nut Drinks /
+        %li Almond Milk
+
+      %noscript
+        %div{ class: "error" }
+          You must enable Javascript to see charts and correct data for different
+          serving sizes. Please click the "Recalculate" button to show nutrition
+          facts based on your selection.
+
+      %div{ id: "food-heading-profile" }
+        %h2{ id: "food-heading" }
+          %span{ id: "heading-calories-in" } How many calories in
+          %span{ id: "heading-food-cat-desc" }
+            Almond Milk
+
+    %div{ id: "food-info-container" }
+      %div{ class: "shape-up-2016" }
+        %div{ class: "shape-up-2016__title" }
+          Shape Up!
+          %br
+          in 2016
+        %div{ class: "shape-up-2016__content" }
+          %div{ class: "shape-up-2016__with" } with
+          The CalorieKing Weight Control Program
+
+        %a{ href: "http://www.calorieking.com/products/the-calorieking-program/", class: "cta btn major promo-holder" } Start Today
+
+      %div{ id: "mCalorie" }
+        %span{ id: "mCal", class: "calorie-display" } 60
+        %span{ id: "mCalLabel" } calories
+        %br
+
+        %form{ action: "", id: "submission", method: "post", onsubmit: "return false" }
+          %div{ id: "serving-controls" }
+            %span{ id: "label-serving-size" } Serving size
+            %input{ id: "amount", maxlength: "5", size: "2", value: "1", name: "amount", type: "text" }
+            %span{ id: "multiplier" } x
+
+            %select{ name: "units", id: "units" }
+              %option{ value: "0", selected: "selected" } cup (8.1 fl.oz)
+              %option{ value: "1" } fl. oz (1 fl.oz)
+              %option{ value: "2" } mL
+
+            %span{ id: "numError" }
+              %span{ class: "errHead" } Oops!
+              %span{ class: "message" } You can only enter numbers and decimals in here, e.g. 1 or 3.5
+
+          %div{ id: "serving-actions" }
+            %noscript
+              %button{ type: "submit", id: "recalculate", name: "recalc" } Recalculate
+
+            %a{ href: "http://www.calorieking.com/foods/compare/?l=ZmlkPTk4NDE1", class: "cta minor" } Compare Foods
+
+      %div{ id: "google-ad-primary" }
+        %script{ async: "", src: "Calories%20-%20Show_files/adsbygoogle.js" }
+        -# <!-- Food View - Iteration 1: Rectangle (Medium) -->
+        %ins{ 'data-adsbygoogle-status' => "done", class: "adsbygoogle", style: "display: inline-block; width: 300px; height: 250px;", 'data-ad-client' => "ca-pub-6044097963479369", 'data-ad-slot' => "9380197138", 'data-adtest' => "off" }
+          %ins{ id: "aswift_0_expand", style: "display:inline-table;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent" }
+            %ins{ id: "aswift_0_anchor", style: "display:block;border:none;height:250px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent" }
+              %iframe{ marginwidth: "0", marginheight: "0", vspace: "0", hspace: "0", allowtransparency: "true", scrolling: "no", allowfullscreen: "true", onload: "var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}", id: "aswift_0", name: "aswift_0", style: "left:0;position:absolute;top:0;", frameborder: "0", height: "250", width: "300" }
+
+        %script
+          (adsbygoogle = window.adsbygoogle || []).push({});
+
+    %div{ id: "mData" }
+      %div{ style: "overflow: auto;" }
+        %div{ id: "mNutrient" }
+          %div{ class: "nutrient-facts" }
+            %table
+              %tbody
+                %tr
+                  %th{ colspan: "3" }
+                    Nutrition Facts
+                %tr{ class: "energy" }
+                  %td{ class: "calories" }
+                    Calories&nbsp;
+                    %span{ class: "amount" } 60
+                  %td{ class: "kilojoules", colspan: "2" }
+                    (
+                    %span{ class: "amount" } 251
+                    kJ)
+                %tr{ class: "fat-calories" }
+                  %td{ colspan: "3" }
+                    Calories from fat
+                    %span{ class: "amount" } 23
+                %tr{ class: "daily-value-header" }
+                  %td{ colspan: "3" }
+                    %span{ class: "label" } % Daily Value
+                    %span{ class: "footnote" } 1
+                %tr{ class: "total-fat" }
+                  %td{ class: "label" } Total Fat
+                  %td{ class: "amount" } 2.5g
+                  %td{ class: "daily-value" } 4%
+                %tr{ class: "sat-fat" }
+                  %td{ class: "label" } Sat. Fat
+                  %td{ class: "amount" } 0g
+                  %td{ class: "daily-value" } 0%
+                %tr{ class: "trans-fat" }
+                  %td{ class: "label" } Trans Fat
+                  %td{ class: "amount" } 0g
+                  %td{ class: "daily-value" } &nbsp;
+                %tr{ class: "cholesterol" }
+                  %td{ class: "label" } Cholesterol
+                  %td{ class: "amount" } 0mg
+                  %td{ class: "daily-value" } 0%
+                %tr{ class: "sodium" }
+                  %td{ class: "label" } Sodium
+                  %td{ class: "amount" } 150mg
+                  %td{ class: "daily-value" } 6%
+                %tr{ class: "total-carbs" }
+                  %td{ class: "label" } Total Carbs.
+                  %td{ class: "amount" } 8g
+                  %td{ class: "daily-value" } 3%
+                %tr{ class: "fiber" }
+                  %td{ class: "label" } Dietary Fiber
+                  %td{ class: "amount" } 1g
+                  %td{ class: "daily-value" } 4%
+                %tr{ class: "sugars" }
+                  %td{ class: "label" } Sugars
+                  %td{ class: "amount" } 7g
+                  %td{ class: "daily-value" } &nbsp;
+                %tr{ class: "protein" }
+                  %td{ class: "label" } Protein
+                  %td{ class: "amount" } 1g
+                  %td{ class: "daily-value" } &nbsp;
+                %tr{ class: "calcium" }
+                  %td{ class: "label" } Calcium
+                  %td{ class: "amount" } 200mg
+                  %td{ class: "daily-value" } &nbsp;
+                %tr{ class: "potassium" }
+                  %td{ class: "label" } Potassium
+                  %td{ class: "amount" } 180mg
+                  %td{ class: "daily-value" } &nbsp;
+
+        %div{ id: "mBurn" }
+          %h3{ id: "label-burn-calories" }
+            How to burn
+            %span{ class: "calorie-display" } 60
+            calories
+            %sup 2
+
+          %ul{ id: "mBurnGraph" }
+            %li
+              %span{ id: "exwalking", class: "mTime" }
+                %span{ class: "mMins" } 16
+                %span{ class: "mMinsLabel" } mins
+              %span{ class: "mActivity" } walking
+            %li{ style: "width: 42.1%" }
+              %span{ id: "exjogging", class: "mTime" }
+                %span{ class: "mMins" } 7
+                %span{ class: "mMinsLabel" } mins
+              %span{ class: "mActivity" } jogging
+            %li{ style: "width: 29%" }
+              %span{ id: "exswimming", class: "mTime" }
+                %span{ class: "mMins" } 5
+                %span{ class: "mMinsLabel" } mins
+              %span{ class: "mActivity" } swimming
+            %li{ style: "width: 55%" }
+              %span{ id: "excycling", class: "mTime" }
+                %span{ class: "mMins" } 8
+                %span{ class: "mMinsLabel" } mins
+              %span{ class: "mActivity" } cycling
+
+        %div{ style: "float: right; width: 300px;" }
+          %script{ async: "", src: "Calories%20-%20Show_files/adsbygoogle.js" }
+          -# <!-- Foods - Food - Desktop: Middle -->
+          %ins{ 'data-adsbygoogle-status': "done", class: "adsbygoogle", style: "display:inline-block;width:300px;height:600px", 'data-ad-client' => "ca-pub-6044097963479369", 'data-ad-slot' => "6730132738", 'data-adtest' => "off" }
+            %ins{ id: "aswift_1_expand", style: "display:inline-table;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent" }
+              %ins{ id: "aswift_1_anchor", style: "display:block;border:none;height:600px;margin:0;padding:0;position:relative;visibility:visible;width:300px;background-color:transparent" }
+                %iframe{ marginwidth: "0", marginheight: "0", vspace: "0", hspace: "0", allowtransparency: "true", scrolling: "no", allowfullscreen: "true", onload: "var i=this.id,s=window.google_iframe_oncopy,H=s&amp;&amp;s.handlers,h=H&amp;&amp;H[i],w=this.contentWindow,d;try{d=w.document}catch(e){}if(h&amp;&amp;d&amp;&amp;(!d.body||!d.body.firstChild)){if(h.call){setTimeout(h,0)}else if(h.match){try{h=s.upd(h,i)}catch(e){}w.location.replace(h)}}", id: "aswift_1", name: "aswift_1", style: "left:0;position:absolute;top:0;", frameborder: "0", height: "600", width: "300" }
+
+          %script
+            (adsbygoogle = window.adsbygoogle || []).push({});
+
+      %dl{ class: "footnote" }
+        %dt 1
+        %dd
+          Percent Daily Values are based on a 2,000 calorie diet. Your daily
+          values may be higher or lower depending on your calorie needs. These
+          values are recommended by a government body. They are not
+          CalorieKing.com recommendations.
+        %dt 2
+        %dd
+          Based on a 35 year old female who is
+          5'7" and weighs
+          144 lbs.
+
+%div{ style: "clear: both" } <!-- -->
