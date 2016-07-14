@@ -40,8 +40,6 @@ gem 'kaminari'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Jobs and services
 gem 'whenever', require: false
@@ -56,9 +54,10 @@ gem 'whenever', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'pry'
 
   gem 'better_errors'
+  gem 'awesome_print'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', "~> 2.0"
@@ -72,4 +71,11 @@ group :development, :test do
   gem 'simplecov'
   # Metrics
   gem 'metric_fu'
+end
+
+group :doc do
+  # bundle exec rake erd generates the Database ERD file.
+  gem 'rails-erd', require: false
+  # bundle exec rake doc:rails generates the API under doc/api.
+  gem 'sdoc', require: false
 end

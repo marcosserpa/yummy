@@ -1,5 +1,4 @@
 class Vitamin < ActiveRecord::Base
-
   include Utilities::Conversions
 
   belongs_to :aliment

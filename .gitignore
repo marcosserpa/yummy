@@ -16,3 +16,6 @@ tmp/
 # Ignore files buffered by opening two editors
 *.swp
 *.swo
+
+# Ignore tests resports folders
+/coverage

@@ -10,6 +10,7 @@ module Integration
     class << self
 
       def get_aliment
+        puts "=================== Downloading the aliments ndbnos ==================="
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
         local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
 
