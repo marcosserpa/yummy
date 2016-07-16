@@ -1,5 +1,6 @@
 class Mineral < ActiveRecord::Base
   include Utilities::Conversions
+  include Utilities::Calories
 
   belongs_to :aliment
 

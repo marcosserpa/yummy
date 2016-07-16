@@ -47,7 +47,7 @@
         %a{ href: "http://www.calorieking.com/products/the-calorieking-program/", class: "cta btn major promo-holder" } Start Today
 
       %div{ id: "mCalorie" }
-        %span{ id: "mCal", class: "calorie-display" }= @aliment.proximate.energy
+        %span{ id: "mCal", class: "calorie-display" }= @aliment.proximate.blank? ? '-' : @aliment.proximate.energy
         %span{ id: "mCalLabel" } calories
         %br
 
@@ -58,9 +58,12 @@
             %span{ id: "multiplier" } x
 
             %select{ name: "units", id: "units" }
-              %option{ value: "0", selected: "selected" } cup (8.1 fl.oz)
-              %option{ value: "1" } fl. oz (1 fl.oz)
-              %option{ value: "2" } mL
+              %option{ value: "0", selected: "selected" } 100g
+              %option{ value: "1" } 10g
+              %option{ value: "2" } cup (227g)
+              %option{ value: "3" } tbsp (14.2g)
+              %option{ value: "4" } stick (113g)
+              %option{ value: "5" } pat (5g)
 
             %span{ id: "numError" }
               %span{ class: "errHead" } Oops!
@@ -92,10 +95,11 @@
                 %tr
                   %th{ colspan: "3" }
                     Nutrition Facts
+                -# MAIN FACTS
                 %tr{ class: "energy" }
                   %td{ class: "calories" }
                     Calories&nbsp;
-                    %span{ class: "amount" } 60
+                    %span{ class: "amount" }= @aliment.proximate.blank? ? '-' : @aliment.proximate.energy
                   %td{ class: "kilojoules", colspan: "2" }
                     (
                     %span{ class: "amount" } 251
@@ -103,55 +107,294 @@
                 %tr{ class: "fat-calories" }
                   %td{ colspan: "3" }
                     Calories from fat
-                    %span{ class: "amount" } 23
+                    %span{ class: "amount" }= @aliment.proximate.blank? ? '-' : (9 * @aliment.proximate.fat).round(2)
                 %tr{ class: "daily-value-header" }
                   %td{ colspan: "3" }
                     %span{ class: "label" } % Daily Value
                     %span{ class: "footnote" } 1
                 %tr{ class: "total-fat" }
                   %td{ class: "label" } Total Fat
-                  %td{ class: "amount" } 2.5g
-                  %td{ class: "daily-value" } 4%
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.fat } g"
+                  %td{ class: "daily-value" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.calorify('DIET_BASE', :fat) } %"
                 %tr{ class: "sat-fat" }
                   %td{ class: "label" } Sat. Fat
-                  %td{ class: "amount" } 0g
-                  %td{ class: "daily-value" } 0%
-                %tr{ class: "trans-fat" }
-                  %td{ class: "label" } Trans Fat
-                  %td{ class: "amount" } 0g
-                  %td{ class: "daily-value" } &nbsp;
+                  %td{ class: "amount" }= @aliment.lipid.blank? ? '-' : "#{ @aliment.lipid.fatty_acids_saturated } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                -# %tr{ class: "trans-fat" }
+                -#   %td{ class: "label" } Trans Fat
+                -#   %td{ class: "amount" } 0g
+                -#   %td{ class: "daily-value" } &nbsp;
                 %tr{ class: "cholesterol" }
                   %td{ class: "label" } Cholesterol
-                  %td{ class: "amount" } 0mg
-                  %td{ class: "daily-value" } 0%
+                  %td{ class: "amount" }= @aliment.lipid.blank? ? '-' : "#{ @aliment.lipid.cholesterol.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
                 %tr{ class: "sodium" }
                   %td{ class: "label" } Sodium
-                  %td{ class: "amount" } 150mg
-                  %td{ class: "daily-value" } 6%
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.sodium.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
                 %tr{ class: "total-carbs" }
                   %td{ class: "label" } Total Carbs.
-                  %td{ class: "amount" } 8g
-                  %td{ class: "daily-value" } 3%
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
                 %tr{ class: "fiber" }
                   %td{ class: "label" } Dietary Fiber
-                  %td{ class: "amount" } 1g
-                  %td{ class: "daily-value" } 4%
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.fiber.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
                 %tr{ class: "sugars" }
                   %td{ class: "label" } Sugars
-                  %td{ class: "amount" } 7g
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.sugars.round(2) } g"
                   %td{ class: "daily-value" } &nbsp;
                 %tr{ class: "protein" }
                   %td{ class: "label" } Protein
-                  %td{ class: "amount" } 1g
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.protein.round(2) } g"
                   %td{ class: "daily-value" } &nbsp;
                 %tr{ class: "calcium" }
                   %td{ class: "label" } Calcium
-                  %td{ class: "amount" } 200mg
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.calcium.round(2) } mg"
                   %td{ class: "daily-value" } &nbsp;
                 %tr{ class: "potassium" }
                   %td{ class: "label" } Potassium
-                  %td{ class: "amount" } 180mg
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.potassium.round(2) } mg"
                   %td{ class: "daily-value" } &nbsp;
+                -# VITAMINS
+                %tr{ class: "vitamins" }
+                  %td{ class: "label" } Vitamins
+                  %td{ class: "daily-value" } &nbsp;
+                  -# %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  -# %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "alpha_carotene" }
+                  %td{ class: "label" } Alpha Carotene
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.alpha_carotene.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "beta_carotene" }
+                  %td{ class: "label" } Beta Carotene
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.beta_carotene.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "betaine" }
+                  %td{ class: "label" } Betaine
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.betaine.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "choline" }
+                  %td{ class: "label" } Choline
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.choline.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "cryptoxanthin" }
+                  %td{ class: "label" } Cryptoxanthin
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.cryptoxanthin.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "folate_total" }
+                  %td{ class: "label" } Folate
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.folate_total.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "folic_acid" }
+                  %td{ class: "label" } Folic Acid
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.folic_acid.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "lutein_zeaxanthin" }
+                  %td{ class: "label" } Lutein + Zeaxanthin
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.lutein_zeaxanthin.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "lycopene" }
+                  %td{ class: "label" } Lycopene
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.lycopene.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "niacin" }
+                  %td{ class: "label" } Niacin
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.niacin.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "pantothenic_acid" }
+                  %td{ class: "label" } Pantothenic Acid
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.pantothenic_acid.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "retinol" }
+                  %td{ class: "label" } Retinol
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.retinol.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "riboflavin" }
+                  %td{ class: "label" } Riboflavin
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.riboflavin.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "thiamin" }
+                  %td{ class: "label" } Thiamin
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.thiamin.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_a_iu" }
+                  %td{ class: "label" } Vitamin A (IU)
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_a_iu.round(2) } IU"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_a_rae" }
+                  %td{ class: "label" } Vitamin A (RAE)
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_a_rae.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_b12" }
+                  %td{ class: "label" } Vitamin B12
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_b12.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_b6" }
+                  %td{ class: "label" } Vitamin B6
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_b6.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_c" }
+                  %td{ class: "label" } Vitamin C
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_c.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_d" }
+                  %td{ class: "label" } Vitamin D
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_d.round(2) } IU"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_e_alpha_tocopherol" }
+                  %td{ class: "label" } Vitamin E
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_e_alpha_tocopherol.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "vitamin_k" }
+                  %td{ class: "label" } Vitamin K
+                  %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_k.round(2) } µg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                -# AMINO ACIDS
+                %tr{ class: "amino-acids" }
+                  %td{ class: "label" } Amino Acids
+                  -# %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  -# %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "alanine" }
+                  %td{ class: "label" } Alanine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.alanine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "arginine" }
+                  %td{ class: "label" } Arginine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.arginine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "aspartic_acid" }
+                  %td{ class: "label" } Aspartic Acid
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.aspartic_acid.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "cystine" }
+                  %td{ class: "label" } Cystine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.cystine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "glutamic_acid" }
+                  %td{ class: "label" } Glutamic Acid
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.glutamic_acid.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "glycine" }
+                  %td{ class: "label" } Glycine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.glycine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "histidine" }
+                  %td{ class: "label" } Histidine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.histidine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "isoleucine" }
+                  %td{ class: "label" } Isoleucine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.isoleucine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "leucine" }
+                  %td{ class: "label" } Leucine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.leucine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "lysine" }
+                  %td{ class: "label" } Lysine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.lysine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "methionine" }
+                  %td{ class: "label" } Methionine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.methionine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "phenylalanine" }
+                  %td{ class: "label" } phenylalanine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.phenylalanine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "proline" }
+                  %td{ class: "label" } Proline
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.proline.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "serine" }
+                  %td{ class: "label" } Serine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.serine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "threonine" }
+                  %td{ class: "label" } Threonine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.threonine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "tryptophan" }
+                  %td{ class: "label" } Tryptophan
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.tryptophan.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "tyrosine" }
+                  %td{ class: "label" } Tyrosine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.tyrosine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "valine" }
+                  %td{ class: "label" } Valine
+                  %td{ class: "amount" }= @aliment.amino_acid.blank? ? '-' : "#{ @aliment.amino_acid.valine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                -# LIPIDS
+                %tr{ class: "lipids" }
+                  %td{ class: "label" } Lipids
+                  -# %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  -# %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "fatty_acids_monounsaturated" }
+                  %td{ class: "label" } Fatty Acids Monounsaturated
+                  %td{ class: "amount" }= @aliment.lipid.blank? ? '-' : "#{ @aliment.lipid.fatty_acids_monounsaturated.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "fatty_acids_polyunsaturated" }
+                  %td{ class: "label" } Fatty Acids Polyunsaturated
+                  %td{ class: "amount" }= @aliment.lipid.blank? ? '-' : "#{ @aliment.lipid.fatty_acids_polyunsaturated.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                -# MINERALS
+                %tr{ class: "minerals" }
+                  %td{ class: "label" } Minerals
+                  -# %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  -# %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "copper" }
+                  %td{ class: "label" } Copper
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.copper.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "iron" }
+                  %td{ class: "label" } Iron
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.iron.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "magnesium" }
+                  %td{ class: "label" } Magnesium
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.magnesium.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "manganese" }
+                  %td{ class: "label" } Manganese
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.manganese.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "phosphorus" }
+                  %td{ class: "label" } Phosphorus
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.phosphorus.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "selenium" }
+                  %td{ class: "label" } Selenium
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.selenium.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "zinc" }
+                  %td{ class: "label" } Zinc
+                  %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.zinc.round(2) } mg"
+                  %td{ class: "daily-value" } CORRIGIR %
+                -# OTHERS
+                %tr{ class: "others" }
+                  %td{ class: "label" } Other Nutrients
+                  -# %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.carbohydrate.round(2) } g"
+                  -# %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "alcohol" }
+                  %td{ class: "label" } alcohol
+                  %td{ class: "amount" }= @aliment.other.blank? ? '-' : "#{ @aliment.other.alcohol.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "caffeine" }
+                  %td{ class: "label" } caffeine
+                  %td{ class: "amount" }= @aliment.other.blank? ? '-' : "#{ @aliment.other.caffeine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "water" }
+                  %td{ class: "label" } water
+                  %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.water.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+                %tr{ class: "theobromine" }
+                  %td{ class: "label" } Theobromine
+                  %td{ class: "amount" }= @aliment.other.blank? ? '-' : "#{ @aliment.other.theobromine.round(2) } g"
+                  %td{ class: "daily-value" } CORRIGIR %
+
 
         %div{ id: "mBurn" }
           %h3{ id: "label-burn-calories" }

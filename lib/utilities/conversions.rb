@@ -8,6 +8,19 @@ module Utilities
     TBSP = 0.142 # 14.2g
     PAT = 0.05 # 5g
     TEN = 0.1 # 10g
+    # MG = [
+    #   # Minerals
+    #   :calcium, :iron, :magnesium, :phosphorus, :potassium, :sodium, :zinc, :copper, :manganese,
+    #   # Lipids
+    #   :cholesterol,
+    #   # Others
+    #   :caffeine, :theobromine,
+    #   # Vitamins
+    #   :vitamin_c, :thiamin, :riboflavin, :niacin, :pantothenic_acid, :vitamin_b6
+    # ]
+    # MICRO = [ #μg
+    #   :selenium,
+    # ]
 
     ##
     # This method converts from default to cup
@@ -36,6 +49,25 @@ module Utilities
           { nutrient => (self[nutrient] * factor).round(2) }
         end
       end.reduce(Hash.new, :merge)
+    end
+  end
+
+  ##
+  # This module makes the calculations of the calories
+  module Calories
+    FAT = 9 # # of calories each gram of fat has
+    CARBOHYDRATE = 4
+    PROTEIN = 4
+    DIET_BASE = 2000
+
+    def calorify(key = nil, nutrient)
+      const = self.class.const_get(key)
+
+      cal = if const.eql?(DIET_BASE)
+        self[nutrient] / const
+      else
+        self[nutrient] * const
+      end.round(2)
     end
   end
 end
