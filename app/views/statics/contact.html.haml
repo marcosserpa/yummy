@@ -1,0 +1,88 @@
+%div{ id: "breadcrumbs" }
+  %a{ href: "http://www.calorieking.com/" } Home /
+  /
+  %a{ href: "http://www.calorieking.com/foods/" } Food Database
+
+%form#request.formal-form{:action => "./?pg=request", :enctype => "multipart/form-data", :method => "post"}
+  %div
+    %input{:name => "required", :type => "hidden", :value => "simple,fullname,sEmail,recaptcha_response_field"}/
+    %input{:name => "additional", :type => "hidden", :value => ""}/
+    %input{:name => "hs_fv_timestamp", :type => "hidden", :value => "1465327034"}/
+    %input{:name => "hs_fv_ip", :type => "hidden", :value => "10.67.75.254"}/
+    %input{:name => "hs_fv_hash", :type => "hidden", :value => "c345c6ad451babe5e0b9a7bdacc0ea35"}/
+
+  %fieldset.contact_details
+    %legend Your Contact Details
+    %ul
+      %li
+        %label{:for => "xCategory"} What do you need help with?
+        %p.note
+          Please choose the area you need help with
+        %select#xCategory{:name => "xCategory"}
+          %option{:selected => "selected", :value => "0"} Website Help
+          %option{:value => "1"} Food Database Help
+          %option{:value => "2"} Company Information
+          %option{:value => "3"} Other
+      %li
+        %label{:for => "simple"}
+          Explain the Problem / Question
+          %span.required - Required
+        %p.note
+          Please be as specific as possible.  This will
+          help us answer your question quickly.  If
+          it's a bug please tell us the steps to take to
+          recreate the issue, what you expected to happen
+          and what actually happened.
+        %textarea#simple{:cols => "75", :name => "simple", :rows => "7"}
+      %li
+        %label{:for => "fullname"}
+          What's your name?
+          %span.required - Required
+        %p.note
+          We'd like to know your name so we know who
+          we are answering.
+        %input#fullname.fullname{:maxlength => "100", :name => "fullname", :size => "50", :type => "text"}/
+      %li
+        %label{:for => "sEmail"}
+          What's your email address?
+          %span.required - Required
+        %p.note
+          We need your email so we can get back to you.
+          Please double check that you entered it correctly.
+        %input#sEmail.email{:maxlength => "250", :name => "sEmail", :size => "50", :type => "text"}/
+      %li
+        %label{:for => "file"} Send us an attachment
+        %p.note
+          If you need to send us a screenshot of your
+          problem you can attach it here.
+        %input#file.file{:name => "doc[]", :type => "file"}/
+
+  %fieldset
+    %legend Security Words
+    %ul
+      %li
+        :javascript
+          var RecaptchaOptions = {
+          	theme : 'clean',
+          	lang : 'en'
+          };
+
+        %p
+          %label.datalabel.required{:for => "recaptcha_response_field"}
+            Please type the security words
+            %span.required - Required
+
+          -# = javascript_include_tag 'challenge', 'data-turbolinks-track' => true
+          -# = javascript_include_tag 'recaptcha', 'data-turbolinks-track' => true
+
+        %noscript
+          %iframe{:frameborder => "0", :height => "300", :src => "https://www.google.com/recaptcha/api/noscript?k=6LcodOISAAAAACef7vi6N_CQGZvKd20b7xtDULaL", :width => "500"}
+          %br/
+          %textarea{:cols => "40", :name => "recaptcha_challenge_field", :rows => "3"}
+          %input{:name => "recaptcha_response_field", :type => "hidden", :value => "manual_challenge"}/
+        %p
+  %fieldset
+    %legend Controls
+    %ul.controls
+      %li
+        %input{:name => "submit", :type => "submit", :value => "Send My Question to CalorieKing Support"}/

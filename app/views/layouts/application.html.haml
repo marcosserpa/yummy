@@ -9,8 +9,10 @@
 
     %link{ rel: "icon", href: "http://images.calorieking.com/branding/ck/secure/favicon.ico" }
 
-    %script{ src: "CalorieKing%20-%20Home_files/analytics.js", async: "" }
-    %script{ src: "CalorieKing%20-%20Home_files/prum.js", async: "" }
+    -# %script{ src: "analytics.js", async: "" }
+    -# %script{ src: "prum.js", async: "" }
+    = javascript_include_tag 'analytics', 'data-turbolinks-track' => true
+    = javascript_include_tag 'prum', 'data-turbolinks-track' => true
 
     :javascript
       function getImagesURI(){
@@ -20,14 +22,21 @@
         return 'http://images.calorieking.com/branding/ck/secure';
       }
 
-    %link{ rel: "stylesheet", href: "CalorieKing%20-%20Home_files/style3.css", type: "text/css" }
-    %link{ rel: "stylesheet", href: "CalorieKing%20-%20Home_files/frontpage.css", type: "text/css" }
+    -# %link{ rel: "stylesheet", href: "CalorieKing%20-%20Home_files/style3.css", type: "text/css" }
+    -# %link{ rel: "stylesheet", href: "CalorieKing%20-%20Home_files/frontpage.css", type: "text/css" }
+    = stylesheet_link_tag 'style3', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag 'frontpage', media: 'all', 'data-turbolinks-track' => true
 
-    %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/yahoo-dom-event.js" }
-    %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/container-min.js" }
-    %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/jquery.js" }
-    %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/Frontpage.js" }
-    %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/newsletter.js" }
+    -# %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/yahoo-dom-event.js" }
+    -# %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/container-min.js" }
+    -# %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/jquery.js" }
+    -# %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/Frontpage.js" }
+    -# %script{ type: "text/javascript", src: "CalorieKing%20-%20Home_files/newsletter.js" }
+    = javascript_include_tag 'yahoo-dom-event', 'data-turbolinks-track' => true
+    = javascript_include_tag 'container-min', 'data-turbolinks-track' => true
+    -# = javascript_include_tag 'jquery', 'data-turbolinks-track' => true
+    = javascript_include_tag 'Frontpage', 'data-turbolinks-track' => true
+    = javascript_include_tag 'newsletter', 'data-turbolinks-track' => true
 
     :javascript
       var _prum = [['id', '563ad423abe53d1331646f4d'], ['mark', 'firstbyte', (new Date()).getTime()]];
@@ -63,11 +72,11 @@
           %div{ class: "positioner" }
             %h1
               %a{ href: "http://www.calorieking.com/" }
-                %img{ src: "CalorieKing%20-%20Home_files/logo_calorieking.png", alt: "CalorieKing" }
+                %img{ src: "logo_calorieking.png", alt: "CalorieKing" }
 
             %ul{ id: "site-nav", class: "site-nav" }
               %li{ class: "nav-item" }
-                %a{ href: "javascript:void(0);", class: "nav-link top-level" }
+                %a{ href: "/", class: "nav-link top-level" }
                   home
                 -# %ul{ class: "sub-nav" }
                 -#   %li{ class: "sub-nav-content" }
@@ -113,7 +122,7 @@
                 -#             %a{ href: "http://www.calorieking.com/products/books/#cfej", class: "sub-link" } Food and Exercise Journal
 
               %li{ class: "nav-item" }
-                %a{ href: "javascript:void(0);", class: "nav-link top-level" } about
+                %a{ href: "/about", class: "nav-link top-level" } about
                 -# %ul{ class: "sub-nav" }
                 -#   %li{ class: "sub-nav-content" }
                 -#     %ul
@@ -157,7 +166,7 @@
                 -#             %a{ href: "http://www.calorieking.com/learnabouts", class: "sub-link" } Diet FAQs
 
               %li{ class: "nav-item" }
-                %a{ href: "http://www.calorieking.com/store/", class: "nav-link top-level" } contact
+                %a{ href: "/contact", class: "nav-link top-level" } contact
               -# %li{ class: "nav-item" }
               -#   %a{ href: "http://blog.calorieking.com/", class: "nav-link top-level" } Blog
               -#
