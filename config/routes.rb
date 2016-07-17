@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'statics#contact'
   get 'about', to: 'statics#about'
+  post '/' => 'statics#send_contact_email', as: :send_contact_email
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

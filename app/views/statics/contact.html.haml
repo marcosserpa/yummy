@@ -3,37 +3,55 @@
   /
   %a{ href: "http://www.calorieking.com/foods/" } Food Database
 
-%form#request.formal-form{:action => "./?pg=request", :enctype => "multipart/form-data", :method => "post"}
-  %div
-    %input{:name => "required", :type => "hidden", :value => "simple,fullname,sEmail,recaptcha_response_field"}/
-    %input{:name => "additional", :type => "hidden", :value => ""}/
-    %input{:name => "hs_fv_timestamp", :type => "hidden", :value => "1465327034"}/
-    %input{:name => "hs_fv_ip", :type => "hidden", :value => "10.67.75.254"}/
-    %input{:name => "hs_fv_hash", :type => "hidden", :value => "c345c6ad451babe5e0b9a7bdacc0ea35"}/
+%hr/
 
+.row-fluid
+  - if flash[:notice]
+    .span12
+      .alert.alert-success
+        %button.close{"data-dismiss" => "alert", :type => "button"} ×
+        %strong= t('message.thank_you')
+        = flash[:notice]
+
+-# %form#request.formal-form{:action => "./?pg=request", :enctype => "multipart/form-data", :method => "post"}
+= form_tag send_contact_email_path(anchor: 'contact_us'), id: "contactForm", class: "contact-form", novalidate: "" do
   %fieldset.contact_details
     %legend Your Contact Details
     %ul
+      -# .controls.controls-row
+      -#   .control-group.span6
+      -#     = text_field_tag :subject, params[:subject], class: "span12", placeholder: t('placeholder.subject')
+      -#   .control-group.span3
+      -#     = "#{t('placeholder.question')} #{@random_question} ?"
+      -#   %div{:class => "control-group span3 #{'error' if @errors.present? && @errors.include?(:answer)}"}
+      -#     = text_field_tag :answer, params[:answer], class: "span12", placeholder: t('placeholder.answer')
+      -#     = render 'input_error', position: 'top' if @errors.present? && @errors.include?(:answer)
+      -#   = hidden_field_tag :expected_answer, @random_anwser
       %li
         %label{:for => "xCategory"} What do you need help with?
         %p.note
           Please choose the area you need help with
-        %select#xCategory{:name => "xCategory"}
-          %option{:selected => "selected", :value => "0"} Website Help
-          %option{:value => "1"} Food Database Help
-          %option{:value => "2"} Company Information
-          %option{:value => "3"} Other
-      %li
-        %label{:for => "simple"}
-          Explain the Problem / Question
-          %span.required - Required
-        %p.note
-          Please be as specific as possible.  This will
-          help us answer your question quickly.  If
-          it's a bug please tell us the steps to take to
-          recreate the issue, what you expected to happen
-          and what actually happened.
-        %textarea#simple{:cols => "75", :name => "simple", :rows => "7"}
+        %select#xCategory{:name => "subject"}
+          %option{:selected => "selected", :value => "Website Help"} Website Help
+          %option{:value => "Food Database Help"} Food Database Help
+          %option{:value => "Company Information"} Company Information
+          %option{:value => "Other"} Other
+      %br
+
+        %div{:class => "control-group span12 #{'error' if @errors.present? && @errors.include?(:message)}"}
+          %label{:for => "simple"}
+            Explain the Problem / Question
+            %span.required - Required
+          %p.note
+            Please be as specific as possible.  This will
+            help us answer your question quickly.  If
+            it's a bug please tell us the steps to take to
+            recreate the issue, what you expected to happen
+            and what actually happened.
+          = text_area_tag :message, params[:message], class: "span12", placeholder: 'Message', rows: 5
+          = render 'input_error', position: 'right' if @errors.present? && @errors.include?(:message)
+      %br
+
       %li
         %label{:for => "fullname"}
           What's your name?
@@ -41,7 +59,10 @@
         %p.note
           We'd like to know your name so we know who
           we are answering.
-        %input#fullname.fullname{:maxlength => "100", :name => "fullname", :size => "50", :type => "text"}/
+        %div{:class => "control-group span6 #{'error' if @errors.present? && @errors.include?(:name)}"}
+          = text_field_tag :name, params[:name], class: "span12", placeholder: "Your Name"
+          = render 'input_error', position: 'top' if @errors.present? && @errors.include?(:name)
+      %br
       %li
         %label{:for => "sEmail"}
           What's your email address?
@@ -49,7 +70,11 @@
         %p.note
           We need your email so we can get back to you.
           Please double check that you entered it correctly.
-        %input#sEmail.email{:maxlength => "250", :name => "sEmail", :size => "50", :type => "text"}/
+        %div{:class => "control-group span6 #{'error' if @errors.present? && @errors.include?(:email)}"}
+          = email_field_tag :email, params[:email], class: "span12", placeholder: "Email"
+          = render 'input_error', position: 'top' if @errors.present? && @errors.include?(:email)
+      %br
+
       %li
         %label{:for => "file"} Send us an attachment
         %p.note
@@ -57,33 +82,38 @@
           problem you can attach it here.
         %input#file.file{:name => "doc[]", :type => "file"}/
 
+  -# %fieldset
+  -#   %legend Security Words
+  -#   %ul
+  -#     %li
+  -#       :javascript
+  -#         var RecaptchaOptions = {
+  -#         	theme : 'clean',
+  -#         	lang : 'en'
+  -#         };
+  -#
+  -#       %p
+  -#         %label.datalabel.required{:for => "recaptcha_response_field"}
+  -#           Please type the security words
+  -#           %span.required - Required
+  -#
+  -#         -# = javascript_include_tag 'challenge', 'data-turbolinks-track' => true
+  -#         -# = javascript_include_tag 'recaptcha', 'data-turbolinks-track' => true
+  -#
+  -#       %noscript
+  -#         %iframe{:frameborder => "0", :height => "300", :src => "https://www.google.com/recaptcha/api/noscript?k=6LcodOISAAAAACef7vi6N_CQGZvKd20b7xtDULaL", :width => "500"}
+  -#         %br/
+  -#         %textarea{:cols => "40", :name => "recaptcha_challenge_field", :rows => "3"}
+  -#         %input{:name => "recaptcha_response_field", :type => "hidden", :value => "manual_challenge"}/
+  -#       %p
+  -#     %br
+  %br
+
   %fieldset
-    %legend Security Words
-    %ul
-      %li
-        :javascript
-          var RecaptchaOptions = {
-          	theme : 'clean',
-          	lang : 'en'
-          };
-
-        %p
-          %label.datalabel.required{:for => "recaptcha_response_field"}
-            Please type the security words
-            %span.required - Required
-
-          -# = javascript_include_tag 'challenge', 'data-turbolinks-track' => true
-          -# = javascript_include_tag 'recaptcha', 'data-turbolinks-track' => true
-
-        %noscript
-          %iframe{:frameborder => "0", :height => "300", :src => "https://www.google.com/recaptcha/api/noscript?k=6LcodOISAAAAACef7vi6N_CQGZvKd20b7xtDULaL", :width => "500"}
-          %br/
-          %textarea{:cols => "40", :name => "recaptcha_challenge_field", :rows => "3"}
-          %input{:name => "recaptcha_response_field", :type => "hidden", :value => "manual_challenge"}/
-        %p
-  %fieldset
-    %legend Controls
     %ul.controls
       %li
         %input{:name => "submit", :type => "submit", :value => "Send My Question to CalorieKing Support"}/
+        %button.btn.btn-primary{:name => "submitButton", :onclick => "$('#contactForm').submit();", :type => "submit"}
+          = t('link.send')
+
 %div{ style: "clear: both" } <!-- -->

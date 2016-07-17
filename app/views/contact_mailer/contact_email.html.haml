@@ -1,0 +1,13 @@
+!!!
+%html
+  %head
+  %body
+    Mensagem de
+    %strong= @guest[:name]
+    %br
+    %strong= @guest[:email]
+    %br
+    %br
+
+    %p
+      = @guest[:message] if @guest[:message].present?
