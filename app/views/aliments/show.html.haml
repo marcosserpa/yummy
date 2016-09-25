@@ -156,6 +156,7 @@
                   %td{ class: "label" } Potassium
                   %td{ class: "amount" }= @aliment.mineral.blank? ? '-' : "#{ @aliment.mineral.potassium.round(2) } mg"
                   %td{ class: "daily-value" } &nbsp;
+
                 -# VITAMINS
                 %tr{ class: "vitamins" }
                   %td{ class: "label" } Vitamins
@@ -250,6 +251,7 @@
                   %td{ class: "label" } Vitamin K
                   %td{ class: "amount" }= @aliment.vitamin.blank? ? '-' : "#{ @aliment.vitamin.vitamin_k.round(2) } µg"
                   %td{ class: "daily-value" } CORRIGIR %
+
                 -# AMINO ACIDS
                 %tr{ class: "amino-acids" }
                   %td{ class: "label" } Amino Acids
@@ -394,7 +396,6 @@
                   %td{ class: "label" } Theobromine
                   %td{ class: "amount" }= @aliment.other.blank? ? '-' : "#{ @aliment.other.theobromine.round(2) } g"
                   %td{ class: "daily-value" } CORRIGIR %
-
 
         %div{ id: "mBurn" }
           %h3{ id: "label-burn-calories" }
