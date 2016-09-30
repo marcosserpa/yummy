@@ -37,6 +37,8 @@ gem 'turbolinks'
 gem 'searchkick'
 # Pagination
 gem 'kaminari'
+# Allow URI redirections from http to https and vice-versa
+gem 'open_uri_redirections'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
