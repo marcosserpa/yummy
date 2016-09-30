@@ -1,5 +1,7 @@
 class Aliment < ActiveRecord::Base
 
+  # scope :name_like, -> (name) { where("name ilike ?", name)}
+
   searchkick word_start: [:name, :food_group]#, word_end: [:name, :food_group]
 
   has_one :proximate, dependent: :destroy

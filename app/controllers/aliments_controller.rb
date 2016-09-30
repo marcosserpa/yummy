@@ -1,12 +1,11 @@
 class AlimentsController < ApplicationController
 
-  autocomplete :aliment, :name
+  autocomplete :aliment, :name#, full: true
 
   def index
-    binding.pry if params[:id].present?
-    # if params[:id].present?
-    #   @aliment = Aliment.find params[:id]
-    # else
+    if params['aliment']['name'].present?
+      @aliment = Aliment.where("name ilike ?", params['aliment']['name']).first
+    else
       @aliments = if (params[:aliment].present? && !params[:aliment][:name].blank?)
         Aliment.search(params[:aliment][:name], operator: 'or', page: params[:page], per_page: 20, fields: [
           { name: :word_start },
@@ -15,7 +14,9 @@ class AlimentsController < ApplicationController
       else
         Aliment.search('*', page: params[:page], per_page: 20)
       end
-    # end
+
+      @aliment = nil
+    end
   end
 
   def show

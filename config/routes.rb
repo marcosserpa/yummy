@@ -9,10 +9,10 @@ Rails.application.routes.draw do
   resources :aliments, only: :index do
     get :autocomplete_aliment_name, on: :collection
 
-    collection do
-      get 'search', to: 'aliments#index'
-      get :show
-    end
+    # collection do
+    #   get 'search', to: 'aliments#index'
+    #   get :show
+    # end
   end
 
   get 'contact', to: 'statics#contact'
