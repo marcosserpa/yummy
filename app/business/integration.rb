@@ -70,6 +70,7 @@ module Integration
         save_nutrients(aliment, report['food']['nutrients'])
       end
 
+      # TODO trocar as atribuuições de 0.0 pra '-' pois não está correto dizer que um alimento tem 0.0 de um nutriente. Isso é um valor, quando na verdade eu não sei se tem ou não.
       def save_nutrients(aliment, nutrients)
         proximates = Proximate.find_or_initialize_by(aliment_id: aliment.id)
         minerals = Mineral.find_or_initialize_by(aliment_id: aliment.id)
