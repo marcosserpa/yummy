@@ -13,7 +13,7 @@ module Integration
         puts "=================== Downloading the aliments ndbnos ==================="
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
         local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
-
+# binding.pry
         # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
         aliments_ndbnos.each do |ndbno|
           local_aliments_ndbnos.select do |local_ndbno|
@@ -24,6 +24,7 @@ module Integration
         end
 
         aliments_ndbnos.each do |ndbno|
+          # binding.pry
           aliment = Aliment.where(ndbno: ndbno).first
           # last_update = aliment.present? ? aliment.updated_at : nil
 
@@ -36,7 +37,7 @@ module Integration
               raise ActiveResource::BadRequest.new(response) unless response.code == '200'
 
               data = JSON.parse(response.body)
-
+# binding.pry
               # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
               aliment = save_aliment(data['report'])
               # save_nutrients(data['report']['food']['nutrients'])
@@ -69,6 +70,7 @@ module Integration
         save_nutrients(aliment, report['food']['nutrients'])
       end
 
+      # TODO trocar as atribuuições de 0.0 pra '-' pois não está correto dizer que um alimento tem 0.0 de um nutriente. Isso é um valor, quando na verdade eu não sei se tem ou não.
       def save_nutrients(aliment, nutrients)
         proximates = Proximate.find_or_initialize_by(aliment_id: aliment.id)
         minerals = Mineral.find_or_initialize_by(aliment_id: aliment.id)
@@ -78,79 +80,110 @@ module Integration
         others = Other.find_or_initialize_by(aliment_id: aliment.id)
 
         Integration::PROXIMATES.each do |proximate, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          # binding.pry
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            proximates[proximate] = nutrient['value']
+          else
+            proximates[proximate] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # aliment.send(proximate) = if unit == 'g'
-          proximates[proximate] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
         Integration::MINERALS.each do |mineral, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            minerals[mineral] = nutrient['value']
+          else
+            minerals[mineral] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # unit = nutrient['unit']
 
           # aliment.send(proximate) = if unit == 'g'
-          minerals[mineral] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
         Integration::VITAMINS.each do |vitamin, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            vitamins[vitamin] = nutrient['value']
+          else
+            vitamins[vitamin] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # aliment.send(proximate) = if unit == 'g'
-          vitamins[vitamin] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
         Integration::LIPIDS.each do |lipid, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            lipids[lipid] = nutrient['value']
+          else
+            lipids[lipid] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # aliment.send(proximate) = if unit == 'g'
-          lipids[lipid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
         Integration::AMINOACIDS.each do |amino_acid, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            amino_acids[amino_acid] = nutrient['value']
+          else
+            amino_acids[amino_acid] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # aliment.send(proximate) = if unit == 'g'
-          amino_acids[amino_acid] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
 
         Integration::OTHERS.each do |other, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id }.first
+          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
-          raise "Was not possible to find the nutrient with id #{id} or it is not needed in the app" unless nutrient.present?
+          if nutrient.present?
+            others[other] = nutrient['value']
+          else
+            others[other] = 0.0
+
+            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+          end
 
           # aliment.send(proximate) = if unit == 'g'
-          others[other] = nutrient['value']
           # else
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
-
+# binding.pry
         aliment.proximate = proximates
         aliment.mineral = minerals
         aliment.vitamin = vitamins

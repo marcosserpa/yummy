@@ -5,7 +5,7 @@ module Integration
     class << self
 
       def url(ndbno)
-        $usdaAlimentURI = "https://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
+        $usdaAlimentURI = "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
       end
 
       def api_key
@@ -16,12 +16,13 @@ module Integration
         ndbnos = []
 
         begin
-          page = Nokogiri::HTML(open("https://ndb.nal.usda.gov/ndb/foods?format=&count=&max=9000&sort=&fgcd=&manu=&lfacet=&qlookup=&offset=0&order=desc"))
+          # binding.pry
+          page = Nokogiri::HTML(open("http://ndb.nal.usda.gov/ndb/foods?format=&count=&max=9000&sort=&fgcd=&manu=&lfacet=&qlookup=&offset=0&order=desc", allow_redirections: :all))
 
           raise SocketError.new unless page.present?
 
-          page.css("td[style='padding:8px;width:10%;font-style:;'] a").each do |html|
-            ndbnos << html.text
+          page.css("td[style='font-style:;'] a[style='font-weight:normal;']").each do |html|
+            ndbnos << html.text.gsub(/[^\d]/, '')
           end
         rescue SocketError => error
           puts "================ ERROR ================"
