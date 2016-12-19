@@ -37,6 +37,32 @@
 
       <div class="space-lines"></div>
 
+      <!-- aliments list -->
+
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th colspan='2'></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% unless @aliments.blank? %>
+            <% @aliments.each do |aliment| %>
+              <tr>
+                <td><%= aliment.name %></td>
+
+                <td><%= link_to 'Show', aliment %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+
+
+
+      <!-- aliment show -->
       <% if @aliment.present? %>
         <div class="pure-u-1-3 nutrients-table">
           <table class="pure-table pure-table-horizontal">

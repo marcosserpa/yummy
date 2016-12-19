@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   root 'aliments#index'
 
   # Aliments routes
-  resources :aliments, only: :index do
+  resources :aliments, only: [:index, :show] do
     get :autocomplete_aliment_name, on: :collection
 
     # collection do

@@ -13,7 +13,7 @@ module Integration
         puts "=================== Downloading the aliments ndbnos ==================="
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
         local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
-# binding.pry
+
         # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
         aliments_ndbnos.each do |ndbno|
           local_aliments_ndbnos.select do |local_ndbno|
@@ -24,7 +24,6 @@ module Integration
         end
 
         aliments_ndbnos.each do |ndbno|
-          # binding.pry
           aliment = Aliment.where(ndbno: ndbno).first
           # last_update = aliment.present? ? aliment.updated_at : nil
 
@@ -37,7 +36,7 @@ module Integration
               raise ActiveResource::BadRequest.new(response) unless response.code == '200'
 
               data = JSON.parse(response.body)
-# binding.pry
+
               # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
               aliment = save_aliment(data['report'])
               # save_nutrients(data['report']['food']['nutrients'])
@@ -80,7 +79,6 @@ module Integration
         others = Other.find_or_initialize_by(aliment_id: aliment.id)
 
         Integration::PROXIMATES.each do |proximate, id|
-          # binding.pry
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
@@ -183,7 +181,7 @@ module Integration
           #   proximate.send(proximate) = nutrient['value'] * MEASURE[unit.to_sym]
           # end
         end
-# binding.pry
+
         aliment.proximate = proximates
         aliment.mineral = minerals
         aliment.vitamin = vitamins

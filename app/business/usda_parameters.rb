@@ -16,7 +16,6 @@ module Integration
         ndbnos = []
 
         begin
-          # binding.pry
           page = Nokogiri::HTML(open("http://ndb.nal.usda.gov/ndb/foods?format=&count=&max=9000&sort=&fgcd=&manu=&lfacet=&qlookup=&offset=0&order=desc", allow_redirections: :all))
 
           raise SocketError.new unless page.present?
