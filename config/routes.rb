@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  root 'aliments#index'
+  root 'pages#index'
 
   # Aliments routes
   resources :aliments, only: [:index, :show] do
@@ -15,9 +15,13 @@ Rails.application.routes.draw do
     # end
   end
 
-  get 'contact', to: 'statics#contact'
-  get 'about', to: 'statics#about'
-  post '/' => 'statics#send_contact_email', as: :send_contact_email
+  # get 'contact', to: 'statics#contact'
+  # get 'about', to: 'statics#about'
+  # post '/' => 'statics#send_contact_email', as: :send_contact_email
+
+  get 'contact', to: 'pages#contact'
+  get 'about', to: 'pages#about'
+  post '/' => 'pages#send_contact_email', as: :send_contact_email
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,3 +1,37 @@
+<% @title = "Yummy" %>
+<% @subtitle = subtitle %>
+
+<div class="home__image-wrap">
+  <div class="home__image"></div>
+</div>
+<h1 class="home__heading"><%= t '.find_blurb' %></h1>
+
+<div class="home__search-wrap">
+  <%= form_tag autocomplete_aliment_name_aliments_path, :id => "main-search", :method => :get do %>
+    <%= autocomplete_field_tag :name, '', autocomplete_aliment_name_aliments_path, :placeholder => t('layouts.application.header.search_gem').html_safe, autofocus: current_page?(root_url), :id => 'home_query', :class => "home__search" %>
+    <%= label_tag :home_query do %>
+      <span class="t-hidden"><%= t('layouts.application.header.search_gem').html_safe %></span>
+    <% end %>
+    <%= submit_tag '⌕', :id => 'search_submit', :name => nil, :class => "home__search__icon" %>
+  <% end %>
+</div>
+
+<!-- <div class="home__cta-wrap">
+  <%#- if @downloads_count %>
+    <h2 class="home__downloads">
+      <p><%#= number_with_delimiter(@downloads_count) %></p>
+      <span class="home__downloads__desc"><%#= raw t('.downloads_counting') %></span>
+    </h2>
+  <%#- end %>
+  <%#= link_to t('.learn.install_rubygems'), page_url("download"), :class => "home__join #{@downloads_count.nil? ? 'no-download-count' : ''}", "data-icon" => ">" %>
+</div> -->
+
+<div class="home__links">
+  <%= link_to t('.footer.status'), "https://status.rubygems.org", class: "home__link", "data-icon" => "⌁" %>
+  <%= link_to t('.footer.uptime'), "http://uptime.rubygems.org", class: "home__link", "data-icon" => "⧖" %>
+</div>
+
+
 <div class="pure-menu pure-menu-horizontal">
   <a href='#' class="pure-menu-heading pure-menu-link" href="">Yummy</a>
 
@@ -17,7 +51,7 @@
         <%= form_for(:aliment, html: { id: 'food_search', class: "pure-form" }, method: :get) do |f| %>
         <!-- <input id="name" type="text" placeholder="Your Name"> -->
           <%= f.autocomplete_field :name, autocomplete_aliment_name_aliments_path, placeholder: "e.g. Pizza, Wendy's, Avocado, Vodka", id: 'food-search-input', class: 'pure-input-rounded pure-u-18-24' %>
-          <%= f.submit 'search', id: 'food-search-submit', class: "pure-button pure-button-primary" %>
+          <%= f.submit 'search', id: 'search_submit', class: "pure-button pure-button-primary" %>
 
           <!-- <h1 class="splash-head">Big Bold Text</h1> -->
           <p class="splash-subhead">

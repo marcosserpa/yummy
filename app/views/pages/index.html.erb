@@ -1,0 +1,30 @@
+<div class="home__image-wrap">
+  <div class="home__image"></div>
+</div>
+<h1 class="home__heading"><%= t '.find_your_aliment' %></h1>
+
+<div class="home__search-wrap">
+  <%= form_tag autocomplete_aliment_name_aliments_path, :id => "main-search", :method => :get do %>
+    <%= autocomplete_field_tag :name, '', autocomplete_aliment_name_aliments_path, :placeholder => t('layouts.application.header.search_gem').html_safe, autofocus: current_page?(root_url), :id => 'home_query', :class => "home__search" %>
+    <%= label_tag :home_query do %>
+      <span class="t-hidden"><%= t('layouts.application.header.search_gem').html_safe %></span>
+    <% end %>
+    <%= submit_tag '⌕', :id => 'search_submit', :name => nil, :class => "home__search__icon" %>
+  <% end %>
+</div>
+
+<div class="home__cta-wrap">
+  <% if @aliments_count %>
+    <h2 class="home__downloads">
+      <p><%= number_with_delimiter(@aliments_count) %></p>
+      <span class="home__downloads__desc"><%= t('home.index.aliments_counting') %></span>
+    </h2>
+  <% end %>
+
+  <%= link_to t('.app.meet_our_app'), about_path, :class => "home__join #{@aliments_count.nil? ? 'no-download-count' : ''}", "data-icon" => ">" %>
+</div>
+
+<div class="home__links">
+  <%= link_to t('.footer.status'), "https://status.rubygems.org", class: "home__link", "data-icon" => "⌁" %>
+  <%= link_to t('.footer.uptime'), "http://uptime.rubygems.org", class: "home__link", "data-icon" => "⧖" %>
+</div>
