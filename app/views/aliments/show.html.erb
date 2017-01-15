@@ -1,0 +1,725 @@
+<div class="pure-menu pure-menu-horizontal">
+  <a href='#' class="pure-menu-heading pure-menu-link" href="">Yummy</a>
+
+  <ul class="pure-menu-list">
+    <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">home</a></li>
+    <li class="pure-menu-item"><a href="#about" class="pure-menu-link">about</a></li>
+    <li class="pure-menu-item"><a href="#contact" class="pure-menu-link">contact</a></li>
+  </ul>
+</div>
+
+<div class="content-wrapper">
+  <div class="content">
+    <div class="pure-g page-limits">
+      <div class="pure-u-1 pure-u-md-1-3"></div>
+
+      <div class="space-lines"></div>
+
+      <!-- aliment show -->
+      <% if @aliment.present? %>
+        <div class="pure-u-1-3 nutrients-table">
+          <table class="pure-table pure-table-horizontal">
+            <thead>
+                <tr>
+                    <th class='nutrition_facts_title' colspan='3'>Nutrition facts</th>
+                </tr>
+                <tr>
+                    <th class='nutrition_facts_headers'>Nutrients</th>
+                    <th class='nutrition_facts_headers'>Quantity</th>
+                    <th class='nutrition_facts_headers'>Daily Percentage</th>
+                </tr>
+            </thead>
+
+            <tbody>
+              <!-- CALORIES section -->
+              <tr class='nutrition_section'>
+                  <td class='text_left'>Calories</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.energy.round(2) %> kcal
+                  </td>
+                  <td class='nutrition_facts_cells'>12%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>from carbs</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.carbohydrate * 4).round(2) %> kcal
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>from proteins</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.protein * 4).round(2) %> kcal
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>from fats</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.fat * 9).round(2) %> kcal
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+
+              <!-- CARBS section -->
+              <tr class='nutrition_section'>
+                  <td class='text_left'>Total carbs</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.carbohydrate.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>15%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Fibers</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fiber.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Sugars</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.sugars.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Sucrose</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.sucrose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Glucose (dextrose)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.glucose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Fructose</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fructose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Lactose</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.lactose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Maltose</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.maltose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Galactose</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.galactose.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+
+              <!-- FATS section -->
+              <tr class='nutrition_section'>
+                  <td>Total fats</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fat.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>15%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Fatty Acids Saturated</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.lipid.blank? ? '-' : @aliment.lipid.fatty_acids_saturated.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Fatty Acids Monounsaturated</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.lipid.blank? ? '-' : @aliment.lipid.fatty_acids_monounsaturated.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Fatty Acids Polyunsaturated</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.lipid.blank? ? '-' : @aliment.lipid.fatty_acids_polyunsaturated.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Cholesterol</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.lipid.blank? ? '-' : @aliment.lipid.cholesterol.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Ash</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.ash.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>5%</td>
+              </tr>
+
+              <!-- MINERALS section -->
+              <tr class='nutrition_section'>
+                  <td>Minerals</td>
+                  <td class='nutrition_facts_cells'></td>
+                  <td class='nutrition_facts_cells'></td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Calcium, Ca</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.calcium.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Iron, Fe</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.iron.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Magnesium, Mg</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.magnesium.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Phosphorus, P</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.phosphorus.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Potassium, K</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.potassium.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Sodium, Na</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.sodium.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Zinc, Zn</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.zinc.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Copper, Cu</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.copper.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Manganese, Mn</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.manganese.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Selenium, Se</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.mineral.blank? ? '-' : @aliment.mineral.selenium.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <!-- <tr>
+                  <td class='text_right'>Fluoride, F</td>
+                  <td class='nutrition_facts_cells'>
+                    <#%= @aliment.mineral.blank? ? '-' : @aliment.mineral.fluoride.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr> -->
+
+              <!-- VITAMINS section -->
+              <tr class='nutrition_section'>
+                  <td>Vitamins</td>
+                  <td class='nutrition_facts_cells'></td>
+                  <td class='nutrition_facts_cells'></td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin C (ascorbic acid)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_c.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Thiamin (B1)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.thiamin.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Riboflavin (B2)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.riboflavin.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Niacin (B3)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.niacin.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Pantothenic Acid (B5)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.pantothenic_acid.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Pyridoxine (B6)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_b6.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Folate, total</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.folate_total.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Folic Acid (B9)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.folic_acid.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Folate, food</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.folate_food.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Folate, DFE</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.folate_dfe.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Choline, total</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.choline.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Betaine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.betaine.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Cobalamin (B12)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_b12.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin B12, added</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_b12_added.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin A, RAE</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_a_rae.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Retinol (A1)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.retinol.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Carotene, Beta</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.beta_carotene.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Carotene, Alpha</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.alpha_carotene.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Cryptoxanthin, Beta</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.cryptoxanthin.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin A, IU</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_a_iu.round(2) %> IU
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Lycopene</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.lycopene.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Lutein + zeaxanthin</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.lutein_zeaxanthin.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin E (alpha-tocopherol)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_e_alpha_tocopherol.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin E, added</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_e_added.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin D (D2 + D3)</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_d_d2_d3.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin D</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_d.round(2) %> IU
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Vitamin K</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.vitamin.blank? ? '-' : @aliment.vitamin.vitamin_k.round(2) %> µg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+
+              <!-- AMINO ACIDS section -->
+              <tr class='nutrition_section'>
+                  <td>Amino Acids</td>
+                  <td class='nutrition_facts_cells'></td>
+                  <td class='nutrition_facts_cells'></td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Tryptophan</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.tryptophan.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Threonine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.threonine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Isoleucine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.isoleucine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Leucine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.leucine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Lysine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.lysine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Methionine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.methionine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Cystine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.cystine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Phenylalanine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.phenylalanine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Tyrosine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.tyrosine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Valine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.valine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Arginine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.arginine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Histidine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.histidine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Alanine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.alanine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Aspartic acid</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.aspartic_acid.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Glutamic acid</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.glutamic_acid.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Glycine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.glycine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Proline</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.proline.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Serine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.serine.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+
+              <!-- OTHER section -->
+              <tr class='nutrition_section'>
+                  <td>Other</td>
+                  <td class='nutrition_facts_cells'></td>
+                  <td class='nutrition_facts_cells'></td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Alcohol, ethyl</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.other.blank? ? '-' : @aliment.other.alcohol.round(2) %> g
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Caffeine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.other.blank? ? '-' : @aliment.other.caffeine.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+              <tr>
+                  <td class='text_right'>Theobromine</td>
+                  <td class='nutrition_facts_cells'>
+                    <%= @aliment.other.blank? ? '-' : @aliment.other.theobromine.round(2) %> mg
+                  </td>
+                  <td class='nutrition_facts_cells'>10%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      <% end %>
+    </div>
+
+    <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
+
+    <div class="pure-g">
+      <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+
+
+        <h3 class="content-subhead">
+          <i class="fa fa-rocket"></i>
+          Get Started Quickly
+        </h3>
+        <p>
+          Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+        </p>
+      </div>
+      <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+        <h3 class="content-subhead">
+          <i class="fa fa-mobile"></i>
+          Responsive Layouts
+        </h3>
+        <p>
+          Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+        </p>
+      </div>
+      <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+        <h3 class="content-subhead">
+          <i class="fa fa-th-large"></i>
+          Modular
+        </h3>
+        <p>
+          Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+        </p>
+      </div>
+      <div class="l-box pure-u-1 pure-u-md-1-2 pure-u-lg-1-4">
+        <h3 class="content-subhead">
+          <i class="fa fa-check-square-o"></i>
+          Plays Nice
+        </h3>
+        <p>
+          Phasellus eget enim eu lectus faucibus vestibulum. Suspendisse sodales pellentesque elementum.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div id='about' class="ribbon l-box-lrg pure-g">
+    <div class="l-box-lrg is-center pure-u-1 pure-u-md-1-2 pure-u-lg-2-5">
+      <%= image_tag 'file-icons.png', alt: "File Icons", width: 300, class: 'pure-img-responsive' %>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-2 pure-u-lg-3-5">
+
+      <h2 class="content-head content-head-ribbon">Laboris nisi ut aliquip.</h2>
+
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis aute irure dolor.
+      </p>
+    </div>
+  </div>
+
+  <div id='contact' class="content">
+    <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
+
+    <div class="pure-g">
+      <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
+        <form class="pure-form pure-form-stacked">
+          <fieldset>
+
+            <label for="name">Your Name</label>
+            <input id="name" type="text" placeholder="Your Name">
+
+
+            <label for="email">Your Email</label>
+            <input id="email" type="email" placeholder="Your Email">
+
+            <label for="password">Your Password</label>
+            <input id="password" type="password" placeholder="Your Password">
+
+            <button type="submit" class="pure-button">Sign Up</button>
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
+        <h4>Contact Us</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat.
+        </p>
+
+        <h4>More Information</h4>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer l-box is-center">
+    View the source of this layout to learn more. Made with love by the YUI Team.
+  </div>
+</div>
