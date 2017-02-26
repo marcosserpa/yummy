@@ -247,30 +247,3 @@
     <script type="text/javascript" async defer id="gauges-tracker" data-site-id="4eab0ac8613f5d1583000005" src="//secure.gaug.es/track.js"></script>
   </body>
 </html>
-
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Landing Page &ndash; Layout Examples &ndash; Pure</title>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive product landing page.">
-
-    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
-    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-    <%= csrf_meta_tags %>
-
-    <!--[if gt IE 8]><!-->
-      <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
-    <!--<![endif]-->
-    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
-</html>

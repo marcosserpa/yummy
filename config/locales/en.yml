@@ -179,7 +179,7 @@ en:
       owners_header: Owners
       sha_256_checksum: SHA 256 checksum
     index:
-      downloads: Downloads
+      calories: Calories
       title: Gems
     show:
       licenses_header: License

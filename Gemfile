@@ -36,7 +36,7 @@ gem 'turbolinks'
 # Intelligent search
 gem 'searchkick'
 # Pagination
-gem 'kaminari'
+gem 'will_paginate'
 # Allow URI redirections from http to https and vice-versa
 gem 'open_uri_redirections'
 
