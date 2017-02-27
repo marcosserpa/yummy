@@ -1,28 +1,23 @@
 class AlimentsController < ApplicationController
   autocomplete :aliment, :name
 
+  before_action :set_search_action
   before_action :set_page, only: :index
 
   def index
-    if params['aliment'].present? && params['aliment']['name'].present?
-      # @aliment = Aliment.where("name like ?", "%#{params['aliment']['name']}%").first
-      @aliments = Aliment.where('name like ?', "%#{params['aliment']['name']}%").paginate(page: @page)
+    if params[:inputed_name].present?
+      @aliments = Aliment.search(
+        params[:inputed_name],
+        page: params[:page],
+        per_page: 20,
+        operator: 'or',
+        fields: [
+          { name: :word_start },
+          { food_group: :word_start }
+        ]
+      )
     else
-      @aliments = if params[:aliment].present? && !params[:aliment][:name].blank?
-                    Aliment.search(
-                      params[:aliment][:name],
-                      page: params[:page],
-                      per_page: 20,
-                      operator: 'or',
-                      fields: [
-                        { name: :word_start },
-                        { food_group: :word_start }
-                      ]
-                    ).paginate(page: @page)
-                  else
-                    Aliment.search('*', page: params[:page], per_page: 20)
-                  end
-
+      @aliments = Aliment.search('*', page: params[:page], per_page: 20)
       @aliment = nil
     end
   end
@@ -35,5 +30,9 @@ class AlimentsController < ApplicationController
 
   def aliment_params
     params.require(:aliment).permit(:name, :food_group)
+  end
+
+  def set_search_action
+    redirect_to action: :index, inputed_name: params[:name] if params.include?(:name)
   end
 end
