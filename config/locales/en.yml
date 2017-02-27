@@ -98,20 +98,20 @@ en:
     confirmation_subject: Please confirm your email address with RubyGems.org
     email_confirmation:
       confirmation_link: Confirm email address
-      welcome_message: Welcome to RubyGems.org! Click the link below to verify your email.
+      welcome_message: Welcome to Yummy! Click the link below to verify your email.
     email_reset:
       visit_link_instructions: You changed your email address on RubyGems.org. Please visit the following url to re-activate your account.
   pages:
     about:
-      founding: The project was started in April 2009 by %{founder}, and has since grown to include the contributions of over %{contributors} and %{downloads}. As of the RubyGems 1.3.6 release, the site has been renamed to %{title} from Gemcutter to solidify the site's central role in the Ruby community.
-      support: Although RubyGems.org is not run by one specific company, plenty have helped us out so far. The current design, illustrations, and front-end development of this site were created by %{dockyard}. %{github} has also been invaluable for helping us collaborate and share code easily. The site started on %{heroku}, whose great service helped prove RubyGems as a viable solution that the whole community could rely on. Our infrastructure is currently hosted on %{aws}.
-      technical: 'Some insights into the technical aspects of the site: It''s 100% Ruby. The main site is a %{rails} application. Gems are hosted on %{s3}, served by %{fastly}, and the time between publishing a new gem and having it ready for installation is usually just a few seconds. For more info, %{source_code}, which is %{license} over at GitHub.'
+      founding: The project was started in 2015 by %{founder}, and, besides jobs and no time to accomplish that idea, has finally finished in 2017. The prime objective was to help the own creator to control his diet/feed controling micro and macro nutrients intake to make a balanced diet and make the possible to get outo of heavy processed aliments. Today the database counts with more than 8000 aliments; most registered in U.S. Department of Agriculture and some others registered from barcodes read from brand's aliments.
+      support: Although Yummy is not run by one specific company, %{code_polaris} have helped us out so far. The current design, illustrations, and front-end development was borrowed by %{rubygems} and were created by %{dockyard}. Our infrastructure is currently hosted on %{aws}.
+      technical: 'Some insights into the technical aspects of the site: It''s 100% Ruby. The main site is a %{rails} application.'
       title: About
       purpose:
-        better_api: Provide a better API for dealing with gems
-        enable_community: Enable the community to improve and enhance the site
-        header: 'Welcome to %{site}, the Ruby community''s gem hosting service. The purpose of this project is three-fold:'
-        transparent_pages: Create more transparent and accessible project pages
+        all_nutrients: Provide a complete nutrients table of the aliments considering either micro and macronutrients.
+        free: Ensure free access to all aliments nutrients info
+        diet_control: Help who wants to control in a better way feeding and nutrients intake.
+        header: 'Welcome to Yummy, the searcher to who wants not only macro but also all micro nutrients related to reach aliment. The purpose of this project is three-fold:'
   passwords:
     edit:
       submit: Save this password
