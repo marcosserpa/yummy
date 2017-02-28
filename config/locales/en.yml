@@ -11,7 +11,7 @@ en:
   not_found: Not Found
   please_sign_up: Access Denied. Please sign up for an account at https://rubygems.org
   sign_in: Sign in
-  sign_up: Sign up
+  send: Send
   subtitle: your community gem host
   this_rubygem_could_not_be_found: This rubygem could not be found.
   time_ago: "%{duration} ago"

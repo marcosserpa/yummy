@@ -1,0 +1,27 @@
+<!-- <#= error_messages %> -->
+
+
+<h1 class="t-display page__heading">
+              <a class="t-link--black" href="/contact">Contact</a>
+
+            </h1>
+						<div class="form_links sign_up_links t-body">
+  <p><a href="/contact">Have some doubt? Want to send us an email?</a></p>
+</div>
+
+<%= form_tag send_contact_email_path(anchor: 'contact_us'), class: 'new_user', id: "new_user", novalidate: "", method: :post do %>
+	<div class="text_field">
+	  <%= label_tag :email, 'email', class: 'form__label' %>
+	  <%= email_field_tag :email, '', class: 'form__input' %>
+	</div>
+	<div class="text_field">
+	  <%= label_tag :name, 'name', class: 'form__label' %>
+	  <%= text_field_tag :name, '', class: 'form__input' %>
+	</div>
+	<div class="text_field">
+		<%= label_tag :message, 'message', class: 'form__label' %>
+	  <%= text_area_tag :message, '', class: 'form__input' %>
+	</div>
+
+	<%= submit_tag t('send'), data: { disable_with: t('form_disable_with') }, onclick: "$('#new_user').submit();", class: 'form__submit' %>
+<% end %>

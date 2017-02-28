@@ -11,7 +11,7 @@ pt-BR:
   not_found:
   please_sign_up: Accesso Negado. Por favor se registre em https://rubygems.org
   sign_in: Fazer Login
-  sign_up: Cadastrar
+  send: Enviar
   subtitle: o host de gems da sua comunidade
   this_rubygem_could_not_be_found: A rubygem não foi encontrada.
   time_ago: "%{duration} atrás"

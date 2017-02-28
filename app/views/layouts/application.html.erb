@@ -66,14 +66,17 @@
               <%= link_to "Aliments", aliments_path, class: "header__nav-link" %>
             <%- end %>
 
-            <%- if request.path_info == '/aliments/about' %>
+            <%- if request.path_info == '/about' %>
               <%= link_to t('.footer.about'), about_path, class: "header__nav-link is-active" %>
             <%- else %>
               <%= link_to t('.footer.about'), about_path, class: "header__nav-link" %>
             <%- end %>
 
-            <%= link_to t('.footer.guides'), "http://guides.rubygems.org", class: "header__nav-link" %>
-            <%= link_to t('.footer.contribute'), "http://guides.rubygems.org/contributing/", class: "header__nav-link" %>
+            <%- if request.path_info == '/contact' %>
+              <%= link_to t('.footer.contact'), contact_path, class: "header__nav-link is-active" %>
+            <%- else %>
+              <%= link_to t('.footer.contact'), contact_path, class: "header__nav-link" %>
+            <%- end %>
 
             <%#- if signed_in? %>
               <!-- <a href="<%#= profile_path(current_user.display_id) %>" class="header__nav-link desktop__header__nav-link"> -->
@@ -138,20 +141,22 @@
       <div class="l-wrap--footer">
         <div class="l-overflow">
           <div class="nav--v l-col--r--pad">
-            <%= link_to t('.footer.status'), "https://status.rubygems.org", class: "nav--v__link--footer" %>
-            <%= link_to t('.footer.uptime'), "http://uptime.rubygems.org", class: "nav--v__link--footer" %>
-            <%= link_to t('.footer.source_code'), "https://github.com/rubygems/rubygems.org", class: "nav--v__link--footer" %>
-            <%#= link_to t('.footer.data'), page_url("data"), class: "nav--v__link--footer" %>
-            <%#= link_to t('.footer.discussion_forum'), "https://groups.google.com/group/rubygems-org", class: "nav--v__link--footer" %>
-            <%#= link_to t('.footer.statistics'), stats_url, class: "nav--v__link--footer" %>
-            <%#= link_to t('.footer.blog'), "http://blog.rubygems.org", class: "nav--v__link--footer" %>
-            <%- if request.path_info == '/pages/about' %>
+            <%- if request.path_info == '/aliments' %>
+              <%= link_to t('.footer.aliments'), aliments_path, class: "nav--v__link--footer is-active" %>
+            <%- else %>
+              <%= link_to t('.footer.aliments'), aliments_path, class: "nav--v__link--footer" %>
+            <%- end %>
+            <%- if request.path_info == '/about' %>
               <%= link_to t('.footer.about'), about_path, class: "nav--v__link--footer is-active" %>
             <%- else %>
               <%= link_to t('.footer.about'), about_path, class: "nav--v__link--footer" %>
             <%- end %>
-            <%= link_to t('.footer.help'), t(:help_url), class: "nav--v__link--footer" %>
-            <%= link_to t('.footer.api'), "http://guides.rubygems.org/rubygems-org-api", class: "nav--v__link--footer" %>
+            <%- if request.path_info == '/contact' %>
+              <%= link_to t('.footer.contact'), contact_path, class: "nav--v__link--footer is-active" %>
+            <%- else %>
+              <%= link_to t('.footer.contact'), contact_path, class: "nav--v__link--footer" %>
+            <%- end %>
+
             <%- if request.path_info == '/pages/security' %>
               <%#= link_to t('.footer.security'), page_url("security"), class: "nav--v__link--footer is-active" %>
             <%- else %>
