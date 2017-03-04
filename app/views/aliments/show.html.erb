@@ -1,6 +1,58 @@
 <% @title = "Show Aliment" %>
 <% @subtitle = subtitle %>
 
+
+<% if @aliment.present? %>
+  <%= link_to aliment_path(@aliment), :class => 'gems__gem' do %>
+    <span class="gems__gem__info">
+      <h2 class="gems__gem__name">
+        <%= @aliment.name %>
+        <span class="gems__gem__version"><%= @aliment.try(:proximate).try(:energy) %></span>
+      </h2>
+      <p class="gems__gem__desc t-text"><%= @aliment.description %></p>
+    </span>
+    <p class="gems__gem__downloads__count">
+      <%#= download_count rubygem %>
+      <span class="gems__gem__downloads__heading">
+        <%#= t('rubygems.index.downloads') %>
+      </span>
+    </p>
+  <% end %>
+
+  <%# @title = @rubygem.name %>
+  <%# @subtitle = @latest_version.try(:slug) %>
+
+  <%# content_for :head do %>
+    <%#= auto_discovery_link_tag(:atom, rubygem_versions_path(@rubygem, format: "atom"), {title: "#{@rubygem.name} Version Feed"}) %>
+    <%# if @rubygem.versions.present? && @latest_version.indexed %>
+      <link rel="canonical" href="<%#= rubygem_version_url(@rubygem, @latest_version.slug) %>" />
+    <%# else %>
+      <meta name="robots" content="noindex" />
+    <%# end %>
+  <%# end %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <div class="pure-menu pure-menu-horizontal">
   <a href='#' class="pure-menu-heading pure-menu-link" href="">Yummy</a>
 

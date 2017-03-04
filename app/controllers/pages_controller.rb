@@ -1,5 +1,4 @@
 class PagesController < ApplicationController
-
   def send_contact_email
     @errors = []
     @errors << :name    if params[:name].blank?
@@ -16,8 +15,7 @@ class PagesController < ApplicationController
     end
   end
 
-  def about
-  end
+  def about; end
 
   def index
     @aliments_count = Aliment.all.count
@@ -26,5 +24,4 @@ class PagesController < ApplicationController
       format.html
     end
   end
-
 end
