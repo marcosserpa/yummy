@@ -186,8 +186,11 @@ en:
       no_licenses: N/A
       requirements_header: Requirements
       show_all_versions: Show all versions (%{count} total)
-      versions_header: Versions
-      yanked_notice: This version has been yanked, and it is not available for download directly or for other gems that may have depended on it.
+      nutrients_facts: Nutrients Facts
+      nutrients: Nutrients
+      percentage: Percentage
+      quantity: Quantity
+      yanked_notice: This aliment has no description.
     show_yanked:
       not_hosted_notice: This gem is not currently hosted on RubyGems.org.
       reserved_namespace:

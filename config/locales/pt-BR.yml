@@ -186,8 +186,11 @@ pt-BR:
       no_licenses: N/A
       requirements_header: Requisitos
       show_all_versions: Mostrar todas as versões (%{count})
-      versions_header: Versões
-      yanked_notice: Esta gem foi removida, e não está mais disponível para download.
+      nutrients_facts: Informações Sobre Nutrientes
+      nutrients: Nutrientes
+      percentage: Porcentagem
+      quantity: Quantidade
+      yanked_notice: Este alimento não tem descrição.
     show_yanked:
       not_hosted_notice: Esta gem não está hospedada no Gemcutter.
       reserved_namespace:
