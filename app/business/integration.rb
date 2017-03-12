@@ -78,12 +78,13 @@ module Integration
         lipids = Lipid.find_or_initialize_by(aliment_id: aliment.id)
         amino_acids = AminoAcid.find_or_initialize_by(aliment_id: aliment.id)
         others = Other.find_or_initialize_by(aliment_id: aliment.id)
-binding.pry
+
         Integration::PROXIMATES.each do |proximate, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             proximates[proximate] = nutrient['value']
+            proximates['measures'] = nutrient['measures']
           else
             proximates[proximate] = 0.0
 
@@ -101,6 +102,7 @@ binding.pry
 
           if nutrient.present?
             minerals[mineral] = nutrient['value']
+            minerals['measures'] = nutrient['measures']
           else
             minerals[mineral] = 0.0
 
@@ -120,6 +122,7 @@ binding.pry
 
           if nutrient.present?
             vitamins[vitamin] = nutrient['value']
+            vitamins['measures'] = nutrient['measures']
           else
             vitamins[vitamin] = 0.0
 
@@ -137,6 +140,7 @@ binding.pry
 
           if nutrient.present?
             lipids[lipid] = nutrient['value']
+            lipids['measures'] = nutrient['measures']
           else
             lipids[lipid] = 0.0
 
@@ -154,6 +158,7 @@ binding.pry
 
           if nutrient.present?
             amino_acids[amino_acid] = nutrient['value']
+            amino_acids['measures'] = nutrient['measures']
           else
             amino_acids[amino_acid] = 0.0
 
@@ -171,6 +176,7 @@ binding.pry
 
           if nutrient.present?
             others[other] = nutrient['value']
+            others['measures'] = nutrient['measures']
           else
             others[other] = 0.0
 
