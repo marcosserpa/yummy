@@ -83,7 +83,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            proximates[proximate] = nutrient['value']
+            proximates[proximate] = "#{nutrient['value']} #{nutrient['unit']}"
             proximates['measures'] = nutrient['measures']
           else
             proximates[proximate] = 0.0
@@ -101,7 +101,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            minerals[mineral] = nutrient['value']
+            minerals[mineral] = "#{nutrient['value']} #{nutrient['unit']}"
             minerals['measures'] = nutrient['measures']
           else
             minerals[mineral] = 0.0
@@ -121,7 +121,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            vitamins[vitamin] = nutrient['value']
+            vitamins[vitamin] = "#{nutrient['value']} #{nutrient['unit']}"
             vitamins['measures'] = nutrient['measures']
           else
             vitamins[vitamin] = 0.0
@@ -139,7 +139,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            lipids[lipid] = nutrient['value']
+            lipids[lipid] = "#{nutrient['value']} #{nutrient['unit']}"
             lipids['measures'] = nutrient['measures']
           else
             lipids[lipid] = 0.0
@@ -157,7 +157,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            amino_acids[amino_acid] = nutrient['value']
+            amino_acids[amino_acid] = "#{nutrient['value']} #{nutrient['unit']}"
             amino_acids['measures'] = nutrient['measures']
           else
             amino_acids[amino_acid] = 0.0
@@ -175,7 +175,7 @@ module Integration
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
-            others[other] = nutrient['value']
+            others[other] = "#{nutrient['value']} #{nutrient['unit']}"
             others['measures'] = nutrient['measures']
           else
             others[other] = 0.0
