@@ -1,6 +1,6 @@
 <% if @aliment.present? %>
   <% @title = @aliment.name %>
-  <% @subtitle = @aliment.proximate.try(:energy) ? "#{ @aliment.proximate.try(:energy) } calories" : '--' %>
+  <% @subtitle = @aliment.proximate.try(:energy) ? "#{ @aliment.proximate.try(:energy).round(2) } calories" : '--' %>
 
   <% content_for :head do %>
     <%= auto_discovery_link_tag(:atom, aliment_path(@aliment), { title: "#{@aliment.name} Calories Feed" }) %>
@@ -16,7 +16,7 @@
       <div class="gem__intro">
         <div id="markup" class="gem__desc">
           <% if @aliment.description %>
-            <p>blablablab<%= @aliment.description %></p>
+            <p><%= @aliment.description %></p>
           <% else %>
             <p>This aliment has no description.</p>
           <% end %>
@@ -664,6 +664,8 @@
         </div>
       </div>
     </div>
+
+    <%= render "aliments/aside" %>
   </div>
 <% end %>
 

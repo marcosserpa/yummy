@@ -4,6 +4,7 @@ require 'net/http'
 require 'constants'
 require 'usda_parameters'
 require 'active_resource'
+require 'pry'
 
 module Integration
   class USDA
@@ -77,7 +78,7 @@ module Integration
         lipids = Lipid.find_or_initialize_by(aliment_id: aliment.id)
         amino_acids = AminoAcid.find_or_initialize_by(aliment_id: aliment.id)
         others = Other.find_or_initialize_by(aliment_id: aliment.id)
-
+binding.pry
         Integration::PROXIMATES.each do |proximate, id|
           nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
 
