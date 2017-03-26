@@ -1,5 +1,4 @@
 module Integration
-
   # USDA nutrients numbers
   PROXIMATES = {
     water: 255,
@@ -95,4 +94,38 @@ module Integration
     theobromine: 263
   }
 
+  # FDA daily percentages
+  # https://www.fda.gov/Food/GuidanceRegulation/GuidanceDocumentsRegulatoryInformation/LabelingNutrition/ucm064928.htm
+  DAILY_PECENTAGES = {
+    water: 2.7, # l
+    energy: 208, # 1600 cal
+    protein: 50, # g
+    fat: 65, # g
+    carbohydrate: 300, # g
+    fiber: 25, # g
+    glucose: 211,
+    calcium: 1000, # mg
+    iron: 18, # mg
+    magnesium: 400, # mg
+    phosphorus: 1000, # mg
+    potassium: 3500, # mg
+    sodium: 2400, # mg
+    zinc: 15, # mg
+    copper: 2, # mg
+    manganese: 2, # mg
+    selenium: 70, # µg
+    vitamin_c: 60, # mg
+    thiamin: 1.5, # mg
+    riboflavin: 1.7, # mg
+    niacin: 20, # mg
+    pantothenic_acid: 10, # mg
+    vitamin_b6: 2, # mg
+    folate_total: 400, # µg
+    vitamin_b12: 6, # µg
+    vitamin_a_iu: 5000, # IU
+    vitamin_e_alpha_tocopherol: 30, # IU
+    vitamin_d: 400, # IU
+    vitamin_k: 80, # µg
+    cholesterol: 300, # mg
+  }
 end

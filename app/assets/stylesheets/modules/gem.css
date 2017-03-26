@@ -140,9 +140,16 @@
     width: 10px;
     background-image: linear-gradient(to right, transparent 0%, white 100%); }
 
-.gem__code__tooltip--copy,
+.gem__code__tooltip--copy {
+  display: none;
+  padding: 10px;
+  width: 300px !important;
+  position: relative;
+}
+
 .gem__code__tooltip--copied {
-  display: none; }
+  display: none;
+}
 
 .clipboard-is-hover,
 .clipboard-is-active {

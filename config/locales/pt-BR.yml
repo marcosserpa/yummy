@@ -144,11 +144,11 @@ pt-BR:
       updated:
   rubygems:
     aside:
-      bundler_header: Gemfile
+      quantity: Quantidade
       copied:
-      copy_to_clipboard:
+      quantity_tooltip: Defina aqui o fator multiplicativo para multiplicar a quantidade base (100g é o padrão) e atualizar a tabela de nutrientes relacionada a isso. Por exemplo, um alimento que tem 34 kcal de energia como padrão, com uma nova quantidade de 0,2 agora terá 20g como base de quantidade e proporcionalmente 6,8 kcal.
       downloads_for_this_version: Desta versão
-      install: instalar
+      measures: Medidas
       required_ruby_version:
       required_rubygems_version:
       links:

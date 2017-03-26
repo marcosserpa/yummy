@@ -9,13 +9,12 @@ require 'pry'
 module Integration
   class USDA
     class << self
-
-      def get_aliment
-        puts "=================== Downloading the aliments ndbnos ==================="
+      def download_aliment
+        puts '=================== Downloading the aliments ndbnos ==================='
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
-        local_aliments_ndbnos = Aliment.all.map{ |aliment| { aliment.ndbno => aliment.recent? } }
+        local_aliments_ndbnos = Aliment.all.map { |aliment| { aliment.ndbno => aliment.recent? } }
 
-        # TODO Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
+        # TODO: Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
         aliments_ndbnos.each do |ndbno|
           local_aliments_ndbnos.select do |local_ndbno|
             if local_ndbno.keys[0] == ndbno
@@ -31,46 +30,49 @@ module Integration
           # unless last_update.present? && (last_update <= Time.now - 6.months)
           unless ndbno.blank? || (aliment.present? && aliment.recent?)
             begin
-              puts "=================== Downloading and saving the aliment with ndbno #{ndbno} ==================="
+              puts '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
               response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
               raise ActiveResource::BadRequest.new(response) unless response.code == '200'
 
               data = JSON.parse(response.body)
 
-              # TODO Do I really need this aliment returned? I THINK NOT, DUMB! Remove this and the return at the methods
-              aliment = save_aliment(data['report'])
+              # TODO: Do I really need this aliment returned? I THINK NOT, DUMB!
+              # Remove this and the return at the methods
+              save_aliment(data['report'])
               # save_nutrients(data['report']['food']['nutrients'])
             rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
-              puts "================ ERROR ================"
-              puts "Was not possible to open the aliment page with the ndbno #{ndbno}. We received - from the GET - the code #{response.code} with the following errors: #{response.message} and this other errors: #{error}"
-              puts "======================================="
+              puts '================ ERROR ================'
+              puts "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
+              puts " We received - from the GET - the code #{response.code} with the following errors:\n"
+              puts " #{response.message} and this other errors: #{error}"
+              puts '======================================='
             end
           end
         end
       end
 
       def update_aliments
-        # TODO put a exception treatment here
+        # TODO: put a exception treatment here
         # ensure that the consistency testing the aliment_id and the aliment name. both need to match
       end
 
       def save_aliment(report)
         aliment = Aliment.find_or_create_by(
-                    ndbno: report['food']['ndbno'],
-                    name: report['food']['name'],
-                    food_group: report['food']['fg'],
-                    manu: report['food']['manu']
-                  )
-        # aliment.food_group = report['food']['fg']
-        # aliment.manu = report['food']['manu']
+          ndbno: report['food']['ndbno'],
+          name: report['food']['name'],
+          food_group: report['food']['fg'],
+          manu: report['food']['manu']
+        )
 
         raise RuntimeError unless aliment.save
 
         save_nutrients(aliment, report['food']['nutrients'])
       end
 
-      # TODO trocar as atribuuições de 0.0 pra '-' pois não está correto dizer que um alimento tem 0.0 de um nutriente. Isso é um valor, quando na verdade eu não sei se tem ou não.
+      # TODO: trocar as atribuuições de 0.0 pra '-' pois não está correto dizer que um alimento
+      # tem 0.0 de um nutriente. Isso é um valor, quando na verdade eu não sei se tem ou não.
+      # TODO: refatorar. existe MUITO codigo repetido nesta merda
       def save_nutrients(aliment, nutrients)
         proximates = Proximate.find_or_initialize_by(aliment_id: aliment.id)
         minerals = Mineral.find_or_initialize_by(aliment_id: aliment.id)
@@ -80,7 +82,7 @@ module Integration
         others = Other.find_or_initialize_by(aliment_id: aliment.id)
 
         Integration::PROXIMATES.each do |proximate, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             proximates[proximate] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -98,7 +100,7 @@ module Integration
         end
 
         Integration::MINERALS.each do |mineral, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             minerals[mineral] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -118,7 +120,7 @@ module Integration
         end
 
         Integration::VITAMINS.each do |vitamin, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             vitamins[vitamin] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -136,7 +138,7 @@ module Integration
         end
 
         Integration::LIPIDS.each do |lipid, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             lipids[lipid] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -154,7 +156,7 @@ module Integration
         end
 
         Integration::AMINOACIDS.each do |amino_acid, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             amino_acids[amino_acid] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -172,7 +174,7 @@ module Integration
         end
 
         Integration::OTHERS.each do |other, id|
-          nutrient = nutrients.select{ |nutrient| nutrient['nutrient_id'] == id.to_s }.first
+          nutrient = nutrients.select { |nutri| nutri['nutrient_id'] == id.to_s }.first
 
           if nutrient.present?
             others[other] = "#{nutrient['value']} #{nutrient['unit']}"
@@ -200,7 +202,6 @@ module Integration
 
         aliment
       end
-
     end
   end
 end

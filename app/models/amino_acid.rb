@@ -5,8 +5,28 @@ class AminoAcid < ActiveRecord::Base
   belongs_to :aliment
 
   validates :aliment, presence: true
-  validates :tryptophan, :threonine, :isoleucine, :leucine, :lysine, :methionine, :cystine, :phenylalanine, :tyrosine, :valine, :arginine, :histidine, :alanine, :aspartic_acid, :glutamic_acid, :glycine, :proline, :serine, presence: true
+  validates :tryptophan, :threonine, :isoleucine, :leucine, :lysine, :methionine, :cystine, :phenylalanine, :tyrosine,
+    :valine, :arginine, :histidine, :alanine, :aspartic_acid, :glutamic_acid, :glycine, :proline, :serine,
+    presence: true
 
-  NUTRIENTS = [:tryptophan, :threonine, :isoleucine, :leucine, :lysine, :methionine, :cystine, :phenylalanine, :tyrosine, :valine, :arginine, :histidine, :alanine, :aspartic_acid, :glutamic_acid, :glycine, :proline, :serine]
-
+  NUTRIENTS = [
+    :tryptophan,
+    :threonine,
+    :isoleucine,
+    :leucine,
+    :lysine,
+    :methionine,
+    :cystine,
+    :phenylalanine,
+    :tyrosine,
+    :valine,
+    :arginine,
+    :histidine,
+    :alanine,
+    :aspartic_acid,
+    :glutamic_acid,
+    :glycine,
+    :proline,
+    :serine
+  ]
 end

@@ -144,11 +144,11 @@ en:
       updated: Your profile was updated.
   rubygems:
     aside:
-      bundler_header: Gemfile
+      quantity: Quantity
       copied: Copied!
-      copy_to_clipboard: Copy to clipboard
+      quantity_tooltip: Set here que multiplicative factor to multiply the quantity base (100g is the default) and refresh the nutrients table related to this. For example, an aliment that has 34 kcal energy as default, with a new quantity of 0.2 will now has 20g as quantity base and proportionally 6.8 kcal.
       downloads_for_this_version: For this version
-      install: install
+      measures: Measures
       required_ruby_version: Required Ruby Version
       required_rubygems_version: Required Rubygems Version
       links:

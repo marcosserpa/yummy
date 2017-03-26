@@ -8,5 +8,4 @@ class Other < ActiveRecord::Base
   validates :alcohol, :caffeine, :theobromine, presence: true
 
   NUTRIENTS = [:alcohol, :caffeine, :theobromine]
-
 end
