@@ -1,7 +1,10 @@
 module ApplicationHelper
   DAILY_PECENTAGES = {
     water: 2.7, # l
-    energy: 208, # 1600 cal
+    energy: 2000, # 1600 cal
+    energy_from_carbs: 2000, # 1600 cal
+    energy_from_proteins: 2000, # 1600 cal
+    energy_from_fats: 2000, # 1600 cal
     protein: 50, # g
     fat: 65, # g
     carbohydrate: 300, # g
@@ -71,6 +74,6 @@ module ApplicationHelper
   end
 
   def daily_percentage(nutrient, value)
-    DAILY_PECENTAGES[nutrient].nil? ? '-' : "#{(value / DAILY_PECENTAGES[nutrient]).round(2)} %"
+    DAILY_PECENTAGES[nutrient].nil? ? '-' : "#{((value / DAILY_PECENTAGES[nutrient]) * 100).round(2)} %"
   end
 end

@@ -17,3 +17,57 @@ $(document).ready(function() {
     $('#main-search').submit();
   });
 });
+
+
+// ========= Quantity multiplicator
+
+var ORIGINAL_VALUES = []
+
+$('#gemfile_text').keyup(function() {
+  var quantity = parseFloat($(this).val());
+
+  if (quantity) {
+    var factor = quantity / 100.0;
+
+    updatesNutrientsQuantities(factor);
+  } else {
+    updatesNutrientsQuantities(1);
+  }
+});
+
+function updatesNutrientsQuantities(quantity) {
+  $('body').each(function(td) {
+  	$('td').map(function(index, td) {
+      var unity = '';
+
+      if ($(td).text().split(/ (.+)/).length == 5) {
+        var content = $(td).text().split(/ (.+)/)[1];
+      } else if ($(td).text().split(/ (.+)/).length == 3) {
+        var content = $(td).text().split(/ (.+)/)[0];
+
+        if ($(td).text().split(/ (.+)/)[1] == '%')
+          unity = '%';
+      }
+
+  		if (content) {
+  			var string = content.trim();
+
+  			if (string) {
+  				var only_number = parseFloat(string.trim().split(/ (.+)/)[0]);
+
+          if (!unity)
+            unity = string.trim().split(/ (.+)/)[1];
+
+  				if (only_number) {
+            if (!ORIGINAL_VALUES[index])
+              ORIGINAL_VALUES[index] = [only_number, unity];
+
+  					result = ORIGINAL_VALUES[index][0] * quantity;
+
+  					$(td).text(result.toFixed(2) + ' ' + ORIGINAL_VALUES[index][1]);
+  				}
+  			}
+  		}
+  	});
+  });
+}

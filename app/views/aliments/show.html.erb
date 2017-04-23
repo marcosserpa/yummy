@@ -68,7 +68,7 @@
                     <td>
                       <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.energy.round(2) %> kcal
                     </td>
-                    <td>12%</td>
+                    <td><%= @aliment.proximate.blank? ? '-' : daily_percentage(:energy, @aliment.proximate.energy) %></td>
                   </tr>
                   <tr>
                       <td class='gem__version__date'>from carbs</td>
