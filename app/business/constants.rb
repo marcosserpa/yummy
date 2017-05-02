@@ -68,18 +68,18 @@ module Integration
   }
 
   AMINOACIDS = {
-    tryptophan: 501,
-    threonine: 502,
-    isoleucine: 503,
-    leucine: 504,
-    lysine: 505,
-    methionine: 506,
-    cystine: 507,
-    phenylalanine: 508,
-    tyrosine: 509,
-    valine: 510,
+    tryptophan: 501, # 9 essential amino acids
+    threonine: 502, # 9 essential amino acids
+    isoleucine: 503, # 9 essential amino acids
+    leucine: 504, # 9 essential amino acids
+    lysine: 505, # 9 essential amino acids
+    methionine: 506, # 9 essential amino acids
+    cystine: 507, # 9 essential amino acids
+    phenylalanine: 508, # 9 essential amino acids
+    tyrosine: 509, # 9 essential amino acids
+    valine: 510, # 9 essential amino acids
     arginine: 511,
-    histidine: 512,
+    histidine: 512, # 9 essential amino acids
     alanine: 513,
     aspartic_acid: 514,
     glutamic_acid: 515,

@@ -10,8 +10,8 @@ class PagesController < ApplicationController
       ContactMailer.contact_email(params).deliver
       redirect_to contact_path, notice: t('message.contact_response')
     else
-      @random_question, @random_anwser = random_captcha
-      render 'home'
+      # @random_question, @random_anwser = random_captcha
+      redirect_to :contact, flash: { error: 'You have need to fill all the fields below to send us a contact email.' }
     end
   end
 

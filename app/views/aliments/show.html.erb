@@ -1,6 +1,6 @@
 <% if @aliment.present? %>
   <% @title = @aliment.name %>
-  <% @subtitle = @aliment.proximate.try(:energy) ? "#{ @aliment.proximate.try(:energy).round(2) } calories" : '--' %>
+  <% @subtitle = @aliment.proximate.try(:energy) ? "#{@aliment.proximate.try(:energy).round(2)} calories (for a portion of 100g)" : '--' %>
 
   <% content_for :head do %>
     <%= auto_discovery_link_tag(:atom, aliment_path(@aliment), { title: "#{@aliment.name} Calories Feed" }) %>
@@ -31,7 +31,7 @@
                 <thead>
                   <tr>
                     <th>
-                      <h3 class="t-list__heading"><%= t '.nutrients_facts' %></h3>
+                      <h3 class="t-list__item"><%= t '.nutrients_facts' %></h3>
                     </th>
                   </tr>
                   <tr>

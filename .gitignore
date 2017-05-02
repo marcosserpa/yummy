@@ -19,3 +19,6 @@ tmp/
 
 # Ignore tests resports folders
 /coverage
+
+# Ignore RubyMine files and folders
+.idea
