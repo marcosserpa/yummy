@@ -8,10 +8,10 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log
-
-tmp/
+/log/*.log
+/tmp
 .gems/
+
 
 # Ignore files buffered by opening two editors
 *.swp
@@ -22,3 +22,6 @@ tmp/
 
 # Ignore RubyMine files and folders
 .idea
+
+# Mac specific
+.DS_Store
