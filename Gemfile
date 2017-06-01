@@ -73,6 +73,8 @@ group :development, :test do
   gem 'simplecov'
   # Metrics
   gem 'metric_fu'
+
+  gem 'rubocop'
 end
 
 group :doc do

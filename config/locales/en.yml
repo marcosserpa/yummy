@@ -65,6 +65,7 @@ en:
     application:
       footer:
         about: About
+        contact: Contact
         api: API
         blog: Blog
         contribute: Contribute

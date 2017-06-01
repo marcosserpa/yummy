@@ -53,13 +53,6 @@
           <% end %>
 
           <nav class="header__nav-links">
-            <!-- <% if signed_in? %>
-              <a href="<%= profile_path(current_user.display_id) %>" class="header__nav-link mobile__header__nav-link">
-                <%= truncate current_user.name %>
-                <%= gravatar 80, "user_gravatar" %>
-              </a>
-            <% end %> -->
-
             <%- if request.path_info == '/aliments' %>
               <%= link_to "Aliments", aliments_path, class: "header__nav-link is-active" %>
             <%- else %>
