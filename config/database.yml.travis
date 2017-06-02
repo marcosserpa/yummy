@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: yummy_development
+
+test:
+  <<: *default
+  database: yummy_test
+
+production:
+  <<: *default
+  database: yummy_production
+  username: yummy
+  password: <%= ENV['YUMMY_DATABASE_PASSWORD'] %>
