@@ -35,20 +35,27 @@
 .header__logo-wrap {
   position: relative;
   float: left;
-  z-index: 1; }
-  .header__logo-wrap:focus {
-    outline: none; }
-  .header__logo-wrap:focus .header__logo:before, .header__logo-wrap:hover .header__logo:before {
-    transform: rotateY(360deg); }
-  @media (max-width: 1019px) {
-    .header__logo-wrap {
-      top: 9px;
-      left: 5%;
-      font-size: 26px; } }
-  @media (min-width: 1020px) {
-    .header__logo-wrap {
-      top: 12px;
-      font-size: 40px; } }
+  z-index: 1;
+}
+.header__logo-wrap:focus {
+  outline: none;
+}
+.header__logo-wrap:focus .header__logo:before, .header__logo-wrap:hover .header__logo:before {
+  transform: rotateY(360deg);
+}
+@media (max-width: 1019px) {
+  .header__logo-wrap {
+    top: 9px;
+    left: 5%;
+    font-size: 26px;
+  }
+}
+@media (min-width: 1020px) {
+  .header__logo-wrap {
+    top: 12px;
+    font-size: 40px;
+  }
+}
 
 .header__logo {
   position: absolute;
