@@ -85,7 +85,7 @@ a.page__heading {
   transition-duration: 0.25s;
   transition-property: color; }
   a.page__heading:focus, a.page__heading:hover, a.page__heading:active {
-    color: #e9573f; }
+    color: #ff0000; }
   a.page__heading:focus {
     outline: none; }
 
