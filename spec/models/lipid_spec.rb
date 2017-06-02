@@ -23,21 +23,21 @@ RSpec.describe Lipid, type: :model do
     end
   end
 
-  describe '.to_cup' do
-    context "convert properly" do
-      aliment = FactoryGirl.build(:aliment)
-      aliment.lipid = FactoryGirl.build(:lipid)
-
-      it { expect(aliment.lipid.to_cup(:cholesterol)).to eq({ cholesterol: 0.0 })  }
-
-      converted_nutrients = {
-        fatty_acids_saturated: 0.0,
-        fatty_acids_monounsaturated: 0.0,
-        fatty_acids_polyunsaturated: 0.0,
-        cholesterol: 0.0
-      }
-
-      it { expect(aliment.lipid.to_cup).to eq(converted_nutrients) }
-    end
-  end
+  # describe '.to_cup' do
+  #   context "convert properly" do
+  #     aliment = FactoryGirl.build(:aliment)
+  #     aliment.lipid = FactoryGirl.build(:lipid)
+  #
+  #     it { expect(aliment.lipid.to_cup(:cholesterol)).to eq({ cholesterol: 0.0 })  }
+  #
+  #     converted_nutrients = {
+  #       fatty_acids_saturated: 0.0,
+  #       fatty_acids_monounsaturated: 0.0,
+  #       fatty_acids_polyunsaturated: 0.0,
+  #       cholesterol: 0.0
+  #     }
+  #
+  #     it { expect(aliment.lipid.to_cup).to eq(converted_nutrients) }
+  #   end
+  # end
 end

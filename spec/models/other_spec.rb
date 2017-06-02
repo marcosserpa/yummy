@@ -23,20 +23,20 @@ describe Other, type: :model do
     end
   end
 
-  describe '.to_cup' do
-    context 'convert properly' do
-      aliment = FactoryGirl.build(:aliment)
-      aliment.other = FactoryGirl.build(:other)
-
-      it { expect(aliment.other.to_cup(:alcohol)).to eq(alcohol: 0.0) }
-
-      converted_nutrients = {
-        alcohol: 0.0,
-        caffeine: 0.0,
-        theobromine: 0.0
-      }
-
-      it { expect(aliment.other.to_cup).to eq(converted_nutrients) }
-    end
-  end
+  # describe '.to_cup' do
+  #   context 'convert properly' do
+  #     aliment = FactoryGirl.build(:aliment)
+  #     aliment.other = FactoryGirl.build(:other)
+  #
+  #     it { expect(aliment.other.to_cup(:alcohol)).to eq(alcohol: 0.0) }
+  #
+  #     converted_nutrients = {
+  #       alcohol: 0.0,
+  #       caffeine: 0.0,
+  #       theobromine: 0.0
+  #     }
+  #
+  #     it { expect(aliment.other.to_cup).to eq(converted_nutrients) }
+  #   end
+  # end
 end
