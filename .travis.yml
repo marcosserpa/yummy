@@ -15,3 +15,8 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database courseselect_test;' -U postgres
+
+# Install Elasticsearch
+  - \curl -sSL https://raw.githubusercontent.com/codeship/scripts/master/packages/elasticsearch.sh | bash -s
+# Start Elasticsearch
+  - sudo /etc/init.d/elasticsearch start
