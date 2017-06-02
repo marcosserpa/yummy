@@ -20,3 +20,6 @@ before_script:
   - \curl -sSL https://raw.githubusercontent.com/codeship/scripts/master/packages/elasticsearch.sh | bash -s
 # Start Elasticsearch
   - sudo /etc/init.d/elasticsearch start
+
+# Running Rspec
+  - bundle exec rspec
