@@ -8,6 +8,7 @@ env:
 
 services:
   - postgresql
+  - elasticsearch
 
 script:
   - bundle exec rake db:drop db:create db:migrate RAILS_ENV=test
@@ -15,11 +16,3 @@ script:
 before_script:
   - cp config/database.yml.travis config/database.yml
   - psql -c 'create database courseselect_test;' -U postgres
-
-# Install Elasticsearch
-  - \curl -sSL https://raw.githubusercontent.com/codeship/scripts/master/packages/elasticsearch.sh | bash -s
-# Start Elasticsearch
-  - sudo /etc/init.d/elasticsearch start
-
-# Running Rspec
-  - bundle exec rspec
