@@ -2,7 +2,7 @@ namespace :integrate do
   # require 'app/business/integration'
 
   desc 'Running the NDB_NOS download task'
-  task update_aliments: :environment do
+  task download_ndbnos: :environment do
     puts '============================'
     Integration::USDAParameters.ndbnos
   end

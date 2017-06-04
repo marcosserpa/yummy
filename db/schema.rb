@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170312202043) do
+ActiveRecord::Schema.define(version: 20170604221410) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,6 +85,10 @@ ActiveRecord::Schema.define(version: 20170312202043) do
   end
 
   add_index "minerals", ["aliment_id"], name: "index_minerals_on_aliment_id", using: :btree
+
+  create_table "ndbnos_tables", force: :cascade do |t|
+    t.string "ndbno"
+  end
 
   create_table "others", force: :cascade do |t|
     t.integer  "aliment_id"
