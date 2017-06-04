@@ -5,12 +5,18 @@ require 'constants'
 require 'usda_parameters'
 require 'active_resource'
 require 'pry'
+require 'logger'
 
 module Integration
   class USDA
+    logger = Logger.new(STDOUT)
+
+    attr_accessor :logger
+
     class << self
       def download_aliment
-        puts '=================== Downloading the aliments ndbnos ==================='
+        logger.warn '=================== Downloading the aliments ndbnos ==================='
+        binding.pry
         aliments_ndbnos = Integration::USDAParameters.get_ndbnos
         local_aliments_ndbnos = Aliment.all.map { |aliment| { aliment.ndbno => aliment.recent? } }
 
@@ -28,9 +34,9 @@ module Integration
           # last_update = aliment.present? ? aliment.updated_at : nil
 
           # unless last_update.present? && (last_update <= Time.now - 6.months)
-          unless ndbno.blank? || (aliment.present? && aliment.recent?)
+          next unless ndbno.blank? || (aliment.present? && aliment.recent?)
             begin
-              puts '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
+              logger.warn '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
               response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
               raise ActiveResource::BadRequest.new(response) unless response.code == '200'
@@ -42,11 +48,11 @@ module Integration
               save_aliment(data['report'])
               # save_nutrients(data['report']['food']['nutrients'])
             rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
-              puts '================ ERROR ================'
-              puts "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
-              puts " We received - from the GET - the code #{response.code} with the following errors:\n"
-              puts " #{response.message} and this other errors: #{error}"
-              puts '======================================='
+              logger.warn '================ ERROR ================'
+              logger.warn "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
+              logger.warn " We received - from the GET - the code #{response.code} with the following errors:\n"
+              logger.warn " #{response.message} and this other errors: #{error}"
+              logger.warn '======================================='
             end
           end
         end
@@ -90,7 +96,7 @@ module Integration
           else
             proximates[proximate] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # aliment.send(proximate) = if unit == 'g'
@@ -108,7 +114,7 @@ module Integration
           else
             minerals[mineral] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # unit = nutrient['unit']
@@ -128,7 +134,7 @@ module Integration
           else
             vitamins[vitamin] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # aliment.send(proximate) = if unit == 'g'
@@ -146,7 +152,7 @@ module Integration
           else
             lipids[lipid] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # aliment.send(proximate) = if unit == 'g'
@@ -164,7 +170,7 @@ module Integration
           else
             amino_acids[amino_acid] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # aliment.send(proximate) = if unit == 'g'
@@ -182,7 +188,7 @@ module Integration
           else
             others[other] = 0.0
 
-            puts "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
+            logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
           # aliment.send(proximate) = if unit == 'g'
