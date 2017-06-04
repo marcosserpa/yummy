@@ -16,8 +16,8 @@ module Integration
     class << self
       def download_aliment
         logger.warn '=================== Downloading the aliments ndbnos ==================='
-        binding.pry
-        aliments_ndbnos = Integration::USDAParameters.get_ndbnos
+
+        aliments_ndbnos = Integration::USDAParameters.ndbnos
         local_aliments_ndbnos = Aliment.all.map { |aliment| { aliment.ndbno => aliment.recent? } }
 
         # TODO: Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
