@@ -189,20 +189,28 @@
   margin-bottom: 12px; }
 
 .gem__version__date {
-  color: #a6aab2; }
+  color: #a6aab2;
+  font-size: 15px;
+}
+
+.gem__version__date_essential_amino_acids {
+  color: #a60086;
+  font-size: 15px;
+}
 
 .gem__versions-wrap {
-  overflow: auto; }
-
-.gem__version__date {
-  font-size: 15px; }
-
+  overflow: auto;
+}
 .gem__version-wrap {
-  font-weight: 800; }
-  .gem__version-wrap a.t-list__item {
-    display: inline-block; }
-  .gem__version-wrap .gem__version__date {
-    font-weight: 400; }
+  font-weight: 800;
+  border: 10px dotted blue;
+}
+.gem__version-wrap a.t-list__item {
+  display: inline-block;
+}
+.gem__version-wrap .gem__version__date {
+  font-weight: 400;
+}
 
 .gem__unregistered {
   color: #a6aab2;

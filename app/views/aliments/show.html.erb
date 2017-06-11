@@ -63,7 +63,7 @@
                   <!-- PROXIMATES section -->
                   <tr class='gem__version-wrap'>
                     <td>
-                      <a class="t-list__item" href="">Calories</a>
+                      <a class="macronutrients" href="">Calories</a>
                     </td>
                     <td>
                       <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.energy.round(2) %> kcal
@@ -71,31 +71,42 @@
                     <td><%= @aliment.proximate.blank? ? '-' : daily_percentage(:energy, @aliment.proximate.energy) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>from carbs</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from carbs</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.carbohydrate * 4).round(2) %> kcal
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:carbohydrate, @aliment.proximate.carbohydrate) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>from proteins</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from proteins</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.protein * 4).round(2) %> kcal
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:protein, @aliment.proximate.protein) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>from fats</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from fats</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : (@aliment.proximate.fat * 9).round(2) %> kcal
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:fat, @aliment.proximate.fat) %></td>
                   </tr>
 
+                  <!-- PROTEINS  -->
+                  <tr class='gem__version-wrap'>
+                      <td>
+                        <a class="macronutrients" href="">Proteins</a>
+                      </td>
+                      <td>
+                        <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.protein.round(2) %> g
+                      </td>
+                      <td><%= @aliment.proximate.blank? ? '-' : daily_percentage(:protein, @aliment.proximate.protein) %></td>
+                  </tr>
+
                   <!-- CARBS section -->
                   <tr class='gem__version-wrap'>
                       <td>
-                        <a class="t-list__item" href="">Total carbs</a>
+                        <a class="macronutrients" href="">Total carbs</a>
                       </td>
                       <td>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.carbohydrate.round(2) %> g
@@ -103,56 +114,59 @@
                       <td><%= @aliment.proximate.blank? ? '-' : daily_percentage(:carbohydrate, @aliment.proximate.carbohydrate) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Fibers</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from fibers</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fiber.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:fiber, @aliment.proximate.fiber) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Sugars</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from sugars</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.sugars.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:sugars, @aliment.proximate.sugars) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Sucrose</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from sucrose</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.sucrose.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:sucrose, @aliment.proximate.sucrose) %></td>
                   </tr>
+
+                  <!-- $("<tr>").after("<hr style='width: 180px;'/>"); -->
+
                   <tr>
-                      <td class='gem__version__date'>Glucose (dextrose)</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from glucose (dextrose)</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.glucose.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:glucose, @aliment.proximate.glucose) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Fructose</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from fructose</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fructose.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:fructose, @aliment.proximate.fructose) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Lactose</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from lactose</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.lactose.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:lactose, @aliment.proximate.lactose) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Maltose</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from maltose</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.maltose.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.proximate.blank? ? '-' : daily_percentage(:maltose, @aliment.proximate.maltose) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Galactose</td>
+                      <td class='gem__version__date' style='padding-left: 15px;'>from galactose</td>
                       <td class='gem__version__date'>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.galactose.round(2) %> g
                       </td>
@@ -162,7 +176,7 @@
                   <!-- FATS section -->
                   <tr class='gem__version-wrap'>
                       <td>
-                        <a class="t-list__item" href="">Total fats</a>
+                        <a class="macronutrients" href="">Total fats</a>
                       </td>
                       <td>
                         <%= @aliment.proximate.blank? ? '-' : @aliment.proximate.fat.round(2) %> g
@@ -197,7 +211,6 @@
                       </td>
                       <td class='gem__version__date'><%= @aliment.lipid.blank? ? '-' : daily_percentage(:cholesterol, @aliment.lipid.cholesterol) %></td>
                   </tr>
-
 
                   <!-- MINERALS section -->
                   <tr class='gem__version-wrap'>
@@ -277,7 +290,6 @@
                       </td>
                       <td class='gem__version__date'><%= @aliment.mineral.blank? ? '-' : daily_percentage(:selenium, @aliment.mineral.selenium) %></td>
                   </tr>
-
 
                   <!-- VITAMINS section -->
                   <tr class='gem__version-wrap'>
@@ -477,7 +489,6 @@
                       <td class='gem__version__date'><%= @aliment.vitamin.blank? ? '-' : daily_percentage(:vitamin_k, @aliment.vitamin.vitamin_k) %></td>
                   </tr>
 
-
                   <!-- AMINO ACIDS section -->
                   <tr class='gem__version-wrap'>
                     <td>
@@ -487,42 +498,42 @@
                     <td class='nutrition_facts_cells'></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Tryptophan</td>
+                      <td class='gem__version__date_essential_amino_acids'>Tryptophan</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.tryptophan.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:tryptophan, @aliment.amino_acid.tryptophan) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Threonine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Threonine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.threonine.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:threonine, @aliment.amino_acid.threonine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Isoleucine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Isoleucine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.isoleucine.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:isoleucine, @aliment.amino_acid.isoleucine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Leucine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Leucine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.leucine.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:leucine, @aliment.amino_acid.leucine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Lysine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Lysine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.lysine.round(2) %> g
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:lysine, @aliment.amino_acid.lysine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Methionine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Methionine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.methionine.round(2) %> g
                       </td>
@@ -536,7 +547,7 @@
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:cystine, @aliment.amino_acid.cystine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Phenylalanine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Phenylalanine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.phenylalanine.round(2) %> g
                       </td>
@@ -550,7 +561,7 @@
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:tyrosine, @aliment.amino_acid.tyrosine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Valine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Valine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.valine.round(2) %> g
                       </td>
@@ -564,7 +575,7 @@
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:arginine, @aliment.amino_acid.arginine) %></td>
                   </tr>
                   <tr>
-                      <td class='gem__version__date'>Histidine</td>
+                      <td class='gem__version__date_essential_amino_acids'>Histidine</td>
                       <td class='gem__version__date'>
                         <%= @aliment.amino_acid.blank? ? '-' : @aliment.amino_acid.histidine.round(2) %> g
                       </td>
@@ -612,7 +623,6 @@
                       </td>
                       <td class='gem__version__date'><%= @aliment.amino_acid.blank? ? '-' : daily_percentage(:serine, @aliment.amino_acid.serine) %></td>
                   </tr>
-
 
                   <!-- OTHER section -->
                   <tr class='gem__version-wrap'>

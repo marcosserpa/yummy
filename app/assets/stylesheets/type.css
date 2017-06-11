@@ -49,23 +49,36 @@ label.t-hidden {
     margin-top: 25px; }
 
 .t-list__items, .t-bulleted-items, .t-bulleted-item {
-  margin-top: 18px; }
+  margin-top: 18px;
+}
 
 .t-list__item:not(:first-child) {
-  margin-top: 12px; }
+  margin-top: 12px;
+}
 
 a.t-list__item {
   display: block;
   color: #141c22;
   transition-duration: 0.25s;
-  transition-property: color; }
-  a.t-list__item:hover {
-    color: #ff0000; }
+  transition-property: color;
+}
+
+a.t-list__item:hover {
+  color: #ff0000;
+}
+
+a.macronutrients {
+  display: block;
+  color: #44c300;
+  transition-duration: 0.25s;
+  transition-property: color;
+}
 
 .t-bulleted-items, .t-numbered-items {
   padding-left: 23px;
   text-indent: -23px;
-  line-height: 1.66; }
+  line-height: 1.66;
+}
 
 .t-numbered-item {
   counter-increment: counter; }

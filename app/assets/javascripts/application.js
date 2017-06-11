@@ -12,10 +12,20 @@
 //= require clipboard
 //= require_tree .
 
+function changes_style_on_show() {
+  var matches = document.URL.match(/\d+$/); // if it's the show page
+
+  if(matches) {
+    $("tr").after("<hr style='width: 220px; display: block; height: 0px; border: 0; border-top: 0px solid #ffffff; margin: 1em 0; padding: 0;'/>");
+  }
+}
+
 $(document).ready(function() {
   $('#search_submit').bind('railsAutocomplete.select', function(event, data) {
     $('#main-search').submit();
   });
+
+  changes_style_on_show();
 });
 
 

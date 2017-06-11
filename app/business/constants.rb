@@ -15,7 +15,7 @@ module Integration
     lactose: 213,
     maltose: 214,
     galactose: 287
-  }
+  }.freeze
 
   MINERALS = {
     calcium: 301,
@@ -28,7 +28,7 @@ module Integration
     copper: 312,
     manganese: 315,
     selenium: 317
-  }
+  }.freeze
 
   VITAMINS = {
     vitamin_c: 401,
@@ -58,15 +58,17 @@ module Integration
     vitamin_d_d2_d3: 328,
     vitamin_d: 324,
     vitamin_k: 430
-  }
+  }.freeze
 
   LIPIDS = {
     fatty_acids_saturated: 606,
     fatty_acids_monounsaturated: 645,
     fatty_acids_polyunsaturated: 646,
     cholesterol: 601
-  }
+  }.freeze
 
+  # https://medlineplus.gov/ency/article/002222.htm
+  # https://quizlet.com/7753849/9-essential-amino-acids-flash-cards/
   AMINOACIDS = {
     tryptophan: 501, # 9 essential amino acids
     threonine: 502, # 9 essential amino acids
@@ -74,9 +76,9 @@ module Integration
     leucine: 504, # 9 essential amino acids
     lysine: 505, # 9 essential amino acids
     methionine: 506, # 9 essential amino acids
-    cystine: 507, # 9 essential amino acids
+    cystine: 507,
     phenylalanine: 508, # 9 essential amino acids
-    tyrosine: 509, # 9 essential amino acids
+    tyrosine: 509,
     valine: 510, # 9 essential amino acids
     arginine: 511,
     histidine: 512, # 9 essential amino acids
@@ -86,13 +88,13 @@ module Integration
     glycine: 516,
     proline: 517,
     serine: 518
-  }
+  }.freeze
 
   OTHERS = {
     alcohol: 221,
     caffeine: 262,
     theobromine: 263
-  }
+  }.freeze
 
   # FDA daily percentages
   # https://www.fda.gov/Food/GuidanceRegulation/GuidanceDocumentsRegulatoryInformation/LabelingNutrition/ucm064928.htm
@@ -127,5 +129,5 @@ module Integration
     vitamin_d: 400, # IU
     vitamin_k: 80, # µg
     cholesterol: 300, # mg
-  }
+  }.freeze
 end
