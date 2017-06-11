@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :proximate do
     aliment
     water 8.757 # g

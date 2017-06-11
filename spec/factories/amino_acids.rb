@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :amino_acid do
     aliment
     tryptophan 0.0125 # g
@@ -21,5 +20,4 @@ FactoryGirl.define do
     proline 0.0435 # g
     serine 0.0798 # g
   end
-
 end

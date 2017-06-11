@@ -1,3 +1,5 @@
+require 'logger'
+
 module Utilities
   ##
   # This module makes the conversion of measures units
@@ -18,7 +20,7 @@ module Utilities
     #   # Vitamins
     #   :vitamin_c, :thiamin, :riboflavin, :niacin, :pantothenic_acid, :vitamin_b6
     # ]
-    # MICRO = [ #μg
+    # MICRO = [ # μg
     #   :selenium,
     # ]
 
@@ -30,25 +32,23 @@ module Utilities
     # a.proximate.convert('CUP', :fat)
     # a.proximate.convert('CUP', [:fat, :maltose])
     def convert(unity = nil, *args)
+      logger = Logger.new(STDOUT)
+
       begin
         nutrients = self.class.const_get :NUTRIENTS
         factor = self.class.const_get unity
       rescue StandardError => e
-        puts "=============================================="
-        puts "Some error with the constant NUTRIENTS or the measure asked (#{ unity }) gonna wrong!"
-        puts e
-        puts "=============================================="
+        logger.warn '=============================================='
+        logger.warn "Some error with the constant NUTRIENTS or the measure asked (#{unity}) gonna wrong!"
+        logger.warn e
+        logger.warn '=============================================='
       end
 
       nutrients_array = if args.flatten.empty?
-        nutrients.map do |nutrient|
-          { nutrient => (self[nutrient] * factor).round(2) }
-        end
-      else
-        args.flatten.map do |nutrient|
-          { nutrient => (self[nutrient] * factor).round(2) }
-        end
-      end.reduce(Hash.new, :merge)
+                          nutrients.map { |nutrient| { nutrient => (self[nutrient] * factor).round(2) } }
+                        else
+                          args.flatten.map { |nutrient| { nutrient => (self[nutrient] * factor).round(2) } }
+                        end.reduce({}, :merge)
     end
   end
 
@@ -60,14 +60,14 @@ module Utilities
     PROTEIN = 4
     DIET_BASE = 2000
 
-    def calorify(key = nil, nutrient)
+    def calorify(nutrient, key = nil)
       const = self.class.const_get(key)
 
       cal = if const.eql?(DIET_BASE)
-        self[nutrient] / const
-      else
-        self[nutrient] * const
-      end.round(2)
+              self[nutrient] / const
+            else
+              self[nutrient] * const
+            end.round(2)
     end
   end
 end

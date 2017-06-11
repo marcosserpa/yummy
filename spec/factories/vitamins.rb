@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :vitamin do
     aliment
     vitamin_c 0.0 # mg
@@ -30,5 +29,4 @@ FactoryGirl.define do
     vitamin_d 0.0 # IU
     vitamin_k 0.0 # µg
   end
-
 end

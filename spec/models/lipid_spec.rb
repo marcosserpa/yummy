@@ -2,20 +2,20 @@ require 'rails_helper'
 
 RSpec.describe Lipid, type: :model do
   describe 'factory' do
-    context "is valid" do
+    context 'is valid' do
       it { expect(FactoryGirl.create(:lipid)).to be_valid }
     end
   end
 
   describe '.save' do
-    context "when there are nulls" do
+    context 'when there are nulls' do
       aliment = FactoryGirl.build(:aliment)
       aliment.lipid = Lipid.new
 
       it { expect(aliment.save).to eq(false) }
     end
 
-    context "when there are no nulls" do
+    context 'when there are no nulls' do
       aliment = FactoryGirl.build(:aliment)
       aliment.lipid = FactoryGirl.build(:lipid)
 

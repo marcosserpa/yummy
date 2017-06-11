@@ -115,7 +115,7 @@
                 %tr{ class: "total-fat" }
                   %td{ class: "label" } Total Fat
                   %td{ class: "amount" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.fat } g"
-                  %td{ class: "daily-value" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.calorify('DIET_BASE', :fat) } %"
+                  %td{ class: "daily-value" }= @aliment.proximate.blank? ? '-' : "#{ @aliment.proximate.calorify(:fat, 'DIET_BASE') } %"
                 %tr{ class: "sat-fat" }
                   %td{ class: "label" } Sat. Fat
                   %td{ class: "amount" }= @aliment.lipid.blank? ? '-' : "#{ @aliment.lipid.fatty_acids_saturated } g"

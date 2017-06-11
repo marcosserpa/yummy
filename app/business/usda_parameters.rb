@@ -24,18 +24,14 @@ module Integration
           logger.info '================ STARTING NDB_NOS DOWNLOAD ================'
           starting = Time.zone.now
 
-          ndbnos_url = "https://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=1500&offset=#{offset_start}&api_key=#{api_key}"
+          ndbnos_url = "https://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=1500&offset=\
+          #{offset_start}&api_key=#{api_key}"
           offset_start = 0
 
           loop do
             page = Nokogiri::HTML(open(ndbnos_url, allow_redirections: :all))
 
-            if page.blank?
-              raise SocketError.new
-            else
-              extract_ndbno(page)
-            end
-
+            page.blank? ? raise(SocketError.new) : extract_ndbno(page)
             break if offset_start >= total
 
             offset_start += 1500
@@ -62,7 +58,7 @@ module Integration
     end
 
     def number_of_total_foods
-      search_page = Nokogiri::HTML(open("https://ndb.nal.usda.gov/ndb/search/list", allow_redirections: :all))
+      search_page = Nokogiri::HTML(open('https://ndb.nal.usda.gov/ndb/search/list', allow_redirections: :all))
       html = search_page.css("div[class='alert alert-info result-message']")
       html.text.gsub(/[^0-9,\.]/, '')
     end

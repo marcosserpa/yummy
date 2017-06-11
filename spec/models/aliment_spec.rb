@@ -2,27 +2,27 @@ require 'rails_helper'
 
 RSpec.describe Aliment, type: :model do
   describe 'factory' do
-    context "is valid" do
+    context 'is valid' do
       it { expect(FactoryGirl.create(:aliment)).to be_valid }
     end
   end
 
   describe '.save' do
-    context "when name is blank" do
+    context 'when name is blank' do
       aliment = FactoryGirl.build(:aliment)
       aliment.name = ''
 
       it { expect(aliment.save).to eq(false) }
     end
 
-    context "when name is nil" do
+    context 'when name is nil' do
       aliment = FactoryGirl.build(:aliment)
       aliment.name = nil
 
       it { expect(aliment.save).to eq(false) }
     end
 
-    context "when has blank instantiated nutrients" do
+    context 'when has blank instantiated nutrients' do
       aliment = FactoryGirl.build(:aliment)
       aliment.proximate = Proximate.new
 
@@ -31,7 +31,7 @@ RSpec.describe Aliment, type: :model do
   end
 
   describe '.destroy' do
-    context "destroy dependents" do
+    context 'destroy dependents' do
       aliment = FactoryGirl.build(:aliment)
       aliment.proximate = FactoryGirl.build(:proximate)
       aliment.vitamin = FactoryGirl.build(:vitamin)

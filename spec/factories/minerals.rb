@@ -1,5 +1,4 @@
 FactoryGirl.define do
-
   factory :mineral do
     aliment
     calcium 0.7 # mg
@@ -13,5 +12,4 @@ FactoryGirl.define do
     manganese 0.0011 # mg
     selenium 2.0 # μg
   end
-
 end
