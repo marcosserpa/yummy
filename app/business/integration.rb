@@ -9,12 +9,10 @@ require 'logger'
 
 module Integration
   class USDA
-    logger = Logger.new(STDOUT)
-
-    attr_accessor :logger
-
     class << self
       def download_aliment
+        logger = Logger.new(STDOUT)
+
         logger.warn '=================== Downloading the aliments ndbnos ==================='
 
         aliments_ndbnos = Integration::USDAParameters.ndbnos
@@ -35,25 +33,25 @@ module Integration
 
           # unless last_update.present? && (last_update <= Time.now - 6.months)
           next unless ndbno.blank? || (aliment.present? && aliment.recent?)
-            begin
-              logger.warn '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
-              response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
-              raise ActiveResource::BadRequest.new(response) unless response.code == '200'
+          begin
+            logger.warn '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
+            response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
-              data = JSON.parse(response.body)
+            raise ActiveResource::BadRequest.new(response) unless response.code == '200'
 
-              # TODO: Do I really need this aliment returned? I THINK NOT, DUMB!
-              # Remove this and the return at the methods
-              save_aliment(data['report'])
-              # save_nutrients(data['report']['food']['nutrients'])
-            rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
-              logger.warn '================ ERROR ================'
-              logger.warn "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
-              logger.warn " We received - from the GET - the code #{response.code} with the following errors:\n"
-              logger.warn " #{response.message} and this other errors: #{error}"
-              logger.warn '======================================='
-            end
+            data = JSON.parse(response.body)
+
+            # TODO: Do I really need this aliment returned? I THINK NOT, DUMB!
+            # Remove this and the return at the methods
+            save_aliment(data['report'])
+            # save_nutrients(data['report']['food']['nutrients'])
+          rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
+            logger.warn '================ ERROR ================'
+            logger.warn "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
+            logger.warn " We received - from the GET - the code #{response.code} with the following errors:\n"
+            logger.warn " #{response.message} and this other errors: #{error}"
+            logger.warn '======================================='
           end
         end
       end
@@ -80,6 +78,7 @@ module Integration
       # tem 0.0 de um nutriente. Isso é um valor, quando na verdade eu não sei se tem ou não.
       # TODO: refatorar. existe MUITO codigo repetido nesta merda
       def save_nutrients(aliment, nutrients)
+        logger = Logger.new(STDOUT)
         proximates = Proximate.find_or_initialize_by(aliment_id: aliment.id)
         minerals = Mineral.find_or_initialize_by(aliment_id: aliment.id)
         vitamins = Vitamin.find_or_initialize_by(aliment_id: aliment.id)
