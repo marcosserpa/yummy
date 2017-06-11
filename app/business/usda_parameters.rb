@@ -1,5 +1,7 @@
 require 'open-uri'
 require 'logger'
+require 'json'
+require 'pry'
 
 module Integration
   class USDAParameters
@@ -8,27 +10,17 @@ module Integration
     attr_accessor :ndbnos_collection
 
     class << self
-      def url(ndbno)
-        "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
-      end
-
-      def api_key
-        '6HBsd9kI5M23vznbpiMsskOWtta3so4AM3qWLqn9'
-      end
-
       def ndbnos
-        total = number_of_total_foods
+        total = quantity_of_foods
         logger = Logger.new(STDOUT)
 
         begin
           logger.info '================ STARTING NDB_NOS DOWNLOAD ================'
           starting = Time.zone.now
-
-          ndbnos_url = "https://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=1500&offset=\
-          #{offset_start}&api_key=#{api_key}"
           offset_start = 0
 
           loop do
+            ndbnos_url = "https://api.nal.usda.gov/ndb/search/?format=json&sort=n&max=1500&offset=#{offset_start}&api_key=#{api_key}"
             page = Nokogiri::HTML(open(ndbnos_url, allow_redirections: :all))
 
             page.blank? ? raise(SocketError.new) : extract_ndbno(page)
@@ -47,20 +39,51 @@ module Integration
           logger.warn '======================================='
         end
 
-        @ndbnos_collection
+        save_ndbnos @ndbnos_collection
       end
-    end
 
-    def extract_ndbno(page)
-      page.css("td[style='font-style:;'] a[style='font-weight:normal;']").each do |html|
-        @ndbnos_collection << html.text.gsub(/[^\d]/, '')
+      def url(ndbno)
+        "http://api.nal.usda.gov/ndb/reports/?ndbno=#{ndbno}&type=f&format=json&api_key=#{api_key}"
       end
-    end
 
-    def number_of_total_foods
-      search_page = Nokogiri::HTML(open('https://ndb.nal.usda.gov/ndb/search/list', allow_redirections: :all))
-      html = search_page.css("div[class='alert alert-info result-message']")
-      html.text.gsub(/[^0-9,\.]/, '')
+      def api_key
+        '6HBsd9kI5M23vznbpiMsskOWtta3so4AM3qWLqn9'
+      end
+
+      def extract_ndbno(page)
+        # .to_i.to_s here is to avoid to save number with 0 before, what when trying to restore from db with
+        # JSON.parse I get Invalid octal digit
+        temp = JSON.parse(page)['list']['item'].map do |item|
+          begin
+            no = item['ndbno'].to_i
+          rescue SyntaxError => e
+            logger.warn "================ #{e} ================"
+            no = item['ndbno'].to_i.to_s
+          end
+
+          no
+        end
+
+        @ndbnos_collection.concat temp
+      end
+
+      def quantity_of_foods
+        search_page = Nokogiri::HTML(open('https://ndb.nal.usda.gov/ndb/search/list', allow_redirections: :all))
+        html = search_page.css("div[class='alert alert-info result-message']")
+        html.text.gsub(/[^0-9,\.]/, '').gsub(/[^\d^\.]/, '').to_f
+      end
+
+      def save_ndbnos(ndbnos)
+        sql = "INSERT INTO  ndbnos (ndbnos) VALUES ('[#{ndbnos.join(',')}]')"
+        ActiveRecord::Base.connection.execute(sql)
+      end
+
+      def restore_ndbnos
+        sql = 'SELECT ndbnos FROM ndbnos'
+        result = ActiveRecord::Base.connection.execute(sql)
+
+        JSON.parse(result.values.last.first).map(&:to_s)
+      end
     end
   end
 end
