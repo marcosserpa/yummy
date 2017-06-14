@@ -13,26 +13,27 @@ module Integration
       def download_aliment
         logger = Logger.new(STDOUT)
 
-        logger.warn '=================== Downloading the aliments ndbnos ==================='
+        logger.warn "=================== Getting the aliment's ndbnos ==================="
 
-        aliments_ndbnos = Integration::USDAParameters.ndbnos
-        local_aliments_ndbnos = Aliment.all.map { |aliment| { aliment.ndbno => aliment.recent? } }
+        aliments_ndbnos = Integration::USDAParameters.restore_ndbnos
+        # local_aliments_ndbnos = Aliment.all.map { |aliment| { aliment.ndbno => aliment.recent? } }
+        recent_aliments_ndbnos = Aliment.all.map { |aliment| aliment.ndbno if aliment.recent? }.compact
 
         # TODO: Refactor this. It's messed and UGLY! AAAARRRRGGGHHH...
-        aliments_ndbnos.each do |ndbno|
-          local_aliments_ndbnos.select do |local_ndbno|
-            if local_ndbno.keys[0] == ndbno
-              aliments_ndbnos.delete(ndbno) unless local_ndbno[ndbno] == false
-            end
-          end
-        end
+        # aliments_ndbnos.each do |ndbno|
+        #   local_aliments_ndbnos.select do |local_ndbno|
+        #     if local_ndbno.keys[0] == ndbno
+        #       aliments_ndbnos.delete(ndbno) unless local_ndbno[ndbno] == false
+        #     end
+        #   end
+        # end
 
-        aliments_ndbnos.each do |ndbno|
-          aliment = Aliment.where(ndbno: ndbno).first
-          # last_update = aliment.present? ? aliment.updated_at : nil
+        ndbnos_to_reach = aliments_ndbnos - recent_aliments_ndbnos
 
-          # unless last_update.present? && (last_update <= Time.now - 6.months)
-          next unless ndbno.blank? || (aliment.present? && aliment.recent?)
+        ndbnos_to_reach.each do |ndbno|
+          # aliment = Aliment.find_by(ndbno: ndbno)
+
+          # next unless ndbno.blank? || (aliment.present? && aliment.recent?)
 
           begin
             logger.warn '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
@@ -62,6 +63,9 @@ module Integration
       end
 
       def save_aliment(report)
+        pattern = name.match(', UPC.*') ? name.match(', UPC.*')[0] : nil
+        report['food']['name'].slice!(pattern) unless pattern.blank?
+
         aliment = Aliment.find_or_create_by(
           ndbno: report['food']['ndbno'],
           name: report['food']['name'],
