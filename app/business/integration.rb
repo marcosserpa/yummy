@@ -63,19 +63,29 @@ module Integration
       end
 
       def save_aliment(report)
-        pattern = name.match(', UPC.*') ? name.match(', UPC.*')[0] : nil
-        report['food']['name'].slice!(pattern) unless pattern.blank?
+        name, upc = remove_from_name_substring_until_end(', UPC', report['food']['name'])
 
         aliment = Aliment.find_or_create_by(
           ndbno: report['food']['ndbno'],
-          name: report['food']['name'],
+          name: name,
           food_group: report['food']['fg'],
-          manu: report['food']['manu']
+          manu: report['food']['manu'],
+          upc: upc
         )
 
         raise RuntimeError unless aliment.save
 
         save_nutrients(aliment, report['food']['nutrients'])
+      end
+
+      def remove_from_name_substring_until_end(substring, string = '')
+        name = string
+        pattern = name.match("#{substring}.*") ? name.match("#{substring}.*")[0] : nil
+        upc = pattern.gsub(/[^0-9]/, '')
+
+        name.slice!(pattern) if pattern.present?
+
+        return name, upc
       end
 
       # TODO: trocar as atribuuições de 0.0 pra '-' pois não está correto dizer que um alimento

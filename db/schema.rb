@@ -11,20 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170611010750) do
+ActiveRecord::Schema.define(version: 20170617101803) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "hstore"
 
   create_table "aliments", force: :cascade do |t|
-    t.string   "name",        null: false
+    t.string   "name",                     null: false
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "ndbno"
     t.string   "manu"
     t.string   "food_group"
+    t.string   "upc",         default: ""
   end
 
   create_table "amino_acids", force: :cascade do |t|
@@ -88,10 +89,6 @@ ActiveRecord::Schema.define(version: 20170611010750) do
 
   create_table "ndbnos", force: :cascade do |t|
     t.text "ndbnos"
-  end
-
-  create_table "ndbnos_tables", force: :cascade do |t|
-    t.string "ndbno"
   end
 
   create_table "others", force: :cascade do |t|
