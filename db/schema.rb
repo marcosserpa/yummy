@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 20170617101803) do
   add_index "minerals", ["aliment_id"], name: "index_minerals_on_aliment_id", using: :btree
 
   create_table "ndbnos", force: :cascade do |t|
-    t.text "ndbnos"
+    t.text "ndbnos", default: [], array: true
   end
 
   create_table "others", force: :cascade do |t|

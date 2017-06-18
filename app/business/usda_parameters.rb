@@ -51,20 +51,16 @@ module Integration
       end
 
       def extract_ndbno(page)
-        # .to_i.to_s here is to avoid to save number with 0 before, what when trying to restore from db with
-        # JSON.parse I get Invalid octal digit
-        temp = JSON.parse(page)['list']['item'].map do |item|
-          begin
-            no = item['ndbno'].to_i
-          rescue SyntaxError => e
-            logger.warn "================ #{e} ================"
-            no = item['ndbno'].to_i.to_s
+        logger = Logger.new(STDOUT)
+
+        begin
+          JSON.parse(page)['list']['item'].map do |item|
+            @ndbnos_collection << item['ndbno']
           end
-
-          no
+        rescue JSON::ParserError => e
+          logger.warn '================ ERROR ================'
+          logger.warn "================ #{e} ================"
         end
-
-        @ndbnos_collection.concat temp
       end
 
       def quantity_of_foods
@@ -74,15 +70,17 @@ module Integration
       end
 
       def save_ndbnos(ndbnos)
-        sql = "INSERT INTO  ndbnos (ndbnos) VALUES ('[#{ndbnos.join(',')}]')"
+        sql = "INSERT INTO  ndbnos (ndbnos) VALUES ('{#{ndbnos.join(',')}}')"
         ActiveRecord::Base.connection.execute(sql)
       end
 
       def restore_ndbnos
         sql = 'SELECT ndbnos FROM ndbnos'
         result = ActiveRecord::Base.connection.execute(sql)
+        string = result.values.last.first.delete '{}'
 
-        JSON.parse(result.values.last.first).map(&:to_s)
+        # string.split(',').collect! { |number| number }
+        string.split(',')
       end
     end
   end

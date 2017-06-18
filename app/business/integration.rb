@@ -37,6 +37,7 @@ module Integration
 
           begin
             logger.warn '=================== Downloading and saving the aliment with ndbno #{ndbno} ==================='
+
             response = Net::HTTP.get_response(URI.parse(Integration::USDAParameters.url(ndbno)))
 
             raise ActiveResource::BadRequest.new(response) unless response.code == '200'
@@ -81,7 +82,7 @@ module Integration
       def remove_from_name_substring_until_end(substring, string = '')
         name = string
         pattern = name.match("#{substring}.*") ? name.match("#{substring}.*")[0] : nil
-        upc = pattern.gsub(/[^0-9]/, '')
+        upc = pattern.gsub(/[^0-9]/, '') if pattern.present?
 
         name.slice!(pattern) if pattern.present?
 
