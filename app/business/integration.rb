@@ -50,7 +50,7 @@ module Integration
             # save_nutrients(data['report']['food']['nutrients'])
           rescue ActiveResource::BadRequest, RuntimeError, NoMethodError => error
             logger.warn '================ ERROR ================'
-            logger.warn "Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
+            logger.warn " Was not possible to open the aliment page with the ndbno #{ndbno}.\n"
             logger.warn " We received - from the GET - the code #{response.code} with the following errors:\n"
             logger.warn " #{response.message} and this other errors: #{error}"
             logger.warn '======================================='
@@ -184,6 +184,7 @@ module Integration
           else
             amino_acids[amino_acid] = 0.0
 
+            # TODO: remove warns like this 'cause it's flooding the logout.
             logger.warn "Was not possible to find the nutrient with id #{id} or it is not needed in the app"
           end
 
