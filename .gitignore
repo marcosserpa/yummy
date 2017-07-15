@@ -25,3 +25,7 @@
 
 # Mac specific
 .DS_Store
+
+# Ignore sensitive files
+config/database.yml
+config/application.yml

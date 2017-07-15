@@ -75,6 +75,17 @@ group :development, :test do
   gem 'rubocop'
 end
 
+gem 'figaro'
+gem 'puma'
+
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails', require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano-rbenv'
+end
+
 group :doc do
   # bundle exec rake erd generates the Database ERD file.
   gem 'rails-erd', require: false
