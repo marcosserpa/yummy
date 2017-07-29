@@ -2,7 +2,7 @@
 lock "3.8.2"
 
 # Makes rbenv know how to execude things when using 'sudo'
-SSHKit.config.command_map[:sudo_gem] = 'sudo /home/deploy/.rbenv/shims/gem'
+SSHKit.config.command_map[:sudo] = 'sudo /home/deploy/.rbenv/shims/gem'
 
 set :use_sudo, false
 set :application, "yummy"
