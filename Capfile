@@ -39,3 +39,11 @@ require "capistrano/puma"
 Dir.glob("lib/capistrano/tasks/*.rake").each { |r| import r }
 
 install_plugin Capistrano::Puma
+
+module Capistrano
+  module DSL
+    def sudo(*args)
+      execute *args
+    end
+  end
+end
