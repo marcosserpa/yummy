@@ -70,8 +70,6 @@
 # # Default value for keep_releases is 5
 # # set :keep_releases, 5
 
-
-
 # DEPLOY WITH MINA
 require 'mina/rails'
 require 'mina/git'
@@ -80,7 +78,7 @@ require 'mina/rvm'
 set :user, 'ubuntu' #deploy user
 set :application_name, 'yummy'
 set :domain, 'ec2-35-160-98-167.us-west-2.compute.amazonaws.com'
-set :identity_file, 'MarcosSerpaRetina.pem' # ec2 instance key file
+set :identity_file, '/Users/marcosserpa/.ssh/MarcosSerpaRetina.pem' # ec2 instance key file
 set :deploy_to, '/home/ubuntu/yummy' #path to app
 set :app_path, lambda { "#{fetch(:deploy_to)}/#{fetch(:current_path)}" }
 set :repository, 'git@github.com:marcosserpa/yummy.git' #Remote Repo Path
