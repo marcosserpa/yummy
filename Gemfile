@@ -75,6 +75,8 @@ end
 gem 'figaro'
 gem 'puma'
 
+gem 'mina'
+
 group :development do
   gem 'capistrano'
   gem 'capistrano3-puma'
