@@ -75,6 +75,8 @@ group :development, :test do
   gem 'rubocop'
 end
 
+gem 'passenger'
+
 group :doc do
   # bundle exec rake erd generates the Database ERD file.
   gem 'rails-erd', require: false
