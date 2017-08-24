@@ -10,6 +10,7 @@ gem 'activeresource'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
+gem 'sqlite3
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 # Framework for admin
