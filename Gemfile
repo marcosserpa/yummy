@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.0'
+ruby '2.2.7'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -60,7 +60,7 @@ group :development, :test do
   gem 'pry'
 
   gem 'better_errors'
-  gem 'awesome_print', require:'ap'
+  # gem 'awesome_print', require:'ap'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', "~> 2.0"
