@@ -42,7 +42,6 @@ GEM
       tzinfo (~> 1.1)
     arel (6.0.3)
     ast (2.3.0)
-    awesome_print (1.7.0)
     bcrypt (3.1.11)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -293,7 +292,6 @@ PLATFORMS
 
 DEPENDENCIES
   activeresource
-  awesome_print
   better_errors
   coffee-rails (~> 4.1.0)
   devise
@@ -325,7 +323,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 2.2.0p0
+   ruby 2.2.7p470
 
 BUNDLED WITH
-   1.15.0
+   1.15.4
