@@ -4,7 +4,6 @@ require 'net/http'
 require 'constants'
 require 'usda_parameters'
 require 'active_resource'
-require 'pry'
 require 'logger'
 
 module Integration

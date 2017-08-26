@@ -1,7 +1,6 @@
 require 'open-uri'
 require 'logger'
 require 'json'
-require 'pry'
 
 module Integration
   class USDAParameters
