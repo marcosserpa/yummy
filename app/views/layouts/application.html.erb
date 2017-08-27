@@ -25,9 +25,9 @@
   <body class="<%= 'body--index' if request.path_info == '/' %>">
     <header class="header <%= 'header--interior' if request.path_info != '/' %>">
       <div class="l-wrap--header">
-        <%= link_to(root_path, title: 'RubyGems', class: 'header__logo-wrap') do %>
+        <%= link_to(root_path, title: 'Yummy', class: 'header__logo-wrap') do %>
           <span class="header__logo" data-icon="🍴"></span>
-          <span class="t-hidden">RubyGems</span>
+          <span class="t-hidden">Yummy</span>
         <% end %>
         <a class="header__club-sandwich" href="#">
           <span class="t-hidden">Navigation menu</span>
@@ -169,7 +169,6 @@
               </p>
               <p>
                 Yummy is made possible by
-                RubyGems.org is made possible by
                 <%= link_to "Marcos Serpa", "http://marcosserpa.me" %>,
                 that dedicated time to improve his own health,
                 searching for a more complete nutrition tracking,
