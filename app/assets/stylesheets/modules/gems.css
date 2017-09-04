@@ -18,7 +18,7 @@
   transition-duration: 0.25s;
   transition-property: background-color, color; }
   .gems__nav-link:focus, .gems__nav-link:hover {
-    background-color: #ff0000;
+    background-color: #910505;
     color: white; }
   .gems__nav-link:focus {
     outline: none; }
@@ -42,7 +42,7 @@
   overflow: auto;
   border-bottom: 1px solid #c1c4ca; }
   .gems__gem:focus .gems__gem__name, .gems__gem:hover .gems__gem__name {
-    color: #ff0000; }
+    color: #910505; }
   .gems__gem:focus {
     outline: none; }
 
@@ -80,7 +80,7 @@
   transition-duration: 0.25s;
   transition-property: color; }
   .gems__gem__name:hover {
-    color: #ff0000; }
+    color: #910505; }
 
 .gems__gem__downloads__count {
   color: #141c22; }

@@ -64,7 +64,7 @@ a.t-list__item {
 }
 
 a.t-list__item:hover {
-  color: #ff0000;
+  color: #910505;
 }
 
 a.macronutrients {
@@ -94,14 +94,14 @@ a.macronutrients {
     outline: none; }
 
 .t-link, .t-body a {
-  color: #ff0000; }
+  color: #910505; }
   .t-link:focus, .t-body a:focus, .t-link:hover, .t-body a:hover, .t-link:active, .t-body a:active {
     color: rgba(233, 87, 63, 0.7); }
 
 .t-link--black {
   color: #141c22 !important; }
   .t-link--black:focus, .t-link--black:hover, .t-link--black:active {
-    color: #ff0000 !important; }
+    color: #910505 !important; }
 
 .t-link--blue {
   color: #53a4e0; }
