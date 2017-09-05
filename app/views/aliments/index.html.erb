@@ -16,7 +16,7 @@
             <%= aliment.name %>
             <span class="gems__gem__version"><%= aliment.id %></span>
           </h2>
-          <p class="gems__gem__desc t-text">blablabla blablablabalblablabl bla</p>
+          <p class="gems__gem__desc t-text"><%= (aliment.description.blank? || aliment.description.empty?) ? '---' : aliment.description %></p>
         </span>
         <p class="gems__gem__downloads__count">
           <%= aliment.proximate.blank? ? '-' : aliment.proximate.energy.round(2) %>

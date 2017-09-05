@@ -58,7 +58,7 @@ en:
   home:
     index:
       aliments_counting: aliments registered & counting...
-      find_blurb: Find your aliment
+      find_blurb: Find your food
       app:
         meet_our_app: Install our app
   layouts:
